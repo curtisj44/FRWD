@@ -1,0 +1,140 @@
+/* [3] FORMS
+---------------------------------------------------------------------------------------- //// */
+
+.ie7 legend {
+	margin-left:-7px}
+
+label {
+	font-weight:bold;
+	cursor:pointer}
+
+/* form fields ------------------------------------------- //// */
+button,
+input,
+select,
+textarea {
+	margin:0;
+	padding:6px 7px 7px; /* TODO - CJ - use ems */
+	border:1px solid #ccc;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	background:#fff;
+	color:#000;
+	font:1.142857em Verdana, sans-serif; /* 16px/21px */
+	vertical-align:baseline}
+.ie7 button,
+.ie7 input,
+.ie7 select,
+.ie7 textarea {
+	vertical-align:middle}
+
+button,
+input {
+	line-height:normal}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	padding:0;
+	border:0}
+
+select {
+	cursor:pointer}
+
+textarea {
+	overflow:auto;
+	vertical-align:top;
+	resize:vertical}
+
+/* buttons ------------------------------------------- //// */
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	margin:0 10px 0 0;
+	padding:1em 24px;
+	background:#eee;
+	font-weight:bold;
+	-webkit-appearance:button;
+	cursor:pointer}
+.ie7 button,
+.ie7 input[type="button"],
+.ie7 input[type="reset"],
+.ie7 input[type="submit"] {
+	overflow:visible}
+
+/* checkbox, radio ------------------------------------------- //// */
+input.checkbox,
+input.radio {
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+	margin:0 5px 0 0;
+	padding:0;
+	background:none;
+	vertical-align:text-top}
+
+/* search ------------------------------------------- //// */
+input[type="search"] {
+	/*
+	-webkit-appearance:textfield;
+	-moz-box-sizing:content-box;
+	-webkit-box-sizing:content-box;
+	box-sizing:content-box;
+	*/
+	}
+input[type="search"]::-webkit-search-decoration {
+	-webkit-appearance:none}
+
+/*
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+	display:none}
+*/
+
+/* disabled ------------------------------------------- //// */
+input.disabled,
+select.disabled,
+textarea.disabled {
+	border-color:#ccc;
+	background:#ccc;
+	color:#827A71;
+	cursor:default}
+
+/* valid, invalid ------------------------------------------- //// */
+input:valid,
+textarea:valid {}
+
+input:invalid,
+textarea:invalid {
+	background-color:#f0dddd}
+
+/* hover, focus ------------------------------------------- //// */
+button:hover,
+input:hover,
+select:hover,
+textarea:hover {
+	border-color:#999;
+	outline:0}
+
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	border-color:#aaa;
+	box-shadow:0 0 3px rgba(0,0,0,.2);
+	outline:0}
+
+/* form list ------------------------------------------- //// */
+.form li {
+	margin:0 0 1em; /* 0 0 14px */
+	padding:0}
+.form label {
+	display:block}
+
+/* inline ------------------------------------------- */
+li.inline {
+	margin:0}
+li.inline label {
+	display:inline;
+	font-weight:normal}

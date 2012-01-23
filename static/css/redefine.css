@@ -1,0 +1,228 @@
+/* [2] REDEFINE
+---------------------------------------------------------------------------------------- //// */
+html {
+	overflow-y:scroll;
+	background:#fff;
+	text-rendering:optimizeLegibility;
+	-ms-text-size-adjust:100%;
+	-webkit-text-size-adjust:100%;
+	/* word-wrap:break-word */
+	/*
+	-webkit-hyphens:auto;
+	-moz-hyphens:auto;
+	hyphens:auto
+	*/
+	}
+body {
+	color:#000;
+	font:1em/1.5 Verdana, sans-serif; /* 16px/24px */}
+p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, table, hr {
+	margin-bottom:1.5em; /* 24px */}
+
+/* ::selection ----------------------------------------------- //// */
+::-moz-selection {
+	background:#ff5e99;
+	color:#fff;
+	text-shadow:none}
+::-webkit-selection {
+	background:#ff5e99;
+	color:#fff;
+	text-shadow:none}
+::selection {
+	background:#ff5e99;
+	color:#fff;
+	text-shadow:none}
+
+/* links ----------------------------------------------- //// */
+a:link,
+a:visited,
+a:hover,
+a:focus,
+a:active {
+	color:blue;
+	text-decoration:underline}
+
+a:link {
+	-webkit-tap-highlight-color:rgb(52,158,219)}
+
+/* headings ----------------------------------------------- //// */
+h1 {
+	font-weight:bold}
+h2 {
+	color:#999;
+	font-weight:bold}
+
+/* media ----------------------------------------------- //// */
+
+/* image ----------------------------------------------- */
+img {
+	vertical-align:bottom}
+
+.image-left,
+.image-right {
+	margin:5px 0 1.714286em; /* 5px 0 24px */}
+.image-left {
+	float:left;
+	margin-right:15px}
+.image-right {
+	float:right;
+	margin-left:15px}
+
+/* svg ----------------------------------------------- */
+svg:not(:root) {
+	overflow:hidden}
+
+/* ordered, unordered lists ----------------------------------------------- //// */
+ol {
+	margin-left:24px;
+	list-style:decimal}
+
+ul li {
+	padding:0 0 0 24px;
+	background:url(../images/bullet.gif) no-repeat 0 .55em}
+
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+	padding-top:1.5em; /* 24px */}
+
+/* definition list ----------------------------------------------- //// */
+dt {
+	font-weight:bold}
+
+/* table ----------------------------------------------- //// */
+table {
+	width:100%;
+	background:#eee}
+thead {
+	background:#ccc}
+th, td {
+	text-align:left;
+	vertical-align:top}
+
+/* hidden ----------------------------------------- //// */
+/*
+1. Hide for both screenreaders and browsers
+		css-discuss.incutio.com/wiki/Screenreader_Visibility
+2. Hide only visually, but have it available for screenreaders
+		by Jon Neal
+		www.webaim.org/techniques/css/invisiblecontent/
+		j.mp/visuallyhidden
+3. Extends the .hidden_visually class to allow the element to be focusable when navigated to via the keyboard
+		(was ".visuallyhidden")
+		drupal.org/node/897638
+4. Hide visually and from screenreaders, but maintain layout
+*/
+
+/* 1 */
+.hidden {
+	display:none;
+	visibility:hidden}
+
+/* 2 */
+.hidden_visually {
+	position:absolute;
+	overflow:hidden;
+	margin:-1px;
+	padding:0;
+	width:1px;
+	height:1px;
+	border:0;
+	clip:rect(0 0 0 0)}
+
+/* 3 */
+.hidden_visually.focusable:active,
+.hidden_visually.focusable:focus {
+	position:static;
+	overflow:visible;
+	clip:auto;
+	margin:0;
+	width:auto;
+	height:auto}
+
+/* 4 */
+.invisible {
+	visibility:hidden}
+
+/* misc ------------------------------------------- //// */
+abbr {
+	border-bottom:1px dotted;
+	cursor:help}
+
+b, strong {font-weight:bold}
+
+del {text-decoration:line-through}
+
+dfn {font-style:italic}
+
+em, i {
+	font-style:italic}
+
+hr {
+	display:block;
+	margin-top:-1px;
+	padding:0;
+	height:1px;
+	border:0;
+	border-top:1px solid #ccc}
+
+ins {
+	background:#ff9;
+	color:#000;
+	text-decoration:none}
+
+mark {
+	background:#ff0;
+	color:#000;
+	font-style:italic;
+	font-weight:bold}
+
+/*
+pre, code, kbd, samp {
+	font-family:monospace, sans-serif}
+*/
+pre, code, kbd, samp {
+	/*
+	font-family:monospace, serif;
+	_font-family:'courier new', monospace;
+	font-size:1em;
+	line-height:1.5 !important
+	*/
+	color:#999
+}
+
+pre {
+	white-space:pre;
+	white-space:pre-wrap;
+	word-wrap:break-word}
+
+q {
+	quotes:none}
+q:before,
+q:after {
+	content:'';
+	content:none}
+
+small {
+	/*font-size:85%*/
+	color:#666}
+
+/* Position subscript and superscript content without affecting line-height: h5bp.com/k */
+sub, sup {
+	position:relative;
+	font-size:75%;
+	line-height:0;
+	vertical-align:baseline}
+sup {
+	top:-.5em}
+sub {
+	bottom:-.25em}
+
+/* text alignment ------------------------------------------- //// */
+.align-center {
+	text-align:center}
+.align-left {
+	text-align:left}
+.align-right {
+	text-align:right}
