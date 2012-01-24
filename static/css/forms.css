@@ -21,7 +21,7 @@ textarea {
 	border-radius:3px;
 	background:#fff;
 	color:#000;
-	font:1.142857em Verdana, sans-serif; /* 16px/21px */
+	font:1em 'Helvetica Neue', Helvetica, Arial, sans-serif; /* 16px/21px */
 	vertical-align:baseline}
 .ie7 button,
 .ie7 input,
@@ -126,6 +126,9 @@ textarea:focus {
 	outline:0}
 
 /* form list ------------------------------------------- //// */
+.form {
+	margin-left:0;
+	list-style:none}
 .form li {
 	margin:0 0 1em; /* 0 0 14px */
 	padding:0}

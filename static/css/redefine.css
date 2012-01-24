@@ -15,8 +15,8 @@ html {
 	}
 body {
 	color:#000;
-	font:1em/1.5 Verdana, sans-serif; /* 16px/24px */}
-p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, table, hr {
+	font:1em/1.5 'Helvetica Neue', Helvetica, Arial, sans-serif; /* 16px/24px */}
+p, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, ul, ol, li, dl, table, hr {
 	margin-bottom:1.5em; /* 24px */}
 
 /* ::selection ----------------------------------------------- //// */
@@ -46,9 +46,14 @@ a:link {
 	-webkit-tap-highlight-color:rgb(52,158,219)}
 
 /* headings ----------------------------------------------- //// */
-h1 {
-	font-weight:bold}
-h2 {
+h1,
+.h1 {
+	margin-bottom:24px;
+	font-weight:bold;
+	font-size:48px;
+	line-height:48px}
+h2,
+.h2 {
 	color:#999;
 	font-weight:bold}
 
