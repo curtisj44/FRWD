@@ -55,69 +55,53 @@
 	};
 
 	rwd.fixiOSOrientation = function () {
-		//	Fix iOS orientation change bug
-		if (rwd.viewportWidth() < 480) {
-			/*
-			var metas = document.querySelectorAll('meta[name="viewport"]'),
-				fixMetas = function (isFirstTime) {
-					var scales = isFirstTime === true ? ['1.0', '1.0'] : ['0.25', '1.6'];
-					[].forEach.call(metas, function (el) {
-						el.content = 'width=device-width, minimum-scale=' + scales[0] + ', maximum-scale=' + scales[1];
-					});
-				};
+		/*! A fix for the iOS orientationchange zoom bug.
+		 Script by @scottjehl, rebound by @wilto.
+		 MIT License.
+		*/
 
-			fixMetas(true);
-			document.addEventListener('gesturestart', fixMetas, false);
-			*/
+		// https://github.com/scottjehl/iOS-Orientationchange-Fix
+		// version 20120123 with fix for https://github.com/scottjehl/iOS-Orientationchange-Fix/issues/10
+		var w = window,
+			doc = w.document;
 
-			/*! A fix for the iOS orientationchange zoom bug.
-			 Script by @scottjehl, rebound by @wilto.
-			 MIT License.
-			*/
+		if (!doc.querySelector || w.orientation === undefined) {return;}
 
-			var w = window,
-				doc = w.document;
+		var meta = doc.querySelector('meta[name=viewport]'),
+			initialContent = meta && meta.getAttribute('content'),
+			disabledZoom = initialContent + ',maximum-scale=1',
+			enabledZoom = initialContent + ',maximum-scale=10',
+			enabled = true,
+			x, y, z, aig;
 
-			if (!doc.querySelector) { return; }
+		if (!meta) {return;}
 
-			var meta = doc.querySelector('meta[name=viewport]'),
-				initialContent = meta && meta.getAttribute('content'),
-				disabledZoom = initialContent + ',maximum-scale=1',
-				enabledZoom = initialContent + ',maximum-scale=10',
-				enabled = true,
-				x,
-				y,
-				z,
-				aig;
+		var restoreZoom = function () {
+				meta.setAttribute('content', enabledZoom);
+				enabled = true;
+			},
+			disableZoom = function () {
+				meta.setAttribute('content', disabledZoom);
+				enabled = false;
+			},
+			checkTilt = function (e) {
+				aig = e.accelerationIncludingGravity;
+				x = Math.abs(aig.x);
+				y = Math.abs(aig.y);
+				z = Math.abs(aig.z);
 
-			if (!meta) { return; }
-
-			var restoreZoom = function () {
-					meta.setAttribute('content', enabledZoom);
-					enabled = true;
-				},
-				disableZoom = function () {
-					meta.setAttribute('content', disabledZoom);
-					enabled = false;
-				},
-				checkTilt = function (e) {
-					aig = e.accelerationIncludingGravity;
-					x = Math.abs(aig.x);
-					y = Math.abs(aig.x);
-					z = Math.abs(aig.z);
-
-					// If portrait orientation and in the danger zone
-					if (!w.orientation && ( x > 8.1 || ( ( z > 6.5 || y > 6.5 ) && x > 5.5 ) )) {
-						if (enabled) {
-							disableZoom();
-						}
-					} else if (!enabled) {
-						restoreZoom();
+				// If portrait orientation and in one of the danger zones
+				if (!w.orientation && (x > 7 || ((z > 6 && y < 8 || z < 8 && y > 6) && x > 5))) {
+					if (enabled) {
+						disableZoom();
 					}
-				};
-			w.addEventListener('orientationchange', restoreZoom, false);
-			w.addEventListener('devicemotion', checkTilt, false);
-		}
+				} else if (!enabled) {
+					restoreZoom();
+				}
+			};
+
+		w.addEventListener('orientationchange', restoreZoom, false);
+		w.addEventListener('devicemotion', checkTilt, false);
 	};
 
 	rwd.fixNthChild = function () {
