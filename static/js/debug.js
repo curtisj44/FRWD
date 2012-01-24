@@ -12,7 +12,7 @@
 	};
 
 	debug.rwd.baselineAdd = function () {
-		var adjustStart = -4,
+		var adjustStart = -5,
 			fontSize = 16,
 			lineHeight = 24,
 			baselineHeight = (lineHeight - 1) / fontSize,
