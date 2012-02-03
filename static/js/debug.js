@@ -96,7 +96,7 @@
 		});
 
 		/* ---- option buttons ---- */
-		$optionButtons.bind('click', function () {
+		$optionButtons.on('click', function () {
 			var $input = $(this),
 				$option = $input.attr('data-option');
 
@@ -126,15 +126,29 @@
 		}
 
 		/* ---- view button ---- */
-		$viewButton.attr('data-open', $viewButton.html());
-
-		$viewButton.bind('click', function () {
-			if ($panel.hasClass('open')) {
+		var closePanel = function () {
 				$panel.removeClass('open');
 				$viewButton.html($viewButton.attr('data-open'));
-			} else {
+				$(document).off('click');
+			},
+			openPanel = function () {
 				$panel.addClass('open');
 				$viewButton.html($viewButton.attr('data-close'));
+
+				$(document).on('click', function (e) {
+					if ($(e.target).parents().filter($panel).length !== 1) {
+						closePanel();
+					}
+				});
+			};
+
+		$viewButton.attr('data-open', $viewButton.html());
+
+		$viewButton.on('click', function () {
+			if ($panel.hasClass('open')) {
+				closePanel();
+			} else {
+				openPanel();
 			}
 		});
 	};
@@ -142,24 +156,33 @@
 	debug.rwd.windowSizeAdd = function () {
 		var $debugSize = $('<div id="debug-size"></div>').appendTo('body'),
 			updateSize = function () {
-				var mediaQueries = [
-						'only screen and (min-width:320px)',
-						'only screen and (min-width:480px)',
-						'only screen and (min-width:640px)',
-						'only screen and (min-width:769px)',
+				var content = siteName.rwd.viewportWidth() + ' &times; ' + siteName.rwd.viewportHeight(),
+					mediaQueries = [
+						'(min-width:240px)',
+						'(min-width:320px)',
+						'(min-width:480px)',
+						'(min-width:640px)',
+						'(min-width:769px)',
+						'(min-width:992px)',
 						'(-moz-min-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5)'
 					],
-					mediaQueriesActive = '',
-					viewportHeight = siteName.rwd.viewportHeight(),
-					viewportWidth = siteName.rwd.viewportWidth();
+					mediaQueriesActive = '';
 
 				$.each(mediaQueries, function (index, value) {
-					if (Modernizr.mq(value)) {
+					if (siteName.rwd.matchViewport(value)) {
 						mediaQueriesActive += '<li>' + value + '</li>';
 					}
 				});
 
-				$debugSize.html(viewportWidth + ' &times; ' + viewportHeight + '<ol>' + (mediaQueriesActive || '<li>no active media queries</li>') + '</ol>');
+				content += '<ol>' + (mediaQueriesActive || '<li>no active media queries</li>') + '</ol>';
+				content += (Modernizr.mq('(min-width:1px)')) ? '' : '(polyfilled)';
+				content += '<button class="close">&times;</button>';
+
+				$debugSize.html(content);
+
+				$debugSize.find('.close').on('click', function () {
+					 $('#debug-panel').find('button[data-option="windowSize"]').trigger('click');
+				});
 			};
 
 		updateSize();
