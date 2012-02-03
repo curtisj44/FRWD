@@ -1,6 +1,32 @@
 /* DEBUG
 ---------------------------------------------------------------------------------------- //// */
 
+#debug-panel,
+#debug-size {
+	font:13px Arial, sans-serif}
+#debug-panel button,
+#debug-size button {
+	margin:0;
+	padding:0 .25em 3px;
+	border:1px solid #fffffb;
+	border-color:rgba(0,0,0,.2);
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	background:#eee;
+	background:rgba(255,255,250,.7);
+	-moz-box-shadow:   0 -3px 0 rgba(0,0,0,.1) inset, 0 3px 3px rgba(0,0,0,.1);
+	-webkit-box-shadow:0 -3px 0 rgba(0,0,0,.1) inset, 0 3px 3px rgba(0,0,0,.1);
+	box-shadow:        0 -3px 0 rgba(0,0,0,.1) inset, 0 3px 3px rgba(0,0,0,.1);
+	font:13px Arial, sans-serif}
+#debug-panel button:active,
+#debug-size button:active {
+	padding-top:3px;
+	padding-bottom:0;
+	-moz-box-shadow:   0 3px 0 rgba(0,0,0,.1) inset, 0 2px 3px rgba(0,0,0,.3) inset;
+	-webkit-box-shadow:0 3px 0 rgba(0,0,0,.1) inset, 0 2px 3px rgba(0,0,0,.3) inset;
+	box-shadow:        0 3px 0 rgba(0,0,0,.1) inset, 0 2px 3px rgba(0,0,0,.3) inset}
+
 /* panel ----------------------------------------------- //// */
 #debug-panel {
 	position:fixed;
@@ -12,37 +38,16 @@
 #debug-panel.open {
 	width:150px}
 
-#debug-panel * {
-	font:13px Arial, sans-serif}
-#debug-panel button {
-	-moz-border-radius:3px;
-	-webkit-border-radius:3px;
-	border-radius:3px}
-
 /* view button ----------------------------------------------- */
 #debug-panel button.debug-view {
 	float:right;
 	margin:0 0 5px;
-	padding:0 .25em 3px;
 	width:auto;
 	min-width:35px;
 	min-height:35px;
-	border:1px solid #fffffb;
-	border-color:rgba(0,0,0,.2);
-	background:#eee;
-	background:rgba(255,255,250,.7);
-	-moz-box-shadow:   0 -3px 0 rgba(0,0,0,.1) inset, 0 3px 3px rgba(0,0,0,.1);
-	-webkit-box-shadow:0 -3px 0 rgba(0,0,0,.1) inset, 0 3px 3px rgba(0,0,0,.1);
-	box-shadow:        0 -3px 0 rgba(0,0,0,.1) inset, 0 3px 3px rgba(0,0,0,.1);
 	font-size:30px;
 	line-height:30px;
 	text-align:center}
-#debug-panel button.debug-view:active {
-	padding-top:3px;
-	padding-bottom:0;
-	-moz-box-shadow:   0 3px 0 rgba(0,0,0,.1) inset, 0 2px 3px rgba(0,0,0,.3) inset;
-	-webkit-box-shadow:0 3px 0 rgba(0,0,0,.1) inset, 0 2px 3px rgba(0,0,0,.3) inset;
-	box-shadow:        0 3px 0 rgba(0,0,0,.1) inset, 0 2px 3px rgba(0,0,0,.3) inset}
 #debug-panel.open button.debug-view {
 	background:rgba(0,0,0,.1)}
 
@@ -61,13 +66,7 @@
 	-moz-box-shadow:   0 0 3px rgba(0,0,0,.5);
 	-webkit-box-shadow:0 0 3px rgba(0,0,0,.5);
 	box-shadow:        0 3px 3px rgba(0,0,0,.1);
-	list-style:none;
-	/*
-	-moz-transition:   all 200ms ease;
-	-webkit-transition:all 200ms ease;
-	transition:        all 200ms ease;
-	*/
-	}
+	list-style:none}
 #debug-panel.open ul {
 	display:block}
 
@@ -92,7 +91,6 @@
 
 #debug-panel li {
 	position:relative;
-	overflow:hidden;
 	margin:0 0 .5em;
 	padding:0;
 	border:1px solid rgba(0,0,0,.7);
@@ -100,26 +98,27 @@
 	-webkit-border-radius:3px;
 	border-radius:3px;
 	background:none}
+.generatedcontent #debug-panel li {
+	overflow:hidden}
 
 #debug-panel li button,
+#debug-panel li button:active,
 #debug-panel li button:before {
-	margin:0;
 	padding:.5em 1em .5em 2.5em;
 	width:100%;
 	border:0;
 	-moz-border-radius:0;
 	-webkit-border-radius:0;
 	border-radius:0;
-	background-color:#5c2929;
-	background-color:rgba(255,0,0,.2);
+	background:#5c2929;
+	background:rgba(255,0,0,.2);
 	color:#fff;
 	color:rgba(255,210,210,.8);
 	font-weight:normal;
 	text-align:left}
 #debug-panel li button.on {
-	background-color:#295c29;
-	background-color:rgba(0,255,0,.2);
-	color:#fff;
+	background:#295c29;
+	background:rgba(0,255,0,.2);
 	color:rgba(210,255,210,.8)}
 
 #debug-panel li button:before {
@@ -143,23 +142,7 @@
 	background:rgba(0,255,0,.2);
 	content:'\2714'}
 
-/* baseline ----------------------------------------------- //// */
-#debug-baseline {
-	position:absolute;
-	top:0;
-	left:0;
-	margin:0;
-	padding:0;
-	width:100%;
-	height:100%;
-	pointer-events:none}
-#debug-baseline li {
-	margin:0;
-	padding:0;
-	border-bottom:1px solid #cceffd;
-	border-color:rgba(0,177,247,.2)}
-
-/* boxes ----------------------------------------------- //// */
+/* background ----------------------------------------------- //// */
 .debug .container {
 	background-color:#7fe3f3;
 	background-color:rgba(255,255,255,.5)}
@@ -180,6 +163,28 @@
 .debug .blocks > li:nth-of-type(5n) {
 	background-color:rgba(150,200,255,.5)}
 
+.debug .blocks > li.blocks-start {
+	background-color:#afa}
+.debug .blocks > li.blocks-end {
+	background-color:#faa}
+
+/* baseline ----------------------------------------------- //// */
+#debug-baseline {
+	position:absolute;
+	top:0;
+	left:0;
+	margin:0;
+	padding:0;
+	width:100%;
+	height:100%;
+	pointer-events:none}
+#debug-baseline li {
+	margin:0;
+	padding:0;
+	border-bottom:1px solid #cceffd;
+	border-color:rgba(0,177,247,.2)}
+
+/* boxes ----------------------------------------------- //// */
 .debug-box {
 	position:relative;
 	background:#ff904b;
@@ -243,15 +248,15 @@
 	background:#000;
 	background:rgba(0,0,0,.8);
 	color:#fff;
-	font-size:12px;
-	font-family:Arial, sans-serif}
+	font-size:12px}
 #debug-size ol {
-	margin:.5em 0 0;
+	margin:1em 0 0;
 	padding:0;
 	border:1px solid rgba(0,0,0,.7);
 	-moz-border-radius:3px;
 	-webkit-border-radius:3px;
-	border-radius:3px}
+	border-radius:3px;
+	list-style:none}
 #debug-size li {
 	margin:0;
 	padding:.5em .75em;
@@ -264,10 +269,21 @@
 #debug-size li:last-child {
 	color:rgba(255,255,255,1)}
 
+#debug-size .close {
+	position:absolute;
+	top:.25em;
+	right:.5em;
+	padding-right:.5em;
+	padding-left:.5em;
+	background:#000;
+	background:rgba(0,0,0,.5);
+	color:#fff;
+	font-size:16px}
+
 /* MEDIA QUERY: 240px
 ---------------------------------------------------------------------------------------- //// */
-@media only screen and (min-width:240px) {
-	html.debug,
+@media (min-width:240px) {
+	.debug,
 	#debug-size ol {
 		/* pink */
 		background-color:#fcf;
@@ -276,8 +292,8 @@
 
 /* MEDIA QUERY: 320px
 ---------------------------------------------------------------------------------------- //// */
-@media only screen and (min-width:320px) {
-	html.debug,
+@media (min-width:320px) {
+	.debug,
 	#debug-size ol {
 		/* yellow */
 		background-color:#ffc;
@@ -286,8 +302,8 @@
 
 /* MEDIA QUERY: 480px
 ---------------------------------------------------------------------------------------- //// */
-@media only screen and (min-width:480px) {
-	html.debug,
+@media (min-width:480px) {
+	.debug,
 	#debug-size ol {
 		/* red */
 		background-color:#fcc;
@@ -296,8 +312,8 @@
 
 /* MEDIA QUERY: 640px
 ---------------------------------------------------------------------------------------- //// */
-@media only screen and (min-width:640px) {
-	html.debug,
+@media (min-width:640px) {
+	.debug,
 	#debug-size ol {
 		/* blue */
 		background-color:#cce0ff;
@@ -306,8 +322,8 @@
 
 /* MEDIA QUERY: 769px
 ---------------------------------------------------------------------------------------- //// */
-@media screen and (min-width:769px) {
-	html.debug,
+@media (min-width:769px) {
+	.debug,
 	#debug-size ol {
 		/* green */
 		background-color:#cfc;
@@ -316,8 +332,8 @@
 
 /* MEDIA QUERY: 992px
 ---------------------------------------------------------------------------------------- //// */
-@media only screen and (min-width:992px) {
-	html.debug,
+@media (min-width:992px) {
+	.debug,
 	#debug-size ol {
 		/* yellow */
 		background-color:#ffc;
@@ -326,16 +342,11 @@
 
 /* MEDIA QUERY: high-resolution device
 ---------------------------------------------------------------------------------------- //// */
-/*
-@media only screen and (-webkit-min-device-pixel-ratio:2), only screen and (min-device-pixel-ratio:2) {
-}
-*/
-
 @media	(   -moz-min-device-pixel-ratio: 1.5),
 		(     -o-min-device-pixel-ratio: 3/2),
 		(-webkit-min-device-pixel-ratio: 1.5),
 		(        min-device-pixel-ratio: 1.5) {
-	html.debug,
+	.debug,
 	#debug-size ol {
 		/* orange */
 		background-color:#ffe0cc;
