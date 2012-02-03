@@ -111,10 +111,9 @@
 						blocksEnd = false,
 						blocksStart = false,
 						endClass = 'blocks-end',
-						startClass = 'blocks-start',
-						viewportWidth = rwd.viewportWidth();
+						startClass = 'blocks-start';
 
-					if (viewportWidth >= 640) {
+					if (rwd.matchViewport('(min-width:640px)')) {
 						blocksEnd = '.blocks-two-up > li:nth-child(2n),' +
 							'.blocks-three-up > li:nth-child(3n),' +
 							'.blocks-four-up > li:nth-child(4n),' +
@@ -125,7 +124,7 @@
 							'.blocks-four-up > li:nth-child(4n+1),' +
 							'.blocks-five-up > li:nth-child(5n+1),' +
 							'.blocks-six-up > li:nth-child(6n+1)';
-					} else if (viewportWidth >= 480) {
+					} else if (rwd.matchViewport('(min-width:480px)')) {
 						blocksEnd = '.blocks-two-up > li:nth-child(2n),' +
 							'.blocks-four-up > li:nth-child(2n),' +
 							'.blocks-three-up > li:nth-child(3n),' +
@@ -136,7 +135,7 @@
 							'.blocks-three-up > li:nth-child(3n+1),' +
 							'.blocks-five-up > li:nth-child(3n+1),' +
 							'.blocks-six-up > li:nth-child(3n+1)';
-					} else if (viewportWidth >= 320) {
+					} else if (rwd.matchViewport('(min-width:320px)')) {
 						blocksEnd = '.blocks > li:nth-child(2n)';
 						blocksStart = '.blocks > li:nth-child(2n+1)';
 					}
@@ -153,12 +152,27 @@
 					}
 				};
 
-			updateNthChild();
-			rwd.onDelayedResize(updateNthChild);
+			rwd.onDelayedResize(updateNthChild, true);
 		}
 	};
 
-	rwd.onDelayedResize = function (callback) {
+	rwd.matchViewport = function (value) {
+		if (Modernizr.mq('(min-width:1px)')) {
+			if (Modernizr.mq(value)) {
+				return true;
+			}
+		} else {
+			if (value.indexOf('min-width') > 0 && rwd.viewportWidth() >= value.replace('(min-width:', '').replace('px)', '')) {
+				return true;
+			} else if (value.indexOf('min-height') > 0 && rwd.viewportHeight() >= value.replace('(min-height:', '').replace('px)', '')) {
+				return true;
+			}
+		}
+	};
+
+	rwd.onDelayedResize = function (callback, fireNow) {
+		if (fireNow) callback();
+
 		var delay = (function () {
 				var timer = 0;
 
