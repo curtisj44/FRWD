@@ -27,6 +27,14 @@
 	-webkit-box-sizing:border-box;
 	box-sizing:border-box}
 
+/* keyline ----------------------------------------------- */
+.region-keyline-before {
+	padding-top:1.5em; /* 24px */
+	border-top:1px solid #000}
+.region-keyline-after {
+	margin-bottom:1.5em; /* 24px */
+	border-bottom:1px solid #000}
+
 /* media ----------------------------------------------- */
 .region embed,
 .region img,
@@ -195,6 +203,22 @@
 	.size1of6 {width:16.666667%}
 	.size5of6 {width:83.333333%}
 	.size1of7 {width:14.285714%}
+
+	/*
+	TODO - add these sizes
+	.size2of7
+	.size3of7
+	.size4of7
+	.size5of7
+	.size6of7
+	*/
+
+	.size1of8 {width:12.5%}
+	.size3of8 {width:37.5%}
+	.size5of8 {width:62.5%}
+	.size7of8 {width:87.5%}
+
+
 	.size-golden-long {width:61.803398%}
 	.size-golden-short {width:38.196602%}
 
@@ -211,6 +235,10 @@
 	.prefix1of6 {margin-left:16.666667%}
 	.prefix5of6 {margin-left:83.333333%}
 	.prefix1of7 {margin-left:14.285714%}
+	.prefix1of8 {margin-left:12.5%}
+	.prefix3of8 {margin-left:37.5%}
+	.prefix5of8 {margin-left:62.5%}
+	.prefix7of8 {margin-left:87.5%}
 	.prefix-golden-long {margin-left:61.803398%}
 	.prefix-golden-short {margin-left:38.196602%}
 
@@ -227,6 +255,10 @@
 	.suffix1of6 {margin-right:16.666667%}
 	.suffix5of6 {margin-right:83.333333%}
 	.suffix1of7 {margin-right:14.285714%}
+	.suffix1of8 {margin-right:12.5%}
+	.suffix3of8 {margin-right:37.5%}
+	.suffix5of8 {margin-right:62.5%}
+	.suffix7of8 {margin-right:87.5%}
 	.suffix-golden-long {margin-right:61.803398%}
 	.suffix-golden-short {margin-right:38.196602%}
 
@@ -243,6 +275,10 @@
 	.push1of6 {left:16.666667%}
 	.push5of6 {left:83.333333%}
 	.push1of7 {left:14.285714%}
+	.push1of8 {left:12.5%}
+	.push3of8 {left:37.5%}
+	.push5of8 {left:62.5%}
+	.push7of8 {left:87.5%}
 	.push-golden-long {left:61.803398%}
 	.push-golden-short {left:38.196602%}
 
@@ -259,19 +295,27 @@
 	.pull1of6 {left:-16.666667%}
 	.pull5of6 {left:-83.333333%}
 	.pull1of7 {left:-14.285714%}
+	.pull1of8 {left:-12.5%}
+	.pull3of8 {left:-37.5%}
+	.pull5of8 {left:-62.5%}
+	.pull7of8 {left:-87.5%}
 	.pull-golden-long {left:-61.803398%}
 	.pull-golden-short {left:-38.196602%}
 
-	/* ---- centered ---- */
+	/* centered ----------------------------------------------- */
 	.region-centered {
 		float:none;
 		margin:0 auto}
 
-	/* ---- keyline ---- */
-	.region-keyline-left {
-		border-left:1px solid #ccc}
-	.region-keyline-right {
-		border-right:1px solid #ccc}
+	/* keyline ----------------------------------------------- */
+	.region-keyline-before {
+		padding-top:0;
+		border-top:0;
+		border-left:1px solid #000}
+	.region-keyline-after {
+		margin-bottom:0;
+		border-bottom:0;
+		border-right:1px solid #000}
 
 	/* media ----------------------------------------------- //// */
 	.media-full {
