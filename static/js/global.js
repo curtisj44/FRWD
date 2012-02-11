@@ -3,23 +3,6 @@
 
 	var rwd = siteName.rwd = {};
 
-	rwd.detectBoxSizing = function () {
-		Modernizr.addTest('boxsizing', function () {
-			var boxSizing = ['boxSizing', 'MozBoxSizing', 'WebkitBoxSizing', 'msBoxSizing'],
-				boxSizingLength = boxSizing.length,
-				div = document.createElement('div'),
-				i;
-
-			for (i = 0; i < boxSizingLength; i++) {
-				if (div.style[boxSizing[i]] !== undefined) {
-					return true;
-				}
-			}
-
-			return false;
-		});
-	};
-
 	rwd.detectNthChild = function () {
 		// https://gist.github.com/1333330
 		Modernizr.testStyles('#modernizr div:nth-child(3n){width:10px}', function (elem, rule) {
@@ -42,7 +25,7 @@
 	rwd.fixBoxSizing = function () {
 		if (!Modernizr.boxsizing) {
 			$('.region').wrapInner('<div class="region-wrap"></div>');
-			$('.blocks li').wrapInner('<div class="blocks-wrap"></div>');
+			$('.blocks > li').wrapInner('<div class="blocks-wrap"></div>');
 		}
 	};
 
@@ -157,7 +140,7 @@
 	};
 
 	rwd.matchViewport = function (value) {
-		if (Modernizr.mq('(min-width:1px)')) {
+		if (Modernizr.mq('all')) {
 			if (Modernizr.mq(value)) {
 				return true;
 			}
@@ -196,7 +179,6 @@
 	};
 
 	$(function () {
-		rwd.detectBoxSizing();
 		rwd.detectNthChild();
 		rwd.fixBoxSizing();
 		rwd.fixIE7Grid();
