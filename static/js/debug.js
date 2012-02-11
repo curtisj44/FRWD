@@ -175,7 +175,7 @@
 				});
 
 				content += '<ol>' + (mediaQueriesActive || '<li>no active media queries</li>') + '</ol>';
-				content += (Modernizr.mq('(min-width:1px)')) ? '' : '(polyfilled)';
+				content += (Modernizr.mq('all')) ? '' : '(polyfilled)';
 				content += '<button class="close">&times;</button>';
 
 				$debugSize.html(content);
