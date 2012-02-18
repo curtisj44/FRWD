@@ -148,11 +148,14 @@ abbr {
 	border-bottom:1px dotted;
 	cursor:help}
 
-b, strong {font-weight:bold}
+b, strong {
+	font-weight:bold}
 
-del {text-decoration:line-through}
+del {
+	text-decoration:line-through}
 
-dfn {font-style:italic}
+dfn {
+	font-style:italic}
 
 em, i {
 	font-style:italic}
