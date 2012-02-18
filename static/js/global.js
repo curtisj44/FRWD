@@ -140,15 +140,17 @@
 	};
 
 	rwd.matchViewport = function (value) {
-		if (Modernizr.mq('all')) {
+		if (Modernizr.mq('only all')) {
 			if (Modernizr.mq(value)) {
 				return true;
+			} else {
+				return false;
 			}
 		} else {
-			if (value.indexOf('min-width') > 0 && rwd.viewportWidth() >= value.replace('(min-width:', '').replace('px)', '')) {
+			if ((value.indexOf('min-width') > 0 && rwd.viewportWidth() >= value.replace('(min-width:', '').replace('px)', '')) || (value.indexOf('min-height') > 0 && rwd.viewportHeight() >= value.replace('(min-height:', '').replace('px)', ''))) {
 				return true;
-			} else if (value.indexOf('min-height') > 0 && rwd.viewportHeight() >= value.replace('(min-height:', '').replace('px)', '')) {
-				return true;
+			} else {
+				return false;
 			}
 		}
 	};
