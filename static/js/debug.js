@@ -129,13 +129,13 @@
 		var closePanel = function () {
 				$panel.removeClass('open');
 				$viewButton.html($viewButton.attr('data-open'));
-				$(document).off('click');
+				$(document).off('click.debugPanel');
 			},
 			openPanel = function () {
 				$panel.addClass('open');
 				$viewButton.html($viewButton.attr('data-close'));
 
-				$(document).on('click', function (e) {
+				$(document).on('click.debugPanel', function (e) {
 					if ($(e.target).parents().filter($panel).length !== 1) {
 						closePanel();
 					}
