@@ -37,6 +37,7 @@
 
 /* media ----------------------------------------------- */
 .region embed,
+.region iframe,
 .region img,
 .region object,
 .region video {
