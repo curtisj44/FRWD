@@ -1,48 +1,28 @@
 (function (siteName, $) {
-	'use strict';
+	//'use strict';
 
 	var rwd = siteName.rwd = {};
 
-	rwd.detectBoxSizing = function () {
-		Modernizr.addTest('boxsizing', function () {
-			var boxSizing = ['boxSizing', 'MozBoxSizing', 'WebkitBoxSizing', 'msBoxSizing'],
-				boxSizingLength = boxSizing.length,
-				div = document.createElement('div'),
-				i;
-
-			for (i = 0; i < boxSizingLength; i++) {
-				if (div.style[boxSizing[i]] !== undefined) {
-					return true;
-				}
-			}
-
-			return false;
-		});
-	};
-
 	rwd.detectNthChild = function () {
-		// https://gist.github.com/1333330
-		Modernizr.testStyles('#modernizr div:nth-child(3n){width:10px}', function (elem, rule) {
-			var bool = false,
-				divs = elem.getElementsByTagName('div'),
-				test;
+		Modernizr.addTest('nthchild', function () {
+			function isSelectorSupported(sel) {
+				var el = document.createElement('div');
+				el.setAttribute('id', 'nthchild');
+				el.innerHTML = '<style>' + sel + '{}</style>';
+				document.body.appendChild(el);
+				var bool = document.styleSheets[0].cssRules !== undefined && !!el.lastChild.sheet.cssRules[0];
+				document.body.removeChild(el);
+				return bool;
+			};
 
-			if (divs.length === 7) {
-				test = window.getComputedStyle ? function (i) {
-					return getComputedStyle(divs[i], null).width === '10px';
-				} : function (i) {
-					return divs[i].currentStyle.width === '10px';
-				};
-				bool = !test(0) && !test(1) && test(2) && !test(3) && !test(4) && test(5) && !test(6);
-			}
-			Modernizr.addTest('nthchild', bool);
-		}, 7);
+			return isSelectorSupported(':nth-child(2n)');
+		});
 	};
 
 	rwd.fixBoxSizing = function () {
 		if (!Modernizr.boxsizing) {
 			$('.region').wrapInner('<div class="region-wrap"></div>');
-			$('.blocks li').wrapInner('<div class="blocks-wrap"></div>');
+			$('.blocks > li').wrapInner('<div class="blocks-wrap"></div>');
 		}
 	};
 
@@ -157,15 +137,17 @@
 	};
 
 	rwd.matchViewport = function (value) {
-		if (Modernizr.mq('(min-width:1px)')) {
+		if (Modernizr.mq('only all')) {
 			if (Modernizr.mq(value)) {
 				return true;
+			} else {
+				return false;
 			}
 		} else {
-			if (value.indexOf('min-width') > 0 && rwd.viewportWidth() >= value.replace('(min-width:', '').replace('px)', '')) {
+			if ((value.indexOf('min-width') > 0 && rwd.viewportWidth() >= value.replace('(min-width:', '').replace('px)', '')) || (value.indexOf('min-height') > 0 && rwd.viewportHeight() >= value.replace('(min-height:', '').replace('px)', ''))) {
 				return true;
-			} else if (value.indexOf('min-height') > 0 && rwd.viewportHeight() >= value.replace('(min-height:', '').replace('px)', '')) {
-				return true;
+			} else {
+				return false;
 			}
 		}
 	};
@@ -196,7 +178,6 @@
 	};
 
 	$(function () {
-		rwd.detectBoxSizing();
 		rwd.detectNthChild();
 		rwd.fixBoxSizing();
 		rwd.fixIE7Grid();

@@ -18,7 +18,8 @@
 	-moz-box-shadow:   0 -3px 0 rgba(0,0,0,.1) inset, 0 3px 3px rgba(0,0,0,.1);
 	-webkit-box-shadow:0 -3px 0 rgba(0,0,0,.1) inset, 0 3px 3px rgba(0,0,0,.1);
 	box-shadow:        0 -3px 0 rgba(0,0,0,.1) inset, 0 3px 3px rgba(0,0,0,.1);
-	font:13px Arial, sans-serif}
+	font:13px Arial, sans-serif;
+	cursor:pointer}
 #debug-panel button:active,
 #debug-size button:active {
 	padding-top:3px;

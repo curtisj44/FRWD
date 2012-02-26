@@ -1,5 +1,5 @@
 (function (debug, $) {
-	'use strict';
+	//'use strict';
 
 	debug.rwd = {};
 
@@ -129,13 +129,13 @@
 		var closePanel = function () {
 				$panel.removeClass('open');
 				$viewButton.html($viewButton.attr('data-open'));
-				$(document).off('click');
+				$(document).off('click.debugPanel');
 			},
 			openPanel = function () {
 				$panel.addClass('open');
 				$viewButton.html($viewButton.attr('data-close'));
 
-				$(document).on('click', function (e) {
+				$(document).on('click.debugPanel', function (e) {
 					if ($(e.target).parents().filter($panel).length !== 1) {
 						closePanel();
 					}
@@ -175,7 +175,7 @@
 				});
 
 				content += '<ol>' + (mediaQueriesActive || '<li>no active media queries</li>') + '</ol>';
-				content += (Modernizr.mq('(min-width:1px)')) ? '' : '(polyfilled)';
+				content += (Modernizr.mq('all')) ? '' : '(polyfilled)';
 				content += '<button class="close">&times;</button>';
 
 				$debugSize.html(content);

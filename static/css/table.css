@@ -1,0 +1,112 @@
+﻿/* Table
+---------------------------------------------------------------------------------------- //// */
+
+.generatedcontent table,
+.generatedcontent thead,
+.generatedcontent tfoot,
+.generatedcontent tbody,
+.generatedcontent tr,
+.generatedcontent td,
+.generatedcontent th {
+	display:block}
+
+table {
+	width:100%;
+	border-bottom:1px solid #000;
+	background:#eee}
+thead {
+	background:#ccc}
+
+.generatedcontent tr {
+	overflow:hidden}
+.generatedcontent thead tr {
+	position:absolute;
+	top:-9999px;
+	left:-9999px}
+
+td,
+th {
+	padding:2%;
+	text-align:left;
+	vertical-align:top}
+.no-generatedcontent td,
+.no-generatedcontent th {
+	padding:.5em}
+
+th {
+	font-weight:bold}
+
+.generatedcontent td,
+.generatedcontent th {
+	position:relative;
+	float:left;
+	width:44%;
+	padding:2% 2% 2% 54%;
+	border-bottom:1px solid #ccc}
+td:before,
+th:before {
+	position:absolute;
+	top:0;
+	left:0;
+	width:44%;
+	padding:2%;
+	font-weight:bold;
+	content:attr(data-th)}
+
+.generatedcontent td:first-child,
+.generatedcontent th:first-child {
+	border-top:1px solid #000}
+
+
+/* MEDIA QUERY: 640px
+---------------------------------------------------------------------------------------- //// */
+@media (min-width:640px) {
+	.generatedcontent table {
+		display:table}
+	.generatedcontent thead {
+		display:table-header-group}
+	.generatedcontent tbody {
+		display:table-row-group}
+	.generatedcontent tfoot {
+		display:table-footer-group}
+	.generatedcontent tr {
+		display:table-row}
+	.generatedcontent td,
+	.generatedcontent th {
+		display:table-cell}
+
+	table {
+		border:0}
+	thead {
+		border-bottom:1px solid #000}
+	.generatedcontent thead tr {
+		position:static}
+
+	td,
+	th,
+	.generatedcontent td,
+	.generatedcontent th {
+		padding:.5em}
+
+	.generatedcontent td,
+	.generatedcontent th {
+		position:static;
+		float:none;
+		width:auto;
+		border:0}
+	td:before,
+	th:before {
+		display:none;
+		content:''}
+
+	.generatedcontent td:first-child,
+	.generatedcontent th:first-child {
+		border:0}
+
+	table .align_center {
+		text-align:center}
+	table .align_left {
+		text-align:left}
+	table .align_right {
+		text-align:right}
+}
