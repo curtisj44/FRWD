@@ -1,25 +1,22 @@
 (function (siteName, $) {
-	'use strict';
+	//'use strict';
 
 	var rwd = siteName.rwd = {};
 
 	rwd.detectNthChild = function () {
-		// https://gist.github.com/1333330
-		Modernizr.testStyles('#modernizr div:nth-child(3n){width:10px}', function (elem, rule) {
-			var bool = false,
-				divs = elem.getElementsByTagName('div'),
-				test;
+		Modernizr.addTest('nthchild', function () {
+			function isSelectorSupported(sel) {
+				var el = document.createElement('div');
+				el.setAttribute('id', 'nthchild');
+				el.innerHTML = '<style>' + sel + '{}</style>';
+				document.body.appendChild(el);
+				var bool = document.styleSheets[0].cssRules !== undefined && !!el.lastChild.sheet.cssRules[0];
+				document.body.removeChild(el);
+				return bool;
+			};
 
-			if (divs.length === 7) {
-				test = window.getComputedStyle ? function (i) {
-					return getComputedStyle(divs[i], null).width === '10px';
-				} : function (i) {
-					return divs[i].currentStyle.width === '10px';
-				};
-				bool = !test(0) && !test(1) && test(2) && !test(3) && !test(4) && test(5) && !test(6);
-			}
-			Modernizr.addTest('nthchild', bool);
-		}, 7);
+			return isSelectorSupported(':nth-child(2n)');
+		});
 	};
 
 	rwd.fixBoxSizing = function () {
