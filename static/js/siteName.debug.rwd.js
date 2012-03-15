@@ -1,5 +1,5 @@
 (function (debug, $) {
-	//'use strict';
+	'use strict';
 
 	debug.rwd = {};
 
