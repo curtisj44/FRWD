@@ -1,5 +1,5 @@
 (function (siteName, $) {
-	//'use strict';
+	'use strict';
 
 	var rwd = siteName.rwd = {};
 
@@ -41,44 +41,55 @@
 		*/
 
 		// https://github.com/scottjehl/iOS-Orientationchange-Fix
-		// version 20120123 with fix for https://github.com/scottjehl/iOS-Orientationchange-Fix/issues/10
+		// 20120129 version
+
+		// This fix addresses an iOS bug, so return early if the UA claims it's something else.
+		if (!(/iPhone|iPad|iPod/.test(navigator.platform) && navigator.userAgent.indexOf('AppleWebKit') > -1 )) {
+			return;
+		}
+
 		var w = window,
 			doc = w.document;
 
-		if (!doc.querySelector || w.orientation === undefined) {return;}
+		if (!doc.querySelector) {return;}
 
 		var meta = doc.querySelector('meta[name=viewport]'),
 			initialContent = meta && meta.getAttribute('content'),
 			disabledZoom = initialContent + ',maximum-scale=1',
 			enabledZoom = initialContent + ',maximum-scale=10',
 			enabled = true,
-			x, y, z, aig;
+			x,
+			y,
+			z,
+			aig;
 
 		if (!meta) {return;}
 
-		var restoreZoom = function () {
-				meta.setAttribute('content', enabledZoom);
-				enabled = true;
-			},
-			disableZoom = function () {
-				meta.setAttribute('content', disabledZoom);
-				enabled = false;
-			},
-			checkTilt = function (e) {
-				aig = e.accelerationIncludingGravity;
-				x = Math.abs(aig.x);
-				y = Math.abs(aig.y);
-				z = Math.abs(aig.z);
+		function restoreZoom() {
+			meta.setAttribute('content', enabledZoom);
+			enabled = true;
+		}
 
-				// If portrait orientation and in one of the danger zones
-				if (!w.orientation && (x > 7 || ((z > 6 && y < 8 || z < 8 && y > 6) && x > 5))) {
-					if (enabled) {
-						disableZoom();
-					}
-				} else if (!enabled) {
-					restoreZoom();
+		function disableZoom() {
+			meta.setAttribute('content', disabledZoom);
+			enabled = false;
+		}
+
+		function checkTilt(e) {
+			aig = e.accelerationIncludingGravity;
+			x = Math.abs(aig.x);
+			y = Math.abs(aig.y);
+			z = Math.abs(aig.z);
+
+			// If portrait orientation and in one of the danger zones
+			if (!w.orientation && (x > 7 || ((z > 6 && y < 8 || z < 8 && y > 6) && x > 5))) {
+				if (enabled) {
+					disableZoom();
 				}
-			};
+			} else if (!enabled) {
+				restoreZoom();
+			}
+		}
 
 		w.addEventListener('orientationchange', restoreZoom, false);
 		w.addEventListener('devicemotion', checkTilt, false);
@@ -87,7 +98,7 @@
 	rwd.fixNthChild = function () {
 		if (!Modernizr.nthchild) {
 			var updateNthChild = function () {
-					var $blocks = $('.blocks li'),
+					var $blocks = $('.blocks > li'),
 						blocksEnd = false,
 						blocksStart = false,
 						endClass = 'blocks-end',
@@ -137,23 +148,25 @@
 	};
 
 	rwd.matchViewport = function (value) {
-		if (Modernizr.mq('only all')) {
-			if (Modernizr.mq(value)) {
-				return true;
-			} else {
-				return false;
-			}
+		if (!(value)) {
+			return false;
+		} else if (Modernizr.mq('only all') && Modernizr.mq(value)) {
+			return true;
+		} else if ((value.indexOf('min-width') > 0 && rwd.viewportWidth() >= value.replace('(min-width:', '').replace('px)', '')) || (value.indexOf('min-height') > 0 && rwd.viewportHeight() >= value.replace('(min-height:', '').replace('px)', ''))) {
+			return true;
 		} else {
-			if ((value.indexOf('min-width') > 0 && rwd.viewportWidth() >= value.replace('(min-width:', '').replace('px)', '')) || (value.indexOf('min-height') > 0 && rwd.viewportHeight() >= value.replace('(min-height:', '').replace('px)', ''))) {
-				return true;
-			} else {
-				return false;
-			}
+			return false;
 		}
 	};
 
 	rwd.onDelayedResize = function (callback, fireNow) {
-		if (fireNow) callback();
+		if (typeof callback !== 'function') return false;
+
+		if (fireNow && typeof fireNow === 'boolean') {
+			callback();
+		} else {
+			return false;
+		}
 
 		var delay = (function () {
 				var timer = 0;

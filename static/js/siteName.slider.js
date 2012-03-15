@@ -1,5 +1,5 @@
 (function (siteName, $) {
-	//'use strict';
+	'use strict';
 
 	var s = siteName.slider = {},
 		slider,
