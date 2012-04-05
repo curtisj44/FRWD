@@ -41,21 +41,12 @@
 .region img,
 .region object,
 .region video {
-<<<<<<< HEAD
-	max-width:100%;
-	height:auto}
-
-.region object {
-	max-width:100%}
-
-=======
 	max-width:100%}
 
 .region img,
 .region video {
 	height:auto}
 
->>>>>>> refs/heads/master
 .ie7 .region img {
 	-ms-interpolation-mode:bicubic}
 
@@ -73,11 +64,7 @@
 	display:block;
 	clear:both;
 	content:''}
-<<<<<<< HEAD
 .no-generatedcontent .blocks {
-=======
-.no-generatedcontent .blocks {
->>>>>>> refs/heads/master
 	overflow:hidden}
 
 .blocks > li {

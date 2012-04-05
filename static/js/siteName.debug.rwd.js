@@ -150,6 +150,8 @@
 			} else {
 				openPanel();
 			}
+
+			return false;
 		});
 	};
 

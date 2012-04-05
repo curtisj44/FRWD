@@ -20,8 +20,23 @@
 		content: ""}
 	pre,
 	blockquote {
-		border:1px solid #999;
+		padding:1.5em;
+		border:1px solid #ccc;
+		-moz-border-radius:   0;
+		-webkit-border-radius:0;
+		border-radius:        0;
 		page-break-inside:avoid}
+	pre {
+		overflow:visible;
+		font-size:.75em; /* 12px */
+		white-space:    -pre-wrap;
+		white-space:-moz-pre-wrap;
+		white-space:  -o-pre-wrap;
+		white-space:     pre-wrap}
+
+	blockquote {
+		padding-bottom:0}
+
 	thead {
 		display:table-header-group}
 	tr,

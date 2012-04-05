@@ -76,9 +76,9 @@
 
 	test('onDelayedResize', function () {
 		strictEqual(typeof $(window).resize, 'function', 'jQuery resize function exists');
-		strictEqual(siteName.rwd.onDelayedResize(), false, 'The callback argument is required.');
-		strictEqual(siteName.rwd.onDelayedResize('foo'), false, 'The callback argument needs to be a function.');
-		strictEqual(siteName.rwd.onDelayedResize(function () {}, 'foo'), false, 'The fireNow argument needs to be a boolean.');
+		strictEqual(siteName.rwd.onDelayedResize(), undefined, 'The callback argument is required.');
+		strictEqual(siteName.rwd.onDelayedResize('foo'), undefined, 'The callback argument needs to be a function.');
+		strictEqual(siteName.rwd.onDelayedResize(function () {}, 'foo'), undefined, 'The fireNow argument needs to be a boolean.');
 		strictEqual(siteName.rwd.onDelayedResize(function () {}, true), undefined, 'The fireNow argument is a boolean.');
 	});
 

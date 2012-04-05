@@ -150,8 +150,12 @@
 	rwd.matchViewport = function (value) {
 		if (!(value)) {
 			return false;
-		} else if (Modernizr.mq('only all') && Modernizr.mq(value)) {
-			return true;
+		} else if (Modernizr.mq('only all')) {
+			if (Modernizr.mq(value)) {
+				return true;
+			} else {
+				return false;
+			}
 		} else if ((value.indexOf('min-width') > 0 && rwd.viewportWidth() >= value.replace('(min-width:', '').replace('px)', '')) || (value.indexOf('min-height') > 0 && rwd.viewportHeight() >= value.replace('(min-height:', '').replace('px)', ''))) {
 			return true;
 		} else {
@@ -160,13 +164,9 @@
 	};
 
 	rwd.onDelayedResize = function (callback, fireNow) {
-		if (typeof callback !== 'function') return false;
+		if (typeof callback !== 'function' || typeof fireNow !== 'boolean') return;
 
-		if (fireNow && typeof fireNow === 'boolean') {
-			callback();
-		} else {
-			return false;
-		}
+		if (fireNow) callback();
 
 		var delay = (function () {
 				var timer = 0;
