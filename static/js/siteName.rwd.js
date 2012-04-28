@@ -1,7 +1,5 @@
-(function (siteName, $) {
+(function (rwd, $) {
 	'use strict';
-
-	var rwd = siteName.rwd = {};
 
 	rwd.detectNthChild = function () {
 		Modernizr.addTest('nthchild', function () {
@@ -99,12 +97,13 @@
 		if (Modernizr.nthchild) return;
 
 		var $blocks = $('.blocks > li'),
-			blocksEnd = false,
-			blocksStart = false,
 			endClass = 'blocks-end',
 			startClass = 'blocks-start',
 			updateNthChild = function () {
-				if (rwd.matchViewport('(min-width:640px)')) {
+				var blocksEnd = false,
+					blocksStart = false;
+
+				if (rwd.matchViewport('(min-width:600px)')) {
 					blocksEnd = '.blocks-two-up > li:nth-child(2n),' +
 						'.blocks-three-up > li:nth-child(3n),' +
 						'.blocks-four-up > li:nth-child(4n),' +
@@ -195,4 +194,4 @@
 		rwd.fixiOSOrientation();
 		rwd.fixNthChild();
 	});
-}(window.siteName = window.siteName || {}, jQuery));
+}(window.siteName.rwd = window.siteName.rwd || {}, jQuery));
