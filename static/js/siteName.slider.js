@@ -1,8 +1,7 @@
-(function (siteName, $) {
+(function (s, $) {
 	'use strict';
 
-	var s = siteName.slider = {},
-		slider,
+	var slider,
 		$slider = $('#mySwipe'),
 		$sliderNav,
 		sliderLength = $slider.find('li').length;
@@ -73,4 +72,4 @@
 		s.navEvents();
 		s.updateNav();
 	});
-}(window.siteName = window.siteName || {}, jQuery));
+}(window.siteName.slider = window.siteName.slider || {}, jQuery));
