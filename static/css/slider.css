@@ -1,27 +1,27 @@
 ﻿/* Slider
 ---------------------------------------------------------------------------------------- //// */
 .slider {
+	overflow:hidden;
+	margin:0 0 1.5em;
+	background:#eee}
+.js .slider {
+	margin:0}
+
+.slider > ol {
+	overflow:hidden;
 	margin:0;
-	width:100%;
-	background:#eee;
 	list-style:none}
-.slider > li {
+
+.slider > ol > li {
+	margin:0;
 	background:#fff}
-.js .slider > li {
-	display:none}
-
-.slider > li > p {
-	padding:1.5em 3% 0}
-
-.slider.swipe-active {
+.js .slider > ol > li {
+	display:none;
 	position:relative;
-	overflow:hidden}
-.slider.swipe-active > li {
-	display:block;
-	position:absolute;
-	top:0;
-	left:0;
-	visibility:hidden}
+	float:left}
+
+.slider > ol > li > p {
+	padding:1.5em 3% 0}
 
 /* slider nav ----------------------------------------------- //// */
 .slider-nav {
@@ -82,9 +82,9 @@ button.slider-next {
 	background:#fff}
 
 
-/* MEDIA QUERY: 640px
+/* MEDIA QUERY: 600px
 ---------------------------------------------------------------------------------------- //// */
-@media (min-width:640px) {
+@media (min-width:600px) {
 	/* slider nav ----------------------------------------------- //// */
 	.slider-nav {
 		padding:1em 0}

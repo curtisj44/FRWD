@@ -1,29 +1,28 @@
-(function (siteName, $) {
+(function (s, $) {
 	'use strict';
 
-	var s = siteName.slider = {},
-		slider,
+	var slider,
 		$slider = $('#mySwipe'),
 		$sliderNav,
 		sliderLength = $slider.find('li').length;
 
 	s.buildNav = function () {
 		var i,
-			sliderNav = [
+			navArray = [
 				'<div class="slider-nav">',
 				'<ol>'
 			];
 
 		for (i = 0; i < sliderLength; i++) {
-			sliderNav.push('<li><button>' + (i + 1) + '</button></li>');
+			navArray.push('<li><button>' + (i + 1) + '</button></li>');
 		}
 
-		sliderNav.push('</ol>');
-		sliderNav.push('<button class="slider-prev">&lt;</button>');
-		sliderNav.push('<button class="slider-next">&gt;</button>');
-		sliderNav.push('</div>');
+		navArray.push('</ol>');
+		navArray.push('<button class="slider-prev">&lt;</button>');
+		navArray.push('<button class="slider-next">&gt;</button>');
+		navArray.push('</div>');
 
-		$slider.after(sliderNav.join(''));
+		$slider.after(navArray.join(''));
 		$sliderNav = $slider.next('.slider-nav');
 	};
 
@@ -33,8 +32,10 @@
 				s.updateNav();
 			},
 			continuous: false,
-			speed: 500 // TODO: use 200 for swipe speed
+			speed: 500 // TODO: use 200 for swipe speed?
 		});
+
+		$slider.find('li').show();
 	};
 
 	s.navEvents = function () {
@@ -57,13 +58,14 @@
 
 		$sliderNav.find('.selected').removeClass('selected');
 		$sliderNav.find('li').eq(current).addClass('selected');
+		$sliderNav.find('.disabled').removeClass('disabled');
 
 		if (current === 0) {
 			$sliderNav.find('.slider-prev').addClass('disabled');
-		} else if (current === (sliderLength - 1)) {
+		}
+
+		if (current === (sliderLength - 1)) {
 			$sliderNav.find('.slider-next').addClass('disabled');
-		} else {
-			$sliderNav.find('.disabled').removeClass('disabled');
 		}
 	};
 
@@ -73,4 +75,4 @@
 		s.navEvents();
 		s.updateNav();
 	});
-}(window.siteName = window.siteName || {}, jQuery));
+}(window.siteName.slider = window.siteName.slider || {}, jQuery));

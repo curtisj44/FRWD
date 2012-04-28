@@ -1,81 +1,7 @@
 (function (debug, $) {
 	'use strict';
 
-	debug.rwd = {};
-
-	debug.rwd.backgroundAdd = function () {
-		$('html').addClass('debug');
-	};
-
-	debug.rwd.backgroundRemove = function () {
-		$('html').removeClass('debug');
-	};
-
-	debug.rwd.baselineAdd = function () {
-		var adjustStart = -5,
-			fontSize = 16,
-			lineHeight = 24,
-			baselineHeight = (lineHeight - 1) / fontSize,
-			baselineLength = $(document).height() / lineHeight,
-			i,
-			output = '';
-
-		for (i = baselineLength; i > 0; i -= 1) {
-			output += '<li style="height:' + baselineHeight + 'em"></li>';
-		}
-
-		$('body').append('<ol id="debug-baseline" style="top:' + adjustStart + 'px">' + output + '</ol>');
-	};
-
-	debug.rwd.baselineRemove = function () {
-		$('#debug-baseline').remove();
-	};
-
-	debug.rwd.boxesAdd = function () {
-		$.each($('.region').not('#debug-grid .region, .region .region'), function (index, value) {
-			$(value).wrapInner('<div class="debug-box"></div>');
-			$(value).find('.debug-box').append('<div class="debug-number">' + (index + 1) + '</div>');
-		});
-	};
-
-	debug.rwd.boxesRemove = function () {
-		$('.debug-number').remove();
-
-		$.each($('.debug-box'), function (index, value) {
-			var $debugBox = $(value);
-			$debugBox.contents().appendTo($debugBox.parent());
-			$debugBox.remove();
-		});
-	};
-
-	debug.rwd.gridAdd = function () {
-		var grid = '<div id="debug-grid">' +
-			'<div class="container">' +
-			'<div class="fields">' +
-			'<div class="region size1of6"></div>' +
-			'<div class="region size1of6"></div>' +
-			'<div class="region size1of6"></div>' +
-			'<div class="region size1of6"></div>' +
-			'<div class="region size1of6"></div>' +
-			'<div class="region size1of6"></div>' +
-			'</div>' +
-			'</div>' +
-			'</div>';
-
-		$('body').append(grid);
-
-		if (!Modernizr.generatedcontent) {
-			$('#debug-grid .region').each(function () {
-				$(this).prepend('<div class="before"></div>');
-			});
-		}
-	};
-
-	debug.rwd.gridRemove = function () {
-		$('#debug-grid').remove();
-	};
-
-	debug.rwd.buildPanel = function () {
+	debug.buildPanel = function () {
 		var $output = $('<div id="debug-panel">' +
 				'<button class="debug-view" data-close="&times;">&curren;</button>' +
 				'<ul>' +
@@ -101,14 +27,14 @@
 				$option = $input.attr('data-option');
 
 			if ($input.hasClass('on')) {
-				debug.rwd[$option + 'Remove']();
+				debug[$option + 'Off']();
 				$input.removeClass('on');
 
 				if (Modernizr.localstorage) {
 					localStorage.removeItem('debug-' + $option);
 				}
 			} else {
-				debug.rwd[$option + 'Add']();
+				debug[$option + 'On']();
 				$input.addClass('on');
 
 				if (Modernizr.localstorage) {
@@ -155,7 +81,79 @@
 		});
 	};
 
-	debug.rwd.windowSizeAdd = function () {
+	debug.backgroundOn = function () {
+		$('html').addClass('debug');
+	};
+
+	debug.backgroundOff = function () {
+		$('html').removeClass('debug');
+	};
+
+	debug.baselineOn = function () {
+		var adjustStart = -5,
+			fontSize = 16,
+			lineHeight = 24,
+			baselineHeight = (lineHeight - 1) / fontSize,
+			baselineLength = $(document).height() / lineHeight,
+			i,
+			output = '';
+
+		for (i = baselineLength; i > 0; i -= 1) {
+			output += '<li style="height:' + baselineHeight + 'em"></li>';
+		}
+
+		$('body').append('<ol id="debug-baseline" style="top:' + adjustStart + 'px">' + output + '</ol>');
+	};
+
+	debug.baselineOff = function () {
+		$('#debug-baseline').remove();
+	};
+
+	debug.boxesOn = function () {
+		$.each($('.region').not('#debug-grid .region, .region .region'), function (index, value) {
+			$(value).wrapInner('<div class="debug-box"></div>');
+			$(value).find('.debug-box').append('<div class="debug-number">' + (index + 1) + '</div>');
+		});
+	};
+
+	debug.boxesOff = function () {
+		$('.debug-number').remove();
+
+		$.each($('.debug-box'), function (index, value) {
+			var $debugBox = $(value);
+			$debugBox.contents().appendTo($debugBox.parent());
+			$debugBox.remove();
+		});
+	};
+
+	debug.gridOn = function () {
+		var grid = '<div id="debug-grid">' +
+			'<div class="container">' +
+			'<div class="fields">' +
+			'<div class="region size1of6"></div>' +
+			'<div class="region size1of6"></div>' +
+			'<div class="region size1of6"></div>' +
+			'<div class="region size1of6"></div>' +
+			'<div class="region size1of6"></div>' +
+			'<div class="region size1of6"></div>' +
+			'</div>' +
+			'</div>' +
+			'</div>';
+
+		$('body').append(grid);
+
+		if (!Modernizr.generatedcontent) {
+			$('#debug-grid .region').each(function () {
+				$(this).prepend('<div class="before"></div>');
+			});
+		}
+	};
+
+	debug.gridOff = function () {
+		$('#debug-grid').remove();
+	};
+
+	debug.windowSizeOn = function () {
 		var $debugSize = $('<div id="debug-size"></div>').appendTo('body'),
 			updateSize = function () {
 				var content = siteName.rwd.viewportWidth() + ' &times; ' + siteName.rwd.viewportHeight(),
@@ -163,7 +161,7 @@
 						'(min-width:240px)',
 						'(min-width:320px)',
 						'(min-width:480px)',
-						'(min-width:640px)',
+						'(min-width:600px)',
 						'(min-width:769px)',
 						'(min-width:992px)',
 						'(-moz-min-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5)'
@@ -194,11 +192,11 @@
 		});
 	};
 
-	debug.rwd.windowSizeRemove = function () {
+	debug.windowSizeOff = function () {
 		$('#debug-size').remove();
 	};
 
 	$(function () {
-		debug.rwd.buildPanel();
+		debug.buildPanel();
 	});
 }(window.siteName.debug = window.siteName.debug || {}, jQuery));
