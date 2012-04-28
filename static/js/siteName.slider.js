@@ -32,8 +32,10 @@
 				s.updateNav();
 			},
 			continuous: false,
-			speed: 500 // TODO: use 200 for swipe speed
+			speed: 500 // TODO: use 200 for swipe speed?
 		});
+
+		$slider.find('li').show();
 	};
 
 	s.navEvents = function () {
@@ -56,13 +58,14 @@
 
 		$sliderNav.find('.selected').removeClass('selected');
 		$sliderNav.find('li').eq(current).addClass('selected');
+		$sliderNav.find('.disabled').removeClass('disabled');
 
 		if (current === 0) {
 			$sliderNav.find('.slider-prev').addClass('disabled');
-		} else if (current === (sliderLength - 1)) {
+		}
+
+		if (current === (sliderLength - 1)) {
 			$sliderNav.find('.slider-next').addClass('disabled');
-		} else {
-			$sliderNav.find('.disabled').removeClass('disabled');
 		}
 	};
 
