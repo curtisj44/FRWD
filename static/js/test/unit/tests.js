@@ -90,39 +90,10 @@
 		strictEqual(typeof siteName.rwd.viewportWidth(), 'number', 'method always returns a number');
 	});
 
-	module('siteName.debug.rwd');
+	module('siteName.debug');
 
 	test('setup', function () {
 		strictEqual(typeof siteName.debug, 'object', 'siteName.debug object exists');
-		strictEqual(typeof siteName.debug.rwd, 'object', 'siteName.debug.rwd object exists');
-	});
-
-	test('background', function () {
-		siteName.debug.rwd.backgroundAdd();
-		strictEqual($('html').hasClass('debug'), true, 'debug class added to html tag');
-		siteName.debug.rwd.backgroundRemove();
-		strictEqual($('html').hasClass('debug'), false, 'debug class removed from html tag');
-	});
-
-	test('baseline', function () {
-		siteName.debug.rwd.baselineAdd();
-		strictEqual($('#debug-baseline').length, 1, '#debug-baseline added');
-		siteName.debug.rwd.baselineRemove();
-		strictEqual($('#debug-baseline').length, 0, '#debug-baseline removed');
-	});
-
-	test('boxes', function () {
-		siteName.debug.rwd.boxesAdd();
-		strictEqual($('.debug-box').length, 2, '.debug-box added');
-		siteName.debug.rwd.boxesRemove();
-		strictEqual($('.debug-box').length, 0, '.debug-box removed');
-	});
-
-	test('grid', function () {
-		siteName.debug.rwd.gridAdd();
-		strictEqual($('#debug-grid').length, 1, '#debug-grid added');
-		siteName.debug.rwd.gridRemove();
-		strictEqual($('#debug-grid').length, 0, '#debug-grid removed');
 	});
 
 	test('buildPanel', function () {
@@ -130,10 +101,38 @@
 		// TODO - add more tests here
 	});
 
+	test('background', function () {
+		siteName.debug.backgroundOn();
+		strictEqual($('html').hasClass('debug'), true, 'debug class added to html tag');
+		siteName.debug.backgroundOff();
+		strictEqual($('html').hasClass('debug'), false, 'debug class removed from html tag');
+	});
+
+	test('baseline', function () {
+		siteName.debug.baselineOn();
+		strictEqual($('#debug-baseline').length, 1, '#debug-baseline added');
+		siteName.debug.baselineOff();
+		strictEqual($('#debug-baseline').length, 0, '#debug-baseline removed');
+	});
+
+	test('boxes', function () {
+		siteName.debug.boxesOn();
+		strictEqual($('.debug-box').length, 2, '.debug-box added');
+		siteName.debug.boxesOff();
+		strictEqual($('.debug-box').length, 0, '.debug-box removed');
+	});
+
+	test('grid', function () {
+		siteName.debug.gridOn();
+		strictEqual($('#debug-grid').length, 1, '#debug-grid added');
+		siteName.debug.gridOff();
+		strictEqual($('#debug-grid').length, 0, '#debug-grid removed');
+	});
+
 	test('windowSize', function () {
-		siteName.debug.rwd.windowSizeAdd();
+		siteName.debug.windowSizeOn();
 		strictEqual($('#debug-size').length, 1, '#debug-size added');
-		siteName.debug.rwd.windowSizeRemove();
+		siteName.debug.windowSizeOff();
 		strictEqual($('#debug-size').length, 0, '#debug-size removed');
 	});
 
