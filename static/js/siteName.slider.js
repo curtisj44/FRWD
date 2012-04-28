@@ -8,21 +8,21 @@
 
 	s.buildNav = function () {
 		var i,
-			sliderNav = [
+			navArray = [
 				'<div class="slider-nav">',
 				'<ol>'
 			];
 
 		for (i = 0; i < sliderLength; i++) {
-			sliderNav.push('<li><button>' + (i + 1) + '</button></li>');
+			navArray.push('<li><button>' + (i + 1) + '</button></li>');
 		}
 
-		sliderNav.push('</ol>');
-		sliderNav.push('<button class="slider-prev">&lt;</button>');
-		sliderNav.push('<button class="slider-next">&gt;</button>');
-		sliderNav.push('</div>');
+		navArray.push('</ol>');
+		navArray.push('<button class="slider-prev">&lt;</button>');
+		navArray.push('<button class="slider-next">&gt;</button>');
+		navArray.push('</div>');
 
-		$slider.after(sliderNav.join(''));
+		$slider.after(navArray.join(''));
 		$sliderNav = $slider.next('.slider-nav');
 	};
 
