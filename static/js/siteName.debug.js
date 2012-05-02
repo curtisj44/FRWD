@@ -1,6 +1,26 @@
 (function (debug, $) {
 	'use strict';
 
+	debug.config = {
+		baseline: {
+			adjustStart: -5,
+			fontSize: 16,
+			lineHeight: 24
+		},
+		grid: {
+			columns: 6
+		},
+		mediaQueries: [
+			'(min-width:240px)',
+			'(min-width:320px)',
+			'(min-width:480px)',
+			'(min-width:600px)',
+			'(min-width:769px)',
+			'(min-width:992px)',
+			'(-moz-min-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5)'
+		]
+	};
+
 	debug.buildPanel = function () {
 		var $output = $('<div id="debug-panel">' +
 				'<button class="debug-view" data-close="&times;">&curren;</button>' +
@@ -90,11 +110,9 @@
 	};
 
 	debug.baselineOn = function () {
-		var adjustStart = -5,
-			fontSize = 16,
-			lineHeight = 24,
-			baselineHeight = (lineHeight - 1) / fontSize,
-			baselineLength = $(document).height() / lineHeight,
+		var config = debug.config.baseline,
+			baselineHeight = (config.lineHeight - 1) / config.fontSize,
+			baselineLength = $(document).height() / config.lineHeight,
 			i,
 			output = '';
 
@@ -102,7 +120,7 @@
 			output += '<li style="height:' + baselineHeight + 'em"></li>';
 		}
 
-		$('body').append('<ol id="debug-baseline" style="top:' + adjustStart + 'px">' + output + '</ol>');
+		$('body').append('<ol id="debug-baseline" style="top:' + config.adjustStart + 'px">' + output + '</ol>');
 	};
 
 	debug.baselineOff = function () {
@@ -127,20 +145,17 @@
 	};
 
 	debug.gridOn = function () {
-		var grid = '<div id="debug-grid">' +
-			'<div class="container">' +
-			'<div class="fields">' +
-			'<div class="region size1of6"></div>' +
-			'<div class="region size1of6"></div>' +
-			'<div class="region size1of6"></div>' +
-			'<div class="region size1of6"></div>' +
-			'<div class="region size1of6"></div>' +
-			'<div class="region size1of6"></div>' +
-			'</div>' +
-			'</div>' +
-			'</div>';
+		var i,
+			columns = debug.config.grid.columns,
+			grid = ['<div id="debug-grid">', '<div class="container">', '<div class="fields">'];
 
-		$('body').append(grid);
+		for (i = 0; i <= columns; i++) {
+			grid.push('<div class="region size1of' + columns + '"></div>');
+		}
+
+		grid.push('<div>', '<div>', '<div>');
+
+		$('body').append(grid.join(''));
 
 		if (!Modernizr.generatedcontent) {
 			$('#debug-grid .region').each(function () {
@@ -157,15 +172,7 @@
 		var $debugSize = $('<div id="debug-size"></div>').appendTo('body'),
 			updateSize = function () {
 				var content = siteName.rwd.viewportWidth() + ' &times; ' + siteName.rwd.viewportHeight(),
-					mediaQueries = [
-						'(min-width:240px)',
-						'(min-width:320px)',
-						'(min-width:480px)',
-						'(min-width:600px)',
-						'(min-width:769px)',
-						'(min-width:992px)',
-						'(-moz-min-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5)'
-					],
+					mediaQueries = debug.config.mediaQueries,
 					mediaQueriesActive = '';
 
 				$.each(mediaQueries, function (index, value) {
@@ -181,7 +188,7 @@
 				$debugSize.html(content);
 
 				$debugSize.find('.close').on('click', function () {
-					 $('#debug-panel').find('button[data-option="windowSize"]').trigger('click');
+					$('#debug-panel').find('button[data-option="windowSize"]').trigger('click');
 				});
 			};
 
