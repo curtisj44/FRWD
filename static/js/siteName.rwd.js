@@ -11,7 +11,7 @@
 				var bool = document.styleSheets[0].cssRules !== undefined && !!el.lastChild.sheet.cssRules[0];
 				document.body.removeChild(el);
 				return bool;
-			};
+			}
 
 			return isSelectorSupported(':nth-child(2n)');
 		});
@@ -42,14 +42,14 @@
 		// 20120129 version
 
 		// This fix addresses an iOS bug, so return early if the UA claims it's something else.
-		if (!(/iPhone|iPad|iPod/.test(navigator.platform) && navigator.userAgent.indexOf('AppleWebKit') > -1 )) {
+		if (!(/iPhone|iPad|iPod/.test(navigator.platform) && navigator.userAgent.indexOf('AppleWebKit') > -1)) {
 			return;
 		}
 
 		var w = window,
 			doc = w.document;
 
-		if (!doc.querySelector) {return;}
+		if (!doc.querySelector) return;
 
 		var meta = doc.querySelector('meta[name=viewport]'),
 			initialContent = meta && meta.getAttribute('content'),
@@ -61,7 +61,7 @@
 			z,
 			aig;
 
-		if (!meta) {return;}
+		if (!meta) return;
 
 		function restoreZoom() {
 			meta.setAttribute('content', enabledZoom);
@@ -145,19 +145,30 @@
 	};
 
 	rwd.matchViewport = function (value) {
-		if (!(value)) {
-			return false;
-		} else if (Modernizr.mq('only all')) {
-			if (Modernizr.mq(value)) {
-				return true;
-			} else {
-				return false;
-			}
-		} else if ((value.indexOf('min-width') > 0 && rwd.viewportWidth() >= value.replace('(min-width:', '').replace('px)', '')) || (value.indexOf('min-height') > 0 && rwd.viewportHeight() >= value.replace('(min-height:', '').replace('px)', ''))) {
-			return true;
-		} else {
-			return false;
+		// TODO - CJ - update unit tests
+
+		if (!(value)) return false;
+
+		value = rwd.mediaQueries[value];
+
+		if (Modernizr.mq('only all')) {
+			return (Modernizr.mq(value)) ? true : false;
 		}
+
+		return (
+				(value.indexOf('min-width') > 0 && rwd.viewportWidth() >= value.replace('(min-width:', '').replace('px)', '')) ||
+				(value.indexOf('min-height') > 0 && rwd.viewportHeight() >= value.replace('(min-height:', '').replace('px)', ''))
+			) ? true : false;
+	};
+
+	rwd.mediaQueries = {
+		XXS: '(min-width:240px)',
+		XS: '(min-width:320px)',
+		S: '(min-width:480px)',
+		M: '(min-width:600px)',
+		L: '(min-width:769px)',
+		XL: '(min-width:992px)',
+		Retina: '(-moz-min-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5)'
 	};
 
 	rwd.onDelayedResize = function (callback, fireNow) {
