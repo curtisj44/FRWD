@@ -9,30 +9,22 @@
 		},
 		grid: {
 			columns: 6
-		},
-		mediaQueries: [
-			'(min-width:240px)',
-			'(min-width:320px)',
-			'(min-width:480px)',
-			'(min-width:600px)',
-			'(min-width:769px)',
-			'(min-width:992px)',
-			'(-moz-min-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5)'
-		]
+		}
 	};
 
 	debug.buildPanel = function () {
-		var $output = $('<div id="debug-panel">' +
-				'<button class="debug-view" data-close="&times;">&curren;</button>' +
-				'<ul>' +
-				'<li><button data-option="background">Background</button></li>' +
-				'<li><button data-option="baseline">Baseline</button></li>' +
-				'<li><button data-option="boxes">Boxes</button></li>' +
-				'<li><button data-option="grid">Grid</button></li>' +
-				'<li><button data-option="windowSize">Window Size</button></li>' +
-				'</ul>' +
-				'</div>').appendTo('body'),
-			$panel = $('#debug-panel'),
+		$('<div id="debug-panel">' +
+			'<button class="debug-view" data-close="&times;">&curren;</button>' +
+			'<ul>' +
+			'<li><button data-option="background">Background</button></li>' +
+			'<li><button data-option="baseline">Baseline</button></li>' +
+			'<li><button data-option="boxes">Boxes</button></li>' +
+			'<li><button data-option="grid">Grid</button></li>' +
+			'<li><button data-option="windowSize">Window Size</button></li>' +
+			'</ul>' +
+			'</div>').appendTo('body');
+
+		var $panel = $('#debug-panel'),
 			$optionButtons = $panel.find('ul button'),
 			$viewButton = $panel.find('button.debug-view'),
 			optionsArray = [];
@@ -172,17 +164,18 @@
 		var $debugSize = $('<div id="debug-size"></div>').appendTo('body'),
 			updateSize = function () {
 				var content = siteName.rwd.viewportWidth() + ' &times; ' + siteName.rwd.viewportHeight(),
-					mediaQueries = debug.config.mediaQueries,
+					i,
+					mediaQueries = siteName.rwd.mediaQueries,
 					mediaQueriesActive = '';
 
-				$.each(mediaQueries, function (index, value) {
-					if (siteName.rwd.matchViewport(value)) {
-						mediaQueriesActive += '<li>' + value + '</li>';
+				for (i in mediaQueries) {
+					if (siteName.rwd.matchViewport(i)) {
+						mediaQueriesActive += '<li>' + i + ' = ' + mediaQueries[i] + '</li>';
 					}
-				});
+				}
 
 				content += '<ol>' + (mediaQueriesActive || '<li>no active media queries</li>') + '</ol>';
-				content += (Modernizr.mq('all')) ? '' : '(polyfilled)';
+				content += (Modernizr.mq('only all')) ? '' : '(polyfilled)';
 				content += '<button class="close">&times;</button>';
 
 				$debugSize.html(content);
