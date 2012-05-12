@@ -82,9 +82,9 @@ button.slider-next {
 	background:#fff}
 
 
-/* MEDIA QUERY: 600px
+/* MEDIA QUERY: 37.5em / 600px
 ---------------------------------------------------------------------------------------- //// */
-@media (min-width:600px) {
+@media (min-width:37.5em) {
 	/* slider nav ----------------------------------------------- //// */
 	.slider-nav {
 		padding:1em 0}

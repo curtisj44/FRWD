@@ -58,9 +58,9 @@ th:before {
 	border-top:1px solid #000}
 
 
-/* MEDIA QUERY: 600px
+/* MEDIA QUERY: 37.5em / 600px
 ---------------------------------------------------------------------------------------- //// */
-@media (min-width:600px) {
+@media (min-width:37.5em) {
 	.generatedcontent table {
 		display:table}
 	.generatedcontent thead {
