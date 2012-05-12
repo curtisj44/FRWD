@@ -4,8 +4,8 @@
 	debug.config = {
 		baseline: {
 			adjustStart: -5,
-			fontSize: 16,
-			lineHeight: 24
+			fontSize: 16, // TODO - CJ - calculate from <html>
+			lineHeight: 24  // TODO - CJ - calculate from <html>
 		},
 		grid: {
 			columns: 6
@@ -39,14 +39,14 @@
 				$option = $input.attr('data-option');
 
 			if ($input.hasClass('on')) {
-				debug[$option + 'Off']();
+				debug[$option].off();
 				$input.removeClass('on');
 
 				if (Modernizr.localstorage) {
 					localStorage.removeItem('debug-' + $option);
 				}
 			} else {
-				debug[$option + 'On']();
+				debug[$option].on();
 				$input.addClass('on');
 
 				if (Modernizr.localstorage) {
@@ -93,107 +93,132 @@
 		});
 	};
 
-	debug.backgroundOn = function () {
-		$('html').addClass('debug');
-	};
+	debug.background = {
+		off: function () {
+			$('html').removeClass('debug');
+		},
 
-	debug.backgroundOff = function () {
-		$('html').removeClass('debug');
-	};
-
-	debug.baselineOn = function () {
-		var config = debug.config.baseline,
-			baselineHeight = (config.lineHeight - 1) / config.fontSize,
-			baselineLength = $(document).height() / config.lineHeight,
-			i,
-			output = '';
-
-		for (i = baselineLength; i > 0; i -= 1) {
-			output += '<li style="height:' + baselineHeight + 'em"></li>';
+		on: function () {
+			$('html').addClass('debug');
 		}
-
-		$('body').append('<ol id="debug-baseline" style="top:' + config.adjustStart + 'px">' + output + '</ol>');
 	};
 
-	debug.baselineOff = function () {
-		$('#debug-baseline').remove();
-	};
+	debug.baseline = {
+		off: function () {
+			$('#debug-baseline').remove();
+		},
 
-	debug.boxesOn = function () {
-		$.each($('.region').not('#debug-grid .region, .region .region'), function (index, value) {
-			$(value).wrapInner('<div class="debug-box"></div>');
-			$(value).find('.debug-box').append('<div class="debug-number">' + (index + 1) + '</div>');
-		});
-	};
+		on: function () {
+			var config = debug.config.baseline,
+				baselineHeight = (config.lineHeight - 1) / config.fontSize,
+				baselineLength = $(document).height() / config.lineHeight,
+				i,
+				output = '';
 
-	debug.boxesOff = function () {
-		$('.debug-number').remove();
+			for (i = baselineLength; i > 0; i -= 1) {
+				output += '<li style="height:' + baselineHeight + 'em"></li>';
+			}
 
-		$.each($('.debug-box'), function (index, value) {
-			var $debugBox = $(value);
-			$debugBox.contents().appendTo($debugBox.parent());
-			$debugBox.remove();
-		});
-	};
-
-	debug.gridOn = function () {
-		var i,
-			columns = debug.config.grid.columns,
-			grid = ['<div id="debug-grid">', '<div class="container">', '<div class="fields">'];
-
-		for (i = 0; i <= columns; i++) {
-			grid.push('<div class="region size1of' + columns + '"></div>');
+			$('body').append('<ol id="debug-baseline" style="top:' + config.adjustStart + 'px">' + output + '</ol>');
 		}
+	};
 
-		grid.push('<div>', '<div>', '<div>');
+	debug.boxes = {
+		off: function () {
+			$('.debug-number').remove();
 
-		$('body').append(grid.join(''));
+			$.each($('.debug-box'), function (index, value) {
+				var $debugBox = $(value);
+				$debugBox.contents().appendTo($debugBox.parent());
+				$debugBox.remove();
+			});
+		},
 
-		if (!Modernizr.generatedcontent) {
-			$('#debug-grid .region').each(function () {
-				$(this).prepend('<div class="before"></div>');
+		on: function () {
+			$.each($('.region').not('#debug-grid .region, .region .region'), function (index, value) {
+				$(value).wrapInner('<div class="debug-box"></div>');
+				$(value).find('.debug-box').append('<div class="debug-number">' + (index + 1) + '</div>');
 			});
 		}
 	};
 
-	debug.gridOff = function () {
-		$('#debug-grid').remove();
+	debug.grid = {
+		off: function () {
+			$('#debug-grid').remove();
+		},
+
+		on: function () {
+			var i,
+				columns = debug.config.grid.columns,
+				grid = ['<div id="debug-grid">', '<div class="container">', '<div class="fields">'];
+
+			for (i = 0; i <= columns; i++) {
+				grid.push('<div class="region size1of' + columns + '"></div>');
+			}
+
+			grid.push('<div>', '<div>', '<div>');
+
+			$('body').append(grid.join(''));
+
+			if (!Modernizr.generatedcontent) {
+				$('#debug-grid .region').each(function () {
+					$(this).prepend('<div class="before"></div>');
+				});
+			}
+		}
 	};
 
-	debug.windowSizeOn = function () {
-		var $debugSize = $('<div id="debug-size"></div>').appendTo('body'),
-			updateSize = function () {
-				var content = siteName.rwd.viewportWidth() + ' &times; ' + siteName.rwd.viewportHeight(),
-					i,
-					mediaQueries = siteName.rwd.mediaQueries,
-					mediaQueriesActive = '';
+	debug.windowSize = {
+		off: function () {
+			$('#debug-size').remove();
+		},
 
-				for (i in mediaQueries) {
-					if (siteName.rwd.matchViewport(i)) {
-						mediaQueriesActive += '<li>' + i + ' = ' + mediaQueries[i] + '</li>';
-					}
+		on: function () {
+			$('body').append('<div id="debug-size"></div>');
+
+			var $debugSize = $('#debug-size'),
+				content = [],
+				rwd = siteName.rwd,
+				updateSize = function () {
+					$debugSize.find('span').html(rwd.viewportWidth() + ' &times; ' + rwd.viewportHeight());
+				};
+
+			content.push('<span>?</span>');
+			content.push('<ol>');
+			content.push('<li class="none">no active media queries</li>');
+
+			$.each(rwd.mediaQueries, function (index, value) {
+				var query = value.query,
+					width;
+
+				if (query.indexOf('min-width') > 0 && query.indexOf('em') > 0) {
+					width = query.replace('(min-width:', '').replace('em)', '') * debug.config.baseline.fontSize + 'px';
 				}
 
-				content += '<ol>' + (mediaQueriesActive || '<li>no active media queries</li>') + '</ol>';
-				content += (Modernizr.mq('only all')) ? '' : '(polyfilled)';
-				content += '<button class="close">&times;</button>';
+				content.push('<li class="' + index + '">' + index + ' = ' + query + ((width) ? ' = ' + width : '') + '</li>');
+			});
 
-				$debugSize.html(content);
+			content.push('</ol>');
 
-				$debugSize.find('.close').on('click', function () {
-					$('#debug-panel').find('button[data-option="windowSize"]').trigger('click');
-				});
-			};
+			// TODO - CJ - add this back in?
+			//if (!(Modernizr.mq('all'))) {
+			//	content.push('(polyfilled)');
+			//}
 
-		updateSize();
+			content.push('<button class="close">&times;</button>');
 
-		$(window).resize(function () {
+			$debugSize.html(content.join(''));
+
+			$debugSize.find('.close').on('click', function () {
+				$('#debug-panel').find('button[data-option="windowSize"]').trigger('click');
+			});
+
 			updateSize();
-		});
-	};
 
-	debug.windowSizeOff = function () {
-		$('#debug-size').remove();
+			$(window).resize(function () {
+				updateSize();
+			});
+		}
 	};
 
 	$(function () {
