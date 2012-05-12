@@ -103,7 +103,7 @@
 				var blocksEnd = false,
 					blocksStart = false;
 
-				if (rwd.matchViewport('(min-width:600px)')) {
+				if (rwd.matchViewport('M')) {
 					blocksEnd = '.blocks-two-up > li:nth-child(2n),' +
 						'.blocks-three-up > li:nth-child(3n),' +
 						'.blocks-four-up > li:nth-child(4n),' +
@@ -114,7 +114,7 @@
 						'.blocks-four-up > li:nth-child(4n+1),' +
 						'.blocks-five-up > li:nth-child(5n+1),' +
 						'.blocks-six-up > li:nth-child(6n+1)';
-				} else if (rwd.matchViewport('(min-width:480px)')) {
+				} else if (rwd.matchViewport('S')) {
 					blocksEnd = '.blocks-two-up > li:nth-child(2n),' +
 						'.blocks-three-up > li:nth-child(3n),' +
 						'.blocks-four-up > li:nth-child(2n),' +
@@ -125,7 +125,7 @@
 						'.blocks-four-up > li:nth-child(2n+1),' +
 						'.blocks-five-up > li:nth-child(3n+1),' +
 						'.blocks-six-up > li:nth-child(3n+1)';
-				} else if (rwd.matchViewport('(min-width:320px)')) {
+				} else if (rwd.matchViewport('XS')) {
 					blocksEnd = '.blocks > li:nth-child(2n)';
 					blocksStart = '.blocks > li:nth-child(2n+1)';
 				}
@@ -145,30 +145,28 @@
 	};
 
 	rwd.matchViewport = function (value) {
-		// TODO - CJ - update unit tests
+		if (!(value) || !(rwd.mediaQueries[value])) return false;
 
-		if (!(value)) return false;
-
-		value = rwd.mediaQueries[value];
+		value = rwd.mediaQueries[value].query;
 
 		if (Modernizr.mq('only all')) {
 			return (Modernizr.mq(value)) ? true : false;
-		}
-
-		return (
+		} else {
+			return (
 				(value.indexOf('min-width') > 0 && rwd.viewportWidth() >= value.replace('(min-width:', '').replace('px)', '')) ||
 				(value.indexOf('min-height') > 0 && rwd.viewportHeight() >= value.replace('(min-height:', '').replace('px)', ''))
 			) ? true : false;
+		}
 	};
 
 	rwd.mediaQueries = {
-		XXS: '(min-width:240px)',
-		XS: '(min-width:320px)',
-		S: '(min-width:480px)',
-		M: '(min-width:600px)',
-		L: '(min-width:769px)',
-		XL: '(min-width:992px)',
-		Retina: '(-moz-min-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5)'
+		'XXS': {'query': '(min-width:15em)'},		// 240px
+		'XS':  {'query': '(min-width:20em)'},		// 320px
+		'S':   {'query': '(min-width:30em)'},		// 480px
+		'M':   {'query': '(min-width:37.5em)'},		// 600px
+		'L':   {'query': '(min-width:48.0625em)'},	// 769px
+		'XL':  {'query': '(min-width:62em)'},		// 992px
+		'High-DPI': {'query': '(-moz-min-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5)'}
 	};
 
 	rwd.onDelayedResize = function (callback, fireNow) {
