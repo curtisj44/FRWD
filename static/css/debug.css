@@ -22,11 +22,11 @@
 	cursor:pointer}
 #debug-panel button:active,
 #debug-size button:active {
-	padding-top:3px;
-	padding-bottom:0;
-	-moz-box-shadow:   0 3px 0 rgba(0,0,0,.1) inset, 0 2px 3px rgba(0,0,0,.3) inset;
-	-webkit-box-shadow:0 3px 0 rgba(0,0,0,.1) inset, 0 2px 3px rgba(0,0,0,.3) inset;
-	box-shadow:        0 3px 0 rgba(0,0,0,.1) inset, 0 2px 3px rgba(0,0,0,.3) inset}
+	padding-top:2px;
+	padding-bottom:1px;
+	-moz-box-shadow:   0 3px 2px rgba(0, 0, 0, 0.1) inset, 0 0 2px rgba(0, 0, 0, 0.1) inset;
+	-webkit-box-shadow:0 3px 2px rgba(0, 0, 0, 0.1) inset, 0 0 2px rgba(0, 0, 0, 0.1) inset;
+	box-shadow:        0 3px 2px rgba(0, 0, 0, 0.1) inset, 0 0 2px rgba(0, 0, 0, 0.1) inset}
 
 /* panel ----------------------------------------------- //// */
 #debug-panel {
@@ -257,18 +257,20 @@
 	-moz-border-radius:3px;
 	-webkit-border-radius:3px;
 	border-radius:3px;
+	color:#000;
+	color:rgba(255,255,255,.7);
 	list-style:none}
 #debug-size li {
+	display:none;
 	margin:0;
 	padding:.5em .75em;
 	border-top:1px solid rgba(0,0,0,.7);
-	background:none;
-	color:#000;
-	color:rgba(255,255,255,.7)}
+	background:none}
+#debug-size .none {
+	display:block}
+
 #debug-size li:first-child {
 	border:0}
-#debug-size li:last-child {
-	color:rgba(255,255,255,1)}
 
 #debug-size .close {
 	position:absolute;
@@ -281,64 +283,78 @@
 	color:#fff;
 	font-size:16px}
 
-/* MEDIA QUERY: 240px
+/* MEDIA QUERY: 15em / 240px
 ---------------------------------------------------------------------------------------- //// */
-@media (min-width:240px) {
+@media (min-width:15em) {
 	.debug,
 	#debug-size ol {
 		/* pink */
 		background-color:#fcf;
 		background-color:rgba(255,0,255,.2)}
+	#debug-size .none {
+		display:none}
+	#debug-size .XXS {
+		display:block}
 }
 
-/* MEDIA QUERY: 320px
+/* MEDIA QUERY: 20em / 320px
 ---------------------------------------------------------------------------------------- //// */
-@media (min-width:320px) {
+@media (min-width:20em) {
 	.debug,
 	#debug-size ol {
 		/* yellow */
 		background-color:#ffc;
 		background-color:rgba(255,255,0,.2)}
+	#debug-size .XS {
+		display:block}
 }
 
-/* MEDIA QUERY: 480px
+/* MEDIA QUERY: 30em / 480px
 ---------------------------------------------------------------------------------------- //// */
-@media (min-width:480px) {
+@media (min-width:30em) {
 	.debug,
 	#debug-size ol {
 		/* red */
 		background-color:#fcc;
 		background-color:rgba(255,0,0,.2)}
+	#debug-size .S {
+		display:block}
 }
 
-/* MEDIA QUERY: 600px
+/* MEDIA QUERY: 37.5em / 600px
 ---------------------------------------------------------------------------------------- //// */
-@media (min-width:600px) {
+@media (min-width:37.5em) {
 	.debug,
 	#debug-size ol {
 		/* blue */
 		background-color:#cce0ff;
 		background-color:rgba(0,100,255,.2)}
+	#debug-size .M {
+		display:block}
 }
 
-/* MEDIA QUERY: 769px
+/* MEDIA QUERY: 48.0625em / 769px
 ---------------------------------------------------------------------------------------- //// */
-@media (min-width:769px) {
+@media (min-width:48.0625em) {
 	.debug,
 	#debug-size ol {
 		/* green */
 		background-color:#cfc;
 		background-color:rgba(0,255,0,.2)}
+	#debug-size .L {
+		display:block}
 }
 
-/* MEDIA QUERY: 992px
+/* MEDIA QUERY: 62em / 992px
 ---------------------------------------------------------------------------------------- //// */
-@media (min-width:992px) {
+@media (min-width:62em) {
 	.debug,
 	#debug-size ol {
 		/* yellow */
 		background-color:#ffc;
 		background-color:rgba(255,255,0,.2)}
+	#debug-size .XL {
+		display:block}
 }
 
 /* MEDIA QUERY: high-resolution device
@@ -352,4 +368,6 @@
 		/* orange */
 		background-color:#ffe0cc;
 		background-color:rgba(255,100,0,.2)}
+	#debug-size .High-DPI {
+		display:block}
 }
