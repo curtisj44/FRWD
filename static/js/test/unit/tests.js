@@ -48,7 +48,7 @@
 
 	test('fixiOSOrientation', function () {
 		strictEqual(typeof siteName.rwd.fixiOSOrientation, 'function', 'method exists');
-		// TODO - figure out how to unit test this?
+		// TODO - CJ - figure out how to unit test this?
 	});
 
 	test('fixNthChild', function () {
@@ -67,11 +67,10 @@
 
 	test('matchViewport', function () {
 		strictEqual(typeof siteName.rwd.matchViewport(), 'boolean', 'method returns a boolean value');
-		strictEqual(siteName.rwd.matchViewport('(min-width:1px)'), true, 'min-width: 1px');
-		strictEqual(siteName.rwd.matchViewport('(min-height:1px)'), true, 'min-height: 1px');
 		strictEqual(siteName.rwd.matchViewport(), false, 'if no value is defined, return false');
 		strictEqual(siteName.rwd.matchViewport(''), false, 'an empty string should return false');
-		//strictEqual(siteName.rwd.matchViewport('foo'), false, 'a non-valid media query value should return false'); // TODO - this doesn't work in IE9
+		strictEqual(siteName.rwd.matchViewport('foo'), false, 'A non-match such as "foo" should always return false');
+		strictEqual(siteName.rwd.matchViewport('XS'), true, 'XS should almost always be true');
 	});
 
 	test('onDelayedResize', function () {
@@ -98,45 +97,45 @@
 
 	test('buildPanel', function () {
 		strictEqual($('#debug-panel').length, 1, '#debug-panel added');
-		// TODO - add more tests here
+		// TODO - CJ - add more tests here
 	});
 
 	test('background', function () {
-		siteName.debug.backgroundOn();
+		siteName.debug.background.on();
 		strictEqual($('html').hasClass('debug'), true, 'debug class added to html tag');
-		siteName.debug.backgroundOff();
+		siteName.debug.background.off();
 		strictEqual($('html').hasClass('debug'), false, 'debug class removed from html tag');
 	});
 
 	test('baseline', function () {
-		siteName.debug.baselineOn();
+		siteName.debug.baseline.on();
 		strictEqual($('#debug-baseline').length, 1, '#debug-baseline added');
-		siteName.debug.baselineOff();
+		siteName.debug.baseline.off();
 		strictEqual($('#debug-baseline').length, 0, '#debug-baseline removed');
 	});
 
 	test('boxes', function () {
-		siteName.debug.boxesOn();
+		siteName.debug.boxes.on();
 		strictEqual($('.debug-box').length, 2, '.debug-box added');
-		siteName.debug.boxesOff();
+		siteName.debug.boxes.off();
 		strictEqual($('.debug-box').length, 0, '.debug-box removed');
 	});
 
 	test('grid', function () {
-		siteName.debug.gridOn();
+		siteName.debug.grid.on();
 		strictEqual($('#debug-grid').length, 1, '#debug-grid added');
-		siteName.debug.gridOff();
+		siteName.debug.grid.off();
 		strictEqual($('#debug-grid').length, 0, '#debug-grid removed');
 	});
 
 	test('windowSize', function () {
-		siteName.debug.windowSizeOn();
+		siteName.debug.windowSize.on();
 		strictEqual($('#debug-size').length, 1, '#debug-size added');
-		siteName.debug.windowSizeOff();
+		siteName.debug.windowSize.off();
 		strictEqual($('#debug-size').length, 0, '#debug-size removed');
 	});
 
 
 	//module('siteName.slider');
-	// TODO - add tests for this as well
+	// TODO - CJ - add tests for this as well
 });
