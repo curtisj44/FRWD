@@ -1,0 +1,115 @@
+﻿/* Reference
+---------------------------------------------------------------------------------------- //// */
+
+/* reset, redefine ----------------------------------------------- //// */
+html,
+body {
+	margin:0;
+	padding:0;
+	border:0}
+html {
+	overflow-y:scroll;
+	-ms-text-size-adjust:100%;
+	-webkit-text-size-adjust:100%}
+body {
+	background:#fff;
+	color:#000;
+	font:12px/1.6 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	text-rendering:optimizeLegibility}
+
+/* Index Pages
+---------------------------------------------------------------------------------------- //// */
+
+#index,
+#tests {
+	margin:0 auto;
+	max-width:50em;
+	background:#fff}
+#index {
+	padding:10%}
+
+#index .updated {
+	margin:0 0 2em;
+	padding:.7em 5px;
+	border:1px solid #d0d0d0;
+	border-width:1px 0;
+	color:#333}
+
+#index p,
+#index h1,
+#index h2,
+#index h3,
+#index h4,
+#index h5,
+#index h6,
+#index ul,
+#index ol,
+#index li {
+	margin:0 0 1em;
+	padding:0}
+
+#index em {
+	color:#999}
+
+/* links ----------------------------------------------- //// */
+#index a {
+	font-weight:bold}
+#index a:link,
+#index a:visited {
+	color:#18a;
+	text-decoration:none}
+#index a:hover,
+#index a:focus,
+#index a:active {
+	color:#3ac;
+	text-decoration:underline}
+
+/* headings ----------------------------------------------- //// */
+#index h1,
+#index h2,
+#index h3,
+#index h4,
+#index h5,
+#index h6 {
+	font-size:1em;
+	line-height:1}
+
+#index h1 {
+	margin:1em 0 .5em;
+	font-size:36px}
+#index h2 {
+	padding:1em 0 .25em;
+	border-bottom:1px solid #eee;
+	font-size:16px;
+	color:#666}
+#index h3 {
+	font-size:14px}
+
+/* lists ----------------------------------------------- */
+#index ol,
+#index ul {
+	margin:0 0 2em 30px}
+#index ul ul,
+#index ul ol,
+#index ol ul,
+#index ol ol {
+	margin-top:1em;
+	margin-right:0}
+
+#index li li a {
+	font-weight:normal}
+
+/* variations */
+#index .upper-alpha {
+	list-style:upper-alpha}
+
+/* MEDIA QUERY: 769px
+---------------------------------------------------------------------------------------- //// */
+@media (min-width:769px) {
+	body {
+		background:#ccc}
+
+	/* index ----------------------------------------------- //// */
+	#index {
+		padding:5%}
+}
