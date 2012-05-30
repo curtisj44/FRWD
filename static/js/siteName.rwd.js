@@ -42,9 +42,7 @@
 		// 20120129 version
 
 		// This fix addresses an iOS bug, so return early if the UA claims it's something else.
-		if (!(/iPhone|iPad|iPod/.test(navigator.platform) && navigator.userAgent.indexOf('AppleWebKit') > -1)) {
-			return;
-		}
+		if (!(/iPhone|iPad|iPod/.test(navigator.platform) && navigator.userAgent.indexOf('AppleWebKit') > -1)) return;
 
 		var w = window,
 			doc = w.document;
