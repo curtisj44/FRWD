@@ -5,13 +5,13 @@ html {
 	background:#fff;
 	/*text-rendering:optimizeLegibility;*/
 	/*-webkit-font-smoothing:antialiased;*/
-	-ms-text-size-adjust:100%;
+	-ms-text-size-adjust:    100%;
 	-webkit-text-size-adjust:100%;
 	/* word-wrap:break-word */
 	/*
+	-moz-hyphens:   auto;
 	-webkit-hyphens:auto;
-	-moz-hyphens:auto;
-	hyphens:auto
+	hyphens:        auto
 	*/
 	}
 body {
