@@ -146,15 +146,10 @@
 	rwd.matchViewport = function (value) {
 		if (!(value) || !(rwd.mediaQueries[value])) return false;
 
-		value = rwd.mediaQueries[value].query;
-
-		if (Modernizr.mq('only all')) {
-			return (Modernizr.mq(value)) ? true : false;
+		if (window.matchMedia) {
+			return (window.matchMedia(rwd.mediaQueries[value].query).matches) ? true : false;
 		} else {
-			return (
-				(value.indexOf('min-width') > 0 && rwd.viewportWidth() >= value.replace('(min-width:', '').replace('px)', '')) ||
-				(value.indexOf('min-height') > 0 && rwd.viewportHeight() >= value.replace('(min-height:', '').replace('px)', ''))
-			) ? true : false;
+			return ($('head').css('font-family').indexOf('/' + value) > 0) ? true : false;
 		}
 	};
 
