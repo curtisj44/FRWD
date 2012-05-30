@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="ie6" lang="en"><![endif]-->
+<!--[if IE 7]><html class="ie7" lang="en"><![endif]-->
+<!--[if IE 8]><html class="ie8" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+	<head>
+		<meta charset="utf-8" />
+		<title>FRWD</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<link rel="stylesheet" href="static/css/reset.css" media="screen, print" />
+		<link rel="stylesheet" href="static/css/redefine.css" media="screen, print" />
+		<link rel="stylesheet" href="static/css/forms.css" media="screen, print" />
+		<link rel="stylesheet" href="static/css/table.css" media="screen, print" />
+		<link rel="stylesheet" href="static/css/grid.css" media="screen, print" />
+		<link rel="stylesheet" href="static/css/print.css" />
+		<link rel="stylesheet" href="static/css/debug.css" media="screen, print" />
+
+		<style>
+			@media (min-width:30em) {
+				h1 {
+					font-size:130px;
+					line-height:1em;
+					text-align:center}
+			}
+
+			@media (min-width:48.0625em) {
+				h1 {
+					font-size:200px}
+			}
+		</style>
+
+		<script src="static/js/modernizr.custom.js"></script>
+		<!--[if lte IE 8]><script src="static/js/respond.min.js"></script><![endif]-->
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="fields">
+				<div class="region size1of1">
+					<h1>FRWD</h1>
+				</div>
+			</div>
+
+			<div class="fields">
+				<div class="region size2of3 region-centered">
+
+					<ul class="blocks blocks-two-up">
+						<li>
+							<h2>Demos</h2>
+							<ul>
+								<li><a href="demo1.htm">Demo 1</a></li>
+								<li><a href="demo2.htm">Demo 2</a></li>
+								<li><a href="demo3.htm">Demo 3</a></li>
+								<li><a href="demo4.htm">Demo 4</a></li>
+								<li><a href="demo-touch.htm">Touch Events</a></li>
+							</ul>
+						</li>
+						<li>
+							<h2><a href="static/reference/index.htm">Reference</a></h2>
+							<ul>
+								<li><a href="static/reference/styleguide/index.htm">Style Guide</a></li>
+								<li><a href="static/reference/tests/index.htm">JavaScript Unit Tests</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="static/js/jquery-1.7.2.min.js"><\/script>');</script>
+		<script src="static/js/siteName.js"></script>
+		<script src="static/js/siteName.rwd.js"></script>
+		<script src="static/js/siteName.debug.js"></script>
+
+		<script>
+			$(function () {
+				var turnOn = function (buttons) {
+					$.each(buttons, function (index, value) {
+						var $button = $('#debug-panel').find('[data-option="' + value + '"]');
+
+						if (!($button.hasClass('on'))) {
+							$button.trigger('click');
+						}
+					});
+				};
+
+				turnOn(['background', 'baseline', 'grid']);
+			});
+		</script>
+	</body>
+</html>
