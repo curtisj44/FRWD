@@ -221,6 +221,14 @@
 		}
 	};
 
+	debug.viewportHeight = function () {
+		return window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || 0;
+	};
+
+	debug.viewportWidth = function () {
+		return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth || 0;
+	};
+
 	$(function () {
 		debug.buildPanel();
 	});
