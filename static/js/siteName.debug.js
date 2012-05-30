@@ -2,13 +2,12 @@
 	'use strict';
 
 	debug.config = {
-		baseline: {
-			adjustStart: -5,
-			fontSize: 16, // TODO - CJ - calculate from <html>
-			lineHeight: 24  // TODO - CJ - calculate from <html>
-		},
-		grid: {
-			columns: 6
+		baselineAdjust: -5,
+		fontSize: $('html').css('font-size').replace('px', ''),
+		gridColumns: 6,
+		lineHeight: function () {
+			var value = $('body').css('line-height');
+			return (value.indexOf('px') > -1) ? value.replace('px', '') : value * debug.config.fontSize;
 		}
 	};
 
@@ -24,73 +23,81 @@
 			'</ul>' +
 			'</div>').appendTo('body');
 
-		var $panel = $('#debug-panel'),
-			$optionButtons = $panel.find('ul button'),
-			$viewButton = $panel.find('button.debug-view'),
-			optionsArray = [];
+		var $panel = $('#debug-panel');
 
-		$.each($optionButtons, function (index, value) {
-			optionsArray.push($(value).attr('data-option'));
-		});
+		debug.buildButtons.options($panel);
+		debug.buildButtons.view($panel);
+	};
 
-		/* ---- option buttons ---- */
-		$optionButtons.on('click', function () {
-			var $input = $(this),
-				$option = $input.attr('data-option');
+	debug.buildButtons = {
+		options: function ($panel) {
+			var $optionButtons = $panel.find('[data-option]'),
+				optionsArray = [];
 
-			if ($input.hasClass('on')) {
-				debug[$option].off();
-				$input.removeClass('on');
+			$.each($optionButtons, function (index, value) {
+				optionsArray.push($(value).attr('data-option'));
+			});
 
-				if (Modernizr.localstorage) {
-					localStorage.removeItem('debug-' + $option);
-				}
-			} else {
-				debug[$option].on();
-				$input.addClass('on');
+			/* ---- option buttons ---- */
+			$optionButtons.on('click', function () {
+				var $input = $(this),
+					$option = $input.attr('data-option');
 
-				if (Modernizr.localstorage) {
-					localStorage.setItem('debug-' + $option, true);
-				}
-			}
-		});
+				if ($input.hasClass('on')) {
+					debug[$option].off();
+					$input.removeClass('on');
 
-		if (Modernizr.localstorage) {
-			$.each(optionsArray, function (index, value) {
-				if (localStorage.getItem('debug-' + value) === 'true') {
-					$optionButtons.filter('[data-option="' + value + '"]').trigger('click');
+					if (Modernizr.localstorage) {
+						localStorage.removeItem('debug-' + $option);
+					}
+				} else {
+					debug[$option].on();
+					$input.addClass('on');
+
+					if (Modernizr.localstorage) {
+						localStorage.setItem('debug-' + $option, true);
+					}
 				}
 			});
-		}
 
-		/* ---- view button ---- */
-		var closePanel = function () {
-				$panel.removeClass('open');
-				$viewButton.html($viewButton.attr('data-open'));
-				$(document).off('click.debugPanel');
-			},
-			openPanel = function () {
-				$panel.addClass('open');
-				$viewButton.html($viewButton.attr('data-close'));
-
-				$(document).on('click.debugPanel', function (e) {
-					if ($(e.target).parents().filter($panel).length !== 1) {
-						closePanel();
+			if (Modernizr.localstorage) {
+				$.each(optionsArray, function (index, value) {
+					if (localStorage.getItem('debug-' + value) === 'true') {
+						$optionButtons.filter('[data-option="' + value + '"]').trigger('click');
 					}
 				});
-			};
-
-		$viewButton.attr('data-open', $viewButton.html());
-
-		$viewButton.on('click', function () {
-			if ($panel.hasClass('open')) {
-				closePanel();
-			} else {
-				openPanel();
 			}
+		},
+		view: function ($panel) {
+			var $viewButton = $panel.find('button.debug-view'),
+				closePanel = function () {
+					$panel.removeClass('open');
+					$viewButton.html($viewButton.attr('data-open'));
+					$(document).off('click.debugPanel');
+				},
+				openPanel = function () {
+					$panel.addClass('open');
+					$viewButton.html($viewButton.attr('data-close'));
 
-			return false;
-		});
+					$(document).on('click.debugPanel', function (e) {
+						if ($(e.target).parents().filter($panel).length !== 1) {
+							closePanel();
+						}
+					});
+				};
+
+			$viewButton.attr('data-open', $viewButton.html());
+
+			$viewButton.on('click', function () {
+				if ($panel.hasClass('open')) {
+					closePanel();
+				} else {
+					openPanel();
+				}
+
+				return false;
+			});
+		}
 	};
 
 	debug.background = {
@@ -109,17 +116,17 @@
 		},
 
 		on: function () {
-			var config = debug.config.baseline,
-				baselineHeight = (config.lineHeight - 1) / config.fontSize,
-				baselineLength = $(document).height() / config.lineHeight,
+			var config = debug.config,
+				baselineHeight = (config.lineHeight() - 1) / config.fontSize,
+				baselineLength = $(document).height() / config.lineHeight(),
 				i,
-				output = '';
+				output = [];
 
-			for (i = baselineLength; i > 0; i -= 1) {
-				output += '<li style="height:' + baselineHeight + 'em"></li>';
+			for (i = 0; i <= baselineLength; i++) {
+				output.push('<li style="height:' + baselineHeight + 'em"></li>');
 			}
 
-			$('body').append('<ol id="debug-baseline" style="top:' + config.adjustStart + 'px">' + output + '</ol>');
+			$('body').append('<ol id="debug-baseline" style="top:' + config.baselineAdjust + 'px">' + output.join('') + '</ol>');
 		}
 	};
 
@@ -149,7 +156,7 @@
 
 		on: function () {
 			var i,
-				columns = debug.config.grid.columns,
+				columns = debug.config.gridColumns,
 				grid = ['<div id="debug-grid">', '<div class="container">', '<div class="fields">'];
 
 			for (i = 0; i <= columns; i++) {
@@ -178,32 +185,43 @@
 
 			var $debugSize = $('#debug-size'),
 				content = [],
-				rwd = siteName.rwd,
+				mediaQueries = siteName.rwd.mediaQueries,
 				updateSize = function () {
-					$debugSize.find('span').html(rwd.viewportWidth() + ' &times; ' + rwd.viewportHeight());
+					$debugSize.find('span').html(debug.viewportWidth() + ' &times; ' + debug.viewportHeight());
+
+					$.each(mediaQueries, function (index, value) {
+						var result = siteName.rwd.matchViewport(index);
+						$debugSize.find('.' + index).removeClass('' + !result).addClass('' + result);
+					});
 				};
 
 			content.push('<span>?</span>');
-			content.push('<ol>');
-			content.push('<li class="none">no active media queries</li>');
+			content.push('<table>');
+			content.push('<tr class="none true"><td colspan="3">no active media queries</td></tr>');
 
-			$.each(rwd.mediaQueries, function (index, value) {
+			$.each(mediaQueries, function (index, value) {
 				var query = value.query,
-					width;
+					pixelWidth,
+					tr;
 
 				if (query.indexOf('min-width') > 0 && query.indexOf('em') > 0) {
-					width = query.replace('(min-width:', '').replace('em)', '') * debug.config.baseline.fontSize + 'px';
+					pixelWidth = Math.round(query.replace('(min-width:', '').replace('em)', '') * debug.config.fontSize * 100000) / 100000;
 				}
 
-				content.push('<li class="' + index + '">' + index + ' = ' + query + ((width) ? ' = ' + width : '') + '</li>');
+				tr = '<tr class="' + index + '">' +
+						'<th>' + index + '</th>' + 
+						'<td data-th="' + index + '">' + query + '</td>' +
+						'<td>' + ((pixelWidth) ? pixelWidth + 'px' : '') + '</td>' +
+					'</tr>';
+
+				content.push(tr);
 			});
 
-			content.push('</ol>');
+			content.push('</table>');
 
-			// TODO - CJ - add this back in?
-			//if (!(Modernizr.mq('all'))) {
-			//	content.push('(polyfilled)');
-			//}
+			if ($('head').css('font-family').indexOf('XS') < 0) {
+				content.push('(polyfilled)');
+			}
 
 			content.push('<button class="close">&times;</button>');
 
