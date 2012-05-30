@@ -95,8 +95,7 @@
 	rwd.fixNthChild = function () {
 		if (Modernizr.nthchild) return;
 
-		var $blocks = $('.blocks > li'),
-			endClass = 'blocks-end',
+		var endClass = 'blocks-end',
 			startClass = 'blocks-start',
 			updateNthChild = function () {
 				var blocksEnd = false,
@@ -125,11 +124,15 @@
 						'.blocks-five-up > li:nth-child(3n+1),' +
 						'.blocks-six-up > li:nth-child(3n+1)';
 				} else if (rwd.matchViewport('XS')) {
-					blocksEnd = '.blocks > li:nth-child(2n)';
-					blocksStart = '.blocks > li:nth-child(2n+1)';
+					blocksEnd = '.blocks-four-up > li:nth-child(2n),' +
+						'.blocks-five-up > li:nth-child(2n),' +
+						'.blocks-six-up > li:nth-child(2n)';
+					blocksStart = '.blocks-four-up > li:nth-child(2n+1),' +
+						'.blocks-five-up > li:nth-child(2n+1),' +
+						'.blocks-six-up > li:nth-child(2n+1)';
 				}
 
-				$blocks.removeClass(startClass).removeClass(endClass);
+				$('.blocks > li').removeClass(startClass).removeClass(endClass);
 
 				if (blocksStart) {
 					$(blocksStart).addClass(startClass);
