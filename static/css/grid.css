@@ -5,7 +5,7 @@
 .container {
 	margin:0 auto;
 	width:94%;
-	max-width:700px;
+	max-width:37.5em;
 	min-width:200px}
 
 /* fields ----------------------------------------------- //// */
@@ -80,21 +80,27 @@
 .no-boxsizing .blocks-wrap {
 	margin:0 0 0 32px}
 
-/* MEDIA QUERY: 20em / 320px
+/* XXS
+---------------------------------------------------------------------------------------- //// */
+@media (min-width:15em) {
+	head {
+		font-family:'XXS'}
+}
+
+/* XS
 ---------------------------------------------------------------------------------------- //// */
 @media (min-width:20em) {
+	head {
+		font-family:'XXS/XS'}
+
 	/* blocks ----------------------------------------------- //// */
 	.blocks > li {
 		clear:none}
-	.blocks-two-up > li,
-	.blocks-three-up > li,
 	.blocks-four-up > li,
 	.blocks-five-up > li,
 	.blocks-six-up > li {
 		float:left;
 		width:50%}
-	.blocks-two-up > li:nth-child(2n+1),
-	.blocks-three-up > li:nth-child(2n+1),
 	.blocks-four-up > li:nth-child(2n+1),
 	.blocks-five-up > li:nth-child(2n+1),
 	.blocks-six-up > li:nth-child(2n+1) {
@@ -103,25 +109,35 @@
 	/* nth-child polyfill (IE7, IE8, etc) ----------------------------------------------- */
 	.no-nthchild .blocks-start {
 		clear:left}
-	.no-nthchild .blocks-end {
+	.ie7 .blocks-end {
 		zoom:1;
 		float:none;
 		width:auto}
 }
 
-/* MEDIA QUERY: 30em / 480px
+/* S
 ---------------------------------------------------------------------------------------- //// */
 @media (min-width:30em) {
+	head {
+		font-family:'XXS/XS/S'}
+
+	/* container ----------------------------------------------- //// */
+	.container {
+		max-width:1176px}
+
 	/* blocks ----------------------------------------------- //// */
-	.blocks-three-up > li,
+	.blocks-two-up > li,
+	.blocks-three-up > li {
+		float:left;
+		width:50%}
 	.blocks-five-up > li,
 	.blocks-six-up > li {
 		width:33.333333%}
-	.blocks-three-up > li:nth-child(2n+1),
 	.blocks-five-up > li:nth-child(2n+1),
 	.blocks-six-up > li:nth-child(2n+1) {
 		clear:none}
-	.blocks-three-up > li:nth-child(3n+1),
+	.blocks-two-up > li:nth-child(2n+1),
+	.blocks-three-up > li:nth-child(2n+1),
 	.blocks-five-up > li:nth-child(3n+1),
 	.blocks-six-up > li:nth-child(3n+1) {
 		clear:left}
@@ -129,33 +145,42 @@
 		width:auto}
 }
 
-/* MEDIA QUERY: 37.5em / 600px
+/* M
 ---------------------------------------------------------------------------------------- //// */
 @media (min-width:37.5em) {
+	head {
+		font-family:'XXS/XS/S/M'}
+
 	/* blocks ----------------------------------------------- //// */
+	.blocks-three-up > li {
+		width:33.333333%}
 	.blocks-four-up > li {
 		width:25%}
 	.blocks-five-up > li {
 		width:20%}
 	.blocks-six-up > li {
 		width:16.666667%}
+	.blocks-three-up > li:nth-child(2n+1),
 	.blocks-four-up > li:nth-child(2n+1),
 	.blocks-five-up > li:nth-child(3n+1),
 	.blocks-six-up > li:nth-child(3n+1) {
 		clear:none}
+	.blocks-three-up > li:nth-child(3n+1),
 	.blocks-four-up > li:nth-child(4n+1),
 	.blocks-five-up > li:nth-child(5n+1),
 	.blocks-six-up > li:nth-child(6n+1) {
 		clear:left}
 }
 
-/* MEDIA QUERY: 48.0625em / 769px
+/* L
 ---------------------------------------------------------------------------------------- //// */
 @media (min-width:48.0625em) {
+	head {
+		font-family:'XXS/XS/S/M/L'}
+
 	/* container ----------------------------------------------- //// */
 	.container {
-		width:97%;
-		max-width:1176px}
+		width:97%}
 
 	/* region ----------------------------------------------- //// */
 	.region {
@@ -167,9 +192,8 @@
 	.no-boxsizing .region-wrap {
 		padding:0 16px}
 
-	/* ---- last region ---- */
+	/* ---- last region (class add via JS) ---- */
 	.ie7 .region-last {
-		/* class add via JS */
 		zoom:1;
 		float:none;
 		width:auto}
@@ -205,7 +229,7 @@
 	.size1of7 {width:14.285714%}
 
 	/*
-	TODO - add these sizes
+	TODO - CJ - add these sizes
 	.size2of7
 	.size3of7
 	.size4of7
@@ -319,4 +343,11 @@
 	.media-full {
 		margin-left:0;
 		width:100%}
+}
+
+/* XL
+---------------------------------------------------------------------------------------- //// */
+@media (min-width:62em) {
+	head {
+		font-family:'XXS/XS/S/M/L/XL'}
 }
