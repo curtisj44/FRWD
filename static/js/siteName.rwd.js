@@ -4,11 +4,12 @@
 	rwd.detectNthChild = function () {
 		Modernizr.addTest('nthchild', function () {
 			function isSelectorSupported(sel) {
-				var el = document.createElement('div');
+				var el = document.createElement('div'),
+					bool;
 				el.setAttribute('id', 'nthchild');
 				el.innerHTML = '<style>' + sel + '{}</style>';
 				document.body.appendChild(el);
-				var bool = document.styleSheets[0].cssRules !== undefined && !!el.lastChild.sheet.cssRules[0];
+				bool = document.styleSheets[0].cssRules !== undefined && !!el.lastChild.sheet.cssRules[0];
 				document.body.removeChild(el);
 				return bool;
 			}
