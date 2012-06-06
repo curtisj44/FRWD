@@ -1,112 +1,107 @@
 ﻿/* Table
 ---------------------------------------------------------------------------------------- //// */
 
-.generatedcontent table,
-.generatedcontent thead,
-.generatedcontent tfoot,
-.generatedcontent tbody,
-.generatedcontent tr,
-.generatedcontent td,
-.generatedcontent th {
-	display:block}
-
 table {
 	width:100%;
 	border-bottom:1px solid #000;
 	background:#eee}
 thead {
 	background:#ccc}
+td,
+th {
+	padding:.5em;
+	text-align:left;
+	vertical-align:top}
+th {
+	font-weight:bold}
 
-.generatedcontent tr {
+table .align_center {
+	text-align:center}
+table .align_left {
+	text-align:left}
+table .align_right {
+	text-align:right}
+
+/* responsive ----------------------------------------------- //// */
+.generatedcontent .table-responsive {
+	font-size:.875em; /* 14px */}
+.generatedcontent .table-responsive,
+.generatedcontent .table-responsive thead,
+.generatedcontent .table-responsive tfoot,
+.generatedcontent .table-responsive tbody,
+.generatedcontent .table-responsive tr,
+.generatedcontent .table-responsive td,
+.generatedcontent .table-responsive th {
+	display:block}
+
+.generatedcontent .table-responsive tr {
 	overflow:hidden}
-.generatedcontent thead tr {
+.generatedcontent .table-responsive thead tr {
 	position:absolute;
 	top:-9999px;
 	left:-9999px}
 
-td,
-th {
-	padding:2%;
-	text-align:left;
-	vertical-align:top}
-.no-generatedcontent td,
-.no-generatedcontent th {
-	padding:.5em}
-
-th {
-	font-weight:bold}
-
-.generatedcontent td,
-.generatedcontent th {
+.generatedcontent .table-responsive td,
+.generatedcontent .table-responsive th {
 	position:relative;
 	float:left;
-	width:44%;
-	padding:2% 2% 2% 54%;
+	width:54%;
+	padding:2% 2% 2% 44%;
 	border-bottom:1px solid #ccc}
-td:before,
-th:before {
+.table-responsive td:before,
+.table-responsive th:before {
 	position:absolute;
 	top:0;
 	left:0;
-	width:44%;
+	width:34%;
 	padding:2%;
 	font-weight:bold;
 	content:attr(data-th)}
-
-.generatedcontent td:first-child,
-.generatedcontent th:first-child {
-	border-top:1px solid #000}
-
+.generatedcontent .table-responsive td:first-child,
+.generatedcontent .table-responsive th:first-child {
+	border-top:1px solid #000;
+	background:#ccc}
 
 /* M
 ---------------------------------------------------------------------------------------- //// */
 @media (min-width:37.5em) {
-	.generatedcontent table {
-		display:table}
-	.generatedcontent thead {
-		display:table-header-group}
-	.generatedcontent tbody {
-		display:table-row-group}
-	.generatedcontent tfoot {
-		display:table-footer-group}
-	.generatedcontent tr {
-		display:table-row}
-	.generatedcontent td,
-	.generatedcontent th {
-		display:table-cell}
-
 	table {
 		border:0}
 	thead {
 		border-bottom:1px solid #000}
-	.generatedcontent thead tr {
+
+	/* responsive ----------------------------------------------- //// */
+	.generatedcontent .table-responsive {
+		display:table;
+		font-size:1em; /* 16px */}
+	.generatedcontent .table-responsive thead {
+		display:table-header-group}
+	.generatedcontent .table-responsive tbody {
+		display:table-row-group}
+	.generatedcontent .table-responsive tfoot {
+		display:table-footer-group}
+	.generatedcontent .table-responsive tr {
+		display:table-row}
+	.generatedcontent .table-responsive td,
+	.generatedcontent .table-responsive th {
+		display:table-cell}
+
+	.generatedcontent .table-responsive thead tr {
 		position:static}
 
-	td,
-	th,
-	.generatedcontent td,
-	.generatedcontent th {
-		padding:.5em}
-
-	.generatedcontent td,
-	.generatedcontent th {
+	.generatedcontent .table-responsive td,
+	.generatedcontent .table-responsive th {
 		position:static;
 		float:none;
+		padding:.5em;
 		width:auto;
 		border:0}
-	td:before,
-	th:before {
+	.table-responsive td:before,
+	.table-responsive th:before {
 		display:none;
 		content:''}
-
-	.generatedcontent td:first-child,
-	.generatedcontent th:first-child {
-		border:0}
-
-	table .align_center {
-		text-align:center}
-	table .align_left {
-		text-align:left}
-	table .align_right {
-		text-align:right}
+	.generatedcontent .table-responsive td:first-child,
+	.generatedcontent .table-responsive th:first-child {
+		border:0;
+		background:none}
 }
