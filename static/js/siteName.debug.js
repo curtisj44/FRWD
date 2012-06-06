@@ -210,7 +210,7 @@
 
 				tr = '<tr class="' + index + '">' +
 						'<th>' + index + '</th>' + 
-						'<td data-th="' + index + '">' + query + '</td>' +
+						'<td>' + query + '</td>' +
 						'<td>' + ((pixelWidth) ? pixelWidth + 'px' : '') + '</td>' +
 					'</tr>';
 
