@@ -242,7 +242,6 @@
 	top:5px;
 	left:5px;
 	padding:.7em;
-	max-width:75%;
 	min-width:10em;
 	-moz-border-radius:   3px;
 	-webkit-border-radius:3px;
@@ -272,8 +271,7 @@
 	display:table-row}
 #debug-size tr:first-child {
 	border:0}
-#debug-size th {
-	display:none}
+
 #debug-size td {
 	border:0}
 
