@@ -65,7 +65,7 @@
 		setTimeout(function () {
 			strictEqual(siteName.rwd.matchViewport('XXS'), true, 'XXS should almost always be true');
 			start();
-		}, 400);
+		}, 800);
 	});
 
 	// TODO - CJ - add tests
