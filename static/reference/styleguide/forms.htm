@@ -8,13 +8,14 @@
 		<title>Forms | Style Guide</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<link rel="stylesheet" href="../../css/reset.css" media="screen, print" />
-		<link rel="stylesheet" href="../../css/redefine.css" media="screen, print" />
-		<link rel="stylesheet" href="../../css/forms.css" media="screen, print" />
-		<link rel="stylesheet" href="../../css/table.css" media="screen, print" />
-		<link rel="stylesheet" href="../../css/grid.css" media="screen, print" />
+		<link rel="stylesheet" href="../../css/reset.css" />
+		<link rel="stylesheet" href="../../css/redefine.css" />
+		<link rel="stylesheet" href="../../css/forms.css" />
+		<link rel="stylesheet" href="../../css/headings.css" />
+		<link rel="stylesheet" href="../../css/table.css" />
+		<link rel="stylesheet" href="../../css/grid.css" />
 		<link rel="stylesheet" href="../../css/print.css" />
-		<link rel="stylesheet" href="../../css/debug.css" media="screen, print" />
+		<link rel="stylesheet" href="../../css/debug.css" />
 
 		<script src="../../js/modernizr.custom.js"></script>
 		<!--[if lte IE 8]><script src="../../js/respond.min.js"></script><![endif]-->
@@ -34,6 +35,7 @@
 					<form>
 						<fieldset>
 							<legend>Form List:</legend>
+
 							<ol class="form">
 								<li>
 									<label for="field-input">
@@ -68,6 +70,7 @@
 
 						<fieldset>
 							<legend>Errors:</legend>
+
 							<ol class="form">
 								<li class="error">
 									<label for="field-input-error">
@@ -112,6 +115,7 @@
 
 						<fieldset>
 							<legend>Disabled:</legend>
+
 							<ol class="form">
 								<li>
 									<label for="field-input-disabled">Input</label>
@@ -136,24 +140,25 @@
 
 						<fieldset>
 							<legend>Radio Buttons &amp; Checkboxes</legend>
-							<ol class="form">
-								<li class="inline">
-									<input type="radio" class="radio" id="field-radio-1" name="field-radio" />
+
+							<ol class="form form-inline">
+								<li>
+									<input type="radio" id="field-radio-1" name="field-radio" />
 									<label for="field-radio-1">Radio 1</label>
 								</li>
-								<li class="inline">
-									<input type="radio" class="radio" id="field-radio-2" name="field-radio" />
+								<li>
+									<input type="radio" id="field-radio-2" name="field-radio" />
 									<label for="field-radio-2">Radio 2</label>
 								</li>
 							</ol>
 
-							<ol class="form">
-								<li class="inline">
-									<input type="checkbox" class="checkbox" id="field-checkbox-1" name="field-checkbox-1" />
+							<ol class="form form-inline">
+								<li>
+									<input type="checkbox" id="field-checkbox-1" name="field-checkbox-1" />
 									<label for="field-checkbox-1">Checkbox 1</label>
 								</li>
-								<li class="inline">
-									<input type="checkbox" class="checkbox" id="field-checkbox-2" name="field-checkbox-2" />
+								<li>
+									<input type="checkbox" id="field-checkbox-2" name="field-checkbox-2" />
 									<label for="field-checkbox-2">Checkbox 2</label>
 								</li>
 							</ol>

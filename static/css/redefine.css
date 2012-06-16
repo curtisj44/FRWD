@@ -46,40 +46,6 @@ a:active {
 a:link {
 	-webkit-tap-highlight-color:rgb(52,158,219)}
 
-/* headings ----------------------------------------------- //// */
-h1,
-.alpha {
-	margin-bottom:19px; /* TODO - use ems */
-	font-weight:bold;
-	font-size:42px; /* TODO - use ems */
-	line-height:53px; /* TODO - use ems */}
-h2,
-.beta {
-	margin-bottom:9px; /* TODO - use ems */
-	font-weight:bold;
-	font-size:26px; /* TODO - use ems */}
-h3,
-.gamma {
-	margin-bottom:1.5em; /* 24px */
-	font-weight:bold;
-	font-size:1em;
-	line-height:1}
-h4,
-.delta {
-	margin-bottom:1.5em; /* 24px */
-	font-size:1em;
-	line-height:1}
-h5,
-.epsilon {
-	margin-bottom:1.5em; /* 24px */
-	font-size:1em;
-	line-height:1}
-h6,
-.zeta {
-	margin-bottom:1.5em; /* 24px */
-	font-size:1em;
-	line-height:1}
-
 /* media ----------------------------------------------- //// */
 
 /* image ----------------------------------------------- */
