@@ -64,8 +64,8 @@ input[type="submit"] {
 	overflow:visible}
 
 /* checkbox, radio ------------------------------------------- //// */
-input.checkbox,
-input.radio {
+input[type="checkbox"],
+input[type="radio"] {
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
 	box-sizing:border-box;
@@ -132,16 +132,21 @@ textarea:focus {
 .form li {
 	margin:0 0 1em; /* 0 0 14px */
 	padding:0}
-.form label {
+.form input,
+.form select,
+.form textarea {
 	display:block}
 .form .note {
 	color:#999}
 
-/* inline ------------------------------------------- */
-li.inline {
+/* inline form list item ------------------------------------------- */
+.form-inline {
 	margin:0}
-li.inline label {
-	display:inline;
+.form-inline input,
+.form-inline select,
+.form-inline textarea {
+	display:inline}
+.form-inline label {
 	font-weight:normal}
 
 /* error ------------------------------------------- */
