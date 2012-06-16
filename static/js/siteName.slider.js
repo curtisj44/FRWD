@@ -32,7 +32,7 @@
 				s.updateNav();
 			},
 			continuous: false,
-			speed: 500 // TODO: use 200 for swipe speed?
+			speed: 500 // TODO - CJ - use 200 for swipe speed?
 		});
 
 		$slider.find('li').show();
