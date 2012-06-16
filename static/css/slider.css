@@ -41,7 +41,7 @@ button.slider-next {
 	top:50%;
 	margin:-20px 0 0;
 	padding:1em 1.2em;
-	font-size:12px; /* TODO */}
+	font-size:12px; /* TODO - CJ - use ems */}
 button.slider-prev {
 	left:12px}
 button.slider-next {
