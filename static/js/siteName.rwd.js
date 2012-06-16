@@ -163,7 +163,7 @@
 		'M':   {'query': '(min-width:37.5em)'},		// 600px
 		'L':   {'query': '(min-width:48.0625em)'},	// 769px
 		'XL':  {'query': '(min-width:62em)'},		// 992px
-		'High-DPI': {'query': '(-moz-min-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5)'}
+		'High-DPI': {'query': '(-moz-min-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)'}
 	};
 
 	rwd.onDelayedResize = function (callback, fireNow) {
