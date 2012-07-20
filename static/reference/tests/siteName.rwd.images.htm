@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]><html class="ie6" lang="en"><![endif]-->
+<!--[if IE 7]><html class="ie7" lang="en"><![endif]-->
+<!--[if IE 8]><html class="ie8" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+	<head>
+		<meta charset="utf-8" />
+		<title>siteName.rwd.images.js</title>
+		<meta name="robots" content="noindex, nofollow" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="shortcut icon" href="../static/images/tests.ico" />
+		<link rel="stylesheet" href="../static/css/reference.css" />
+		<link rel="stylesheet" href="../static/css/qunit.css" />
+
+		<link rel="stylesheet" href="../../css/reset.css" />
+		<link rel="stylesheet" href="../../css/redefine.css" />
+		<link rel="stylesheet" href="../../css/forms.css" />
+		<link rel="stylesheet" href="../../css/headings.css" />
+		<link rel="stylesheet" href="../../css/table.css" />
+		<link rel="stylesheet" href="../../css/grid.css" />
+		<link rel="stylesheet" href="../../css/print.css" />
+		<link rel="stylesheet" href="../../css/debug.css" />
+
+		<script src="../../js/modernizr.custom.js"></script>
+		<script src="../../js/matchMedia.js"></script>
+		<!--[if lte IE 8]><script src="../../js/respond.min.js"></script><![endif]-->
+	</head>
+
+	<body id="tests">
+		<div id="qunit"></div>
+
+		<!-- TODO - CJ - check why this only works when not inside #qunit-fixture -->
+		<!-- <div id="qunit-fixture"> -->
+			<div class="container" style="display:none">
+				<div class="fields">
+					<div class="region size1of1">
+						<p>
+							<span class="image-rwd" data-alt="image1 default alt">
+								<span data-src="http://placehold.it/200x200&amp;text=Default"></span>
+								<span data-src="http://placehold.it/400x400/5c2929/fff&amp;text=S" data-media="S"></span>
+								<span data-src="http://placehold.it/600x600/293d5c/fff&amp;text=M" data-media="M"></span>
+								<span data-src="http://placehold.it/800x800/295c29/fff&amp;text=L" data-media="L"></span>
+								<noscript>
+									<img src="http://placehold.it/200x200&amp;text=No+JS" alt="image1 default alt" />
+								</noscript>
+							</span>
+						</p>
+
+						<p>
+							<a href="#">
+								<span class="image-rwd">
+									<span data-src="http://placehold.it/200x200/ccc&amp;text=Default" data-alt="image2 default alt"></span>
+									<span data-src="http://placehold.it/200x200/ccc&amp;text=Default,+High-DPI" data-media="High-DPI" data-alt="image2 default alt"></span>
+
+									<span data-src="http://placehold.it/600x600/5c2929/ccc&amp;text=S" data-media="S" data-alt="image2 S alt"></span>
+									<span data-src="http://placehold.it/600x600/5c2929/ccc&amp;text=S,+High-DPI" data-media="S, High-DPI" data-alt="image2 S alt"></span>
+
+									<span data-src="http://placehold.it/1100x1100/5c5c29/ccc&amp;text=XL" data-media="XL" data-alt="image2 XL alt"></span>
+									<span data-src="http://placehold.it/1100x1100/5c5c29/ccc&amp;text=XL,+High-DPI" data-media="XL, High-DPI" data-alt="image2 XL alt"></span>
+
+									<noscript>
+										<img src="http://placehold.it/200x200/ccc&amp;text=image2+=No+JS" alt="image2 default alt" />
+									</noscript>
+								</span>
+							</a>
+						</p>
+					</div>
+				</div>
+			<!-- </div> -->
+		</div>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="../../js/jquery-1.7.2.min.js"><\/script>');</script>
+		<script src="../../js/siteName.js"></script>
+		<script src="../../js/siteName.rwd.js"></script>
+		<script src="../../js/siteName.rwd.images.js"></script>
+		<script src="../../js/siteName.debug.js"></script>
+
+		<script src="../static/js/qunit.js"></script>
+		<script src="../static/js/tests.js"></script>
+		<script src="../static/js/tests.siteName.rwd.images.js"></script>
+	</body>
+</html>
