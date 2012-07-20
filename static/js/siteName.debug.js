@@ -3,11 +3,10 @@
 
 	debug.config = {
 		baselineAdjust: -5,
-		fontSize: $('html').css('font-size').replace('px', ''),
 		gridColumns: 6,
 		lineHeight: function () {
 			var value = $('body').css('line-height');
-			return (value.indexOf('px') > -1) ? value.replace('px', '') : value * debug.config.fontSize;
+			return (value.indexOf('px') > -1) ? value.replace('px', '') : value * siteName.rwd.fontSize;
 		}
 	};
 
@@ -117,7 +116,7 @@
 
 		on: function () {
 			var config = debug.config,
-				baselineHeight = (config.lineHeight() - 1) / config.fontSize,
+				baselineHeight = (config.lineHeight() - 1) / siteName.rwd.fontSize,
 				baselineLength = $(document).height() / config.lineHeight(),
 				i,
 				output = [];
@@ -185,18 +184,20 @@
 
 			var $debugSize = $('#debug-size'),
 				content = [],
-				mediaQueries = siteName.rwd.mediaQueries,
+				rwd = siteName.rwd,
+				mediaQueries = rwd.mediaQueries,
 				updateSize = function () {
-					$debugSize.find('span').html(debug.viewportWidth() + ' &times; ' + debug.viewportHeight());
+					$debugSize.find('span').html(rwd.viewportWidth() + ' &times; ' + rwd.viewportHeight());
 
 					$.each(mediaQueries, function (index, value) {
-						var result = siteName.rwd.matchViewport(index);
+						var result = rwd.matchViewport(index);
 						$debugSize.find('.' + index).removeClass('' + !result).addClass('' + result);
 					});
 				};
 
 			content.push('<span>?</span>');
 			content.push('<table>');
+			if (window.respond) content.push('<tr class="polyfill true"><td colspan="3">polyfilled</td></tr>');
 			content.push('<tr class="none true"><td colspan="3">no active media queries</td></tr>');
 
 			$.each(mediaQueries, function (index, value) {
@@ -205,7 +206,7 @@
 					tr;
 
 				if (query.indexOf('min-width') > 0 && query.indexOf('em') > 0) {
-					pixelWidth = Math.round(query.replace('(min-width:', '').replace('em)', '') * debug.config.fontSize * 100000) / 100000;
+					pixelWidth = Math.round(query.replace('(min-width:', '').replace('em)', '') * siteName.rwd.fontSize * 100000) / 100000;
 				}
 
 				tr = '<tr class="' + index + '">' +
@@ -218,10 +219,6 @@
 			});
 
 			content.push('</table>');
-
-			if ($('head').css('font-family').indexOf('XS') < 0) {
-				content.push('(polyfilled)');
-			}
 
 			content.push('<button class="close">&times;</button>');
 
@@ -237,14 +234,6 @@
 				updateSize();
 			});
 		}
-	};
-
-	debug.viewportHeight = function () {
-		return window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || 0;
-	};
-
-	debug.viewportWidth = function () {
-		return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth || 0;
 	};
 
 	$(function () {

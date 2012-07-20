@@ -40,10 +40,12 @@
 		*/
 
 		// https://github.com/scottjehl/iOS-Orientationchange-Fix
-		// 20120129 version
+		// 20120622 version
 
 		// This fix addresses an iOS bug, so return early if the UA claims it's something else.
-		if (!(/iPhone|iPad|iPod/.test(navigator.platform) && navigator.userAgent.indexOf('AppleWebKit') > -1)) return;
+		var ua = navigator.userAgent;
+
+		if (!(/iPhone|iPad|iPod/.test(navigator.platform) && /OS [1-5]_[0-9_]* like Mac OS X/i.test(ua) && ua.indexOf('AppleWebKit') > -1)) return;
 
 		var w = window,
 			doc = w.document;
@@ -146,13 +148,20 @@
 		rwd.onDelayedResize(updateNthChild, true);
 	};
 
-	rwd.matchViewport = function (value) {
-		if (!(value) || !(rwd.mediaQueries[value])) return false;
+	rwd.fontSize = parseInt($('html').css('font-size').replace('px', ''), 10);
 
-		if (window.matchMedia) {
-			return (window.matchMedia(rwd.mediaQueries[value].query).matches) ? true : false;
+	rwd.matchViewport = function (value) {
+		if (!value || !rwd.mediaQueries[value]) return false;
+
+		value = rwd.mediaQueries[value].query;
+
+		if (window.matchMedia && window.matchMedia('only all').matches) {
+			return window.matchMedia(value).matches ? true : false;
 		} else {
-			return ($('head').css('font-family').indexOf('/' + value) > 0) ? true : false;
+			return (
+					(value.indexOf('min-width') > 0 && rwd.viewportWidth() / rwd.fontSize >= value.replace('(min-width:', '').replace('em)', '')) ||
+					(value.indexOf('min-height') > 0 && rwd.viewportHeight() / rwd.fontSize >= value.replace('(min-height:', '').replace('em)', ''))
+				) ? true : false;
 		}
 	};
 
@@ -163,7 +172,7 @@
 		'M':   {'query': '(min-width:37.5em)'},		// 600px
 		'L':   {'query': '(min-width:48.0625em)'},	// 769px
 		'XL':  {'query': '(min-width:62em)'},		// 992px
-		'High-DPI': {'query': '(-moz-min-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)'}
+		'High-DPI': {'query': '(-moz-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)'}
 	};
 
 	rwd.onDelayedResize = function (callback, fireNow) {
@@ -174,15 +183,23 @@
 		var delay = (function () {
 				var timer = 0;
 
-				return function (callback, ms) {
+				return function () {
 					clearTimeout(timer);
-					timer = setTimeout(callback, ms || 250);
+					timer = setTimeout(callback, 250);
 				};
 			}());
 
-		$(window).resize(function () {
-			delay(callback);
+		$(window).on('resize', function () {
+			delay();
 		});
+	};
+
+	rwd.viewportHeight = function () {
+		return window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || 0;
+	};
+
+	rwd.viewportWidth = function () {
+		return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth || 0;
 	};
 
 	$(function () {

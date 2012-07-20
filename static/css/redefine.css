@@ -17,21 +17,20 @@ html {
 body {
 	color:#000;
 	font:1em/1.5 'Helvetica Neue', Helvetica, Arial, sans-serif; /* 16px/24px */}
+
+/* default margin ----------------------------------------------- //// */
 p, ul, ol, li, dl, table, hr, pre {
 	margin-bottom:1.5em; /* 24px */}
 
 /* ::selection ----------------------------------------------- //// */
 ::-moz-selection {
-	background:#ff5e99;
-	color:#fff;
+	background:#b3d4fc;
 	text-shadow:none}
 ::-webkit-selection {
-	background:#ff5e99;
-	color:#fff;
+	background:#b3d4fc;
 	text-shadow:none}
 ::selection {
-	background:#ff5e99;
-	color:#fff;
+	background:#b3d4fc;
 	text-shadow:none}
 
 /* links ----------------------------------------------- //// */
@@ -54,13 +53,16 @@ img {
 
 .image-left,
 .image-right {
-	margin:5px 0 1.714286em; /* 5px 0 24px */}
+	margin:5px 0 1.5em; /* 5px 0 24px */}
 .image-left {
 	float:left;
-	margin-right:15px}
+	margin-right:32px}
 .image-right {
 	float:right;
-	margin-left:15px}
+	margin-left:32px}
+
+.image-rwd span {
+	display:none}
 
 /* svg ----------------------------------------------- */
 svg:not(:root) {
@@ -73,7 +75,7 @@ ol {
 
 ul li {
 	padding:0 0 0 24px;
-	background:url(../images/bullet.gif) no-repeat 0 .55em}
+	background:url(../images/bullet.png) no-repeat 0 .5em}
 
 ol ol,
 ol ul,
@@ -173,6 +175,7 @@ em, i {
 
 hr {
 	display:block;
+	clear:both;
 	margin-top:-1px;
 	padding:0;
 	height:1px;

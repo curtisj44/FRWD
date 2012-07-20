@@ -1,11 +1,7 @@
-(function (s, $) {
+(function (s) {
 	'use strict';
 
-	s.test = function () {
-		if (window.console) console.log('siteName');
-	};
-
-	$(function () {
-		s.test();
-	});
-}(window.siteName = window.siteName || {}, jQuery));
+	if (window.console) {
+		console.log('siteName');
+	}
+}(window.siteName = window.siteName || {}));
