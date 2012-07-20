@@ -8,20 +8,29 @@
 		<title>JavaScript Unit Tests | Site</title>
 		<meta name="robots" content="noindex, nofollow" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="shortcut icon" href="../static/images/styleguide.ico" />
+		<link rel="shortcut icon" href="../static/images/tests.ico" />
 		<link rel="stylesheet" href="../static/css/reference.css" />
+		<!--[if lte IE 8]><script src="../../js/respond.min.js"></script><![endif]-->
 	</head>
 
 	<body>
 		<div id="index">
 			<h1>JavaScript Unit Tests</h1>
-			<p class="updated">Last Updated: <strong>June 12, 2012</strong></p>
+			<p class="updated">Last Updated: <strong>July 16, 2012</strong></p>
 
-			<ul>
+			<ul class="tests">
 				<li><a href="modernizr.custom.htm">modernizr.custom</a></li>
+				<li><a href="siteName.htm">siteName.js</a></li>
 				<li><a href="siteName.debug.htm">siteName.debug.js</a></li>
 				<li><a href="siteName.rwd.htm">siteName.rwd.js</a></li>
+				<li><a href="siteName.rwd.images.htm">siteName.rwd.images.js</a></li>
 			</ul>
 		</div>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="../../js/jquery-1.7.2.min.js"><\/script>');</script>
+
+		<script src="../static/js/qunit.js"></script>
+		<script src="../static/js/tests.js"></script>
 	</body>
 </html>
