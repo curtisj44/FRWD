@@ -1,6 +1,64 @@
 /* Demo
 ---------------------------------------------------------------------------------------- //// */
 
+h1 {
+	font-size:60px}
+
+ul li {
+	padding:0;
+	background:none}
+
+.container {
+	text-align:center}
+
+.promo {
+	margin:0 auto 1.5em;
+	width:80%}
+.promo li {
+	margin-bottom:0;
+	padding:0;}
+.promo a {
+	display:block;
+	margin:0 0 -1px;
+	padding:.5em;
+	border:1px solid #d2d2d2;
+	-moz-box-shadow:   0 1px 1px #fff inset;
+	-webkit-box-shadow:0 1px 1px #fff inset;
+	box-shadow:        0 1px 1px #fff inset;
+	background:#eee;
+	background:     -o-linear-gradient(top, #f8f8f8 0%, #ddd 100%);
+	background:   -moz-linear-gradient(top, #f8f8f8 0%, #ddd 100%);
+	background:    -ms-linear-gradient(top, #f8f8f8 0%, #ddd 100%);
+	background:       -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8f8f8), color-stop(100%,#ddd));
+	background:-webkit-linear-gradient(top, #f8f8f8 0%, #ddd 100%);
+	background:        linear-gradient(top, #f8f8f8 0%, #ddd 100%);
+	color:#999;
+	text-align:center;
+	text-decoration:none}
+
+.promo li:first-child a {
+	-moz-border-radius:   .5em .5em 0 0;
+	-webkit-border-radius:.5em .5em 0 0;
+	border-radius:        .5em .5em 0 0}
+.promo li:last-child a {
+	-moz-border-radius:   0 0 .5em .5em;
+	-webkit-border-radius:0 0 .5em .5em;
+	border-radius:        0 0 .5em .5em}
+
+.promo b {
+	display:block;
+	color:#666}
+
+.promo a:hover,
+.promo a:focus {
+	position:relative;
+	z-index:1;
+	border-color:#666;
+	color:#666}
+.promo a:hover b,
+.promo a:focus b {
+	color:#000}
+
 /* S
 ---------------------------------------------------------------------------------------- //// */
 @media (min-width:30em) {
@@ -8,6 +66,23 @@
 		font-size:130px;
 		line-height:1em;
 		text-align:center}
+}
+
+/* M
+---------------------------------------------------------------------------------------- //// */
+@media (min-width:37.5em) {
+
+	.container {
+		text-align:left}
+
+	.promo li:first-child a {
+		-moz-border-radius:   .5em 0 0 .5em;
+		-webkit-border-radius:.5em 0 0 .5em;
+		border-radius:        .5em 0 0 .5em}
+	.promo li:last-child a {
+		-moz-border-radius:   0 .5em .5em 0;
+		-webkit-border-radius:0 .5em .5em 0;
+		border-radius:        0 .5em .5em 0}
 }
 
 /* L
