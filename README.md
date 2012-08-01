@@ -74,7 +74,7 @@ Regions can be offset using this technique. This allows for additional space bef
 
 ## Push & Pull
 
-The visual order of the regions can be different from the source order using this technique. See (Push & Pull)[http://curtisj44.github.com/FRWD/static/reference/styleguide/grid-region-push-pull.htm]
+The visual order of the regions can be different from the source order using this technique. See [Push & Pull](http://curtisj44.github.com/FRWD/static/reference/styleguide/grid-region-push-pull.htm)
 
 ## Centering
 
