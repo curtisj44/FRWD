@@ -32,12 +32,14 @@ The framework is built around a combination of these three elements: `container`
 
 The basic markup looks like this:
 
-    <div class="container">
-        <div class="fields">
-            <div class="region size2of3">2/3</div>
-            <div class="region size1of3">1/3</div>
-        </div>
+``` html
+<div class="container">
+    <div class="fields">
+        <div class="region size2of3">2/3</div>
+        <div class="region size1of3">1/3</div>
     </div>
+</div>
+```
 
 ## Sizes
 
@@ -47,30 +49,34 @@ A variety of sizes are built in. See [Sizes](http://curtisj44.github.com/FRWD/st
 
 Nesting can look something like this:
 
-    <div class="container">
-        <div class="fields">
-            <div class="region size2of3 reset">
-                    <div class="fields">
-                        <div class="region size2of3">2/3</div>
-                        <div class="region size1of3">1/3</div>
-                </div>
+``` html
+<div class="container">
+    <div class="fields">
+        <div class="region size2of3 reset">
+                <div class="fields">
+                    <div class="region size2of3">2/3</div>
+                    <div class="region size1of3">1/3</div>
             </div>
-            <div class="region size1of3">1/3</div>
         </div>
+        <div class="region size1of3">1/3</div>
     </div>
+</div>
+```
 
 ## Prefix & Suffix
 
 Regions can be offset using this technique. This allows for additional space before, after, and/or between regions. See [Prefix & Suffix](http://curtisj44.github.com/FRWD/static/reference/styleguide/grid-region-prefix-suffix.htm).
 
-    <div class="container">
-        <div class="fields">
-            <div class="region size1of5">1/5</div>
-        </div>
-        <div class="fields">
-            <div class="region size3of5 prefix1of5">3/5</div>
-        </div>
+``` html
+<div class="container">
+    <div class="fields">
+        <div class="region size1of5">1/5</div>
     </div>
+    <div class="fields">
+        <div class="region size3of5 prefix1of5">3/5</div>
+    </div>
+</div>
+```
 
 ## Push & Pull
 
@@ -80,25 +86,29 @@ The visual order of the regions can be different from the source order using thi
 
 Pretty self-explanatory...
 
-    <div class="container">
-        <div class="fields">
-            <div class="region size1of7 region-centered">1/7</div>
-        </div>
+``` html
+<div class="container">
+    <div class="fields">
+        <div class="region size1of7 region-centered">1/7</div>
     </div>
+</div>
+```
 
 ## Blocks
 
 The `blocks` style is used for repeating content holders. They appear in [two-up](http://curtisj44.github.com/FRWD/static/reference/styleguide/grid-blocks-two.htm), [three-up](http://curtisj44.github.com/FRWD/static/reference/styleguide/grid-blocks-three.htm), [four-up](http://curtisj44.github.com/FRWD/static/reference/styleguide/grid-blocks-four.htm), [five-up](http://curtisj44.github.com/FRWD/static/reference/styleguide/grid-blocks-five.htm), and [six-up](http://curtisj44.github.com/FRWD/static/reference/styleguide/grid-blocks-six.htm) variations.
 
-    <div class="container">
-        <div class="fields">
-            <div class="region size1of1">
-                <ol class="blocks blocks-four-up">
-                    <li>...</li>
-                    <li>...</li>
-                    <li>...</li>
-                    ...
-                </ol>
-            </div>
+``` html
+<div class="container">
+    <div class="fields">
+        <div class="region size1of1">
+            <ol class="blocks blocks-four-up">
+                <li>...</li>
+                <li>...</li>
+                <li>...</li>
+                ...
+            </ol>
         </div>
     </div>
+</div>
+```
