@@ -9,7 +9,7 @@
 
 2. ### Proportional
 
-    The sizes are based on commonly used proportions: 1/1, 1/2, 2/3, 1/3, 1/4, etc. See the [size options](http://curtisj44.github.com/FRWD/static/reference/styleguide/grid-region-sizes.htm).
+    The sizes are based on commonly used proportions: 1/1, 1/2, 2/3, 1/3, 1/4, etc. (See the [size options](http://curtisj44.github.com/FRWD/static/reference/styleguide/grid-region-sizes.htm))
 
 3. ### Nestable
 
@@ -43,7 +43,7 @@ The basic markup looks like this:
 
 A variety of sizes are built in. See [Sizes](http://curtisj44.github.com/FRWD/static/reference/styleguide/grid-region-sizes.htm).
 
-#Nesting
+## Nesting
 
 Nesting can look something like this:
 
@@ -74,11 +74,11 @@ Regions can be offset using this technique. This allows for additional space bef
 
 ## Push & Pull
 
-The visual order of the regions can be different from the source order using this technique. See [Push & Pull](http://curtisj44.github.com/FRWD/static/reference/styleguide/grid-region-push-pull.htm)
+The visual order of the regions can be different from the source order using this technique. See [Push & Pull](http://curtisj44.github.com/FRWD/static/reference/styleguide/grid-region-push-pull.htm).
 
 ## Centering
 
-Just because...
+Pretty self-explanatory...
 
     <div class="container">
         <div class="fields">
