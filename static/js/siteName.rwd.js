@@ -25,6 +25,8 @@
 		}
 	};
 
+	rwd.fontSize = parseInt($('html').css('font-size').replace('px', ''), 10);
+
 	rwd.fixIE7Grid = function () {
 		var $html = $('html');
 
@@ -147,8 +149,6 @@
 
 		rwd.onDelayedResize(updateNthChild, true);
 	};
-
-	rwd.fontSize = parseInt($('html').css('font-size').replace('px', ''), 10);
 
 	rwd.matchViewport = function (value) {
 		if (!value || !rwd.mediaQueries[value]) return false;
