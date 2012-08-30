@@ -1,5 +1,9 @@
 /* Redefine
 ---------------------------------------------------------------------------------------- //// */
+
+@-ms-viewport {
+	width:device-width}
+
 html {
 	overflow-y:scroll;
 	background:#fff;
