@@ -26,9 +26,6 @@ p, ul, ol, li, dl, table, hr, pre {
 ::-moz-selection {
 	background:#b3d4fc;
 	text-shadow:none}
-::-webkit-selection {
-	background:#b3d4fc;
-	text-shadow:none}
 ::selection {
 	background:#b3d4fc;
 	text-shadow:none}
