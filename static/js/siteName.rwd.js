@@ -177,7 +177,6 @@
 
 	rwd.onDelayedResize = function (callback, fireNow) {
 		if (typeof callback !== 'function' || typeof fireNow !== 'boolean') return;
-
 		if (fireNow) callback();
 
 		var delay = (function () {
@@ -189,9 +188,7 @@
 				};
 			}());
 
-		$(window).on('resize', function () {
-			delay();
-		});
+		$(window).on('resize', delay);
 	};
 
 	rwd.viewportHeight = function () {
