@@ -3,21 +3,14 @@
 
 @-ms-viewport {
 	width:device-width}
+@viewport {
+	width:device-width}
 
 html {
 	overflow-y:scroll;
 	background:#fff;
-	/*text-rendering:optimizeLegibility;*/
-	/*-webkit-font-smoothing:antialiased;*/
 	-ms-text-size-adjust:    100%;
-	-webkit-text-size-adjust:100%;
-	/* word-wrap:break-word */
-	/*
-	-moz-hyphens:   auto;
-	-webkit-hyphens:auto;
-	hyphens:        auto
-	*/
-	}
+	-webkit-text-size-adjust:100%}
 body {
 	color:#000;
 	font:1em/1.5 'Helvetica Neue', Helvetica, Arial, sans-serif; /* 16px/24px */}
