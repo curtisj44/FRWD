@@ -229,10 +229,7 @@
 			});
 
 			updateSize();
-
-			$(window).resize(function () {
-				updateSize();
-			});
+			$(window).resize(updateSize);
 		}
 	};
 
