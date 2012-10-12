@@ -33,7 +33,7 @@
 	z-index:999999;
 	top:0;
 	right:0;
-	padding:.5em .5em 0;
+	padding:6px 6px 0;
 	color:#fff}
 #debug-panel.open {
 	width:12em}
@@ -233,11 +233,8 @@
 #debug-size {
 	position:fixed;
 	z-index:999998;
-	top:5px;
-	left:5px;
+	margin:6px;
 	padding:.7em; /* 5px */
-	max-width:30em;
-	min-width:10em;
 	-moz-border-radius:   3px;
 	-webkit-border-radius:3px;
 	border-radius:        3px;
@@ -245,6 +242,20 @@
 	background:rgba(0,0,0,.8);
 	color:#fff;
 	font-size:12px}
+#debug-size.position1 {
+	top:0;
+	left:0;
+	right:42px;
+	max-width:22em}
+#debug-size.position2 {
+	top:0;
+	right:42px}
+#debug-size.position3 {
+	right:0;
+	bottom:0}
+#debug-size.position4 {
+	bottom:0;
+	left:0}
 
 #debug-size span {
 	display:block;
@@ -282,17 +293,41 @@
 	background:rgba(255,0,0,.4);
 	font-weight:bold}
 
-#debug-size .close {
+/* position ----------------------------------------------- */
+#debug-size .position {
 	position:absolute;
 	top:.5625em; /* 9px */
 	right:.5625em; /* 9px */
+	overflow:hidden;
 	padding:.2em .5em;
+	min-width:27px;
 	background:#000;
 	background:rgba(0,0,0,.5);
 	color:#fff;
-	font-size:16px}
-#debug-size .close:active {
+	font-size:16px;
+	text-indent:-999px}
+#debug-size .position:active {
 	background:rgba(0,0,0,.9)}
+
+#debug-size .position:after {
+	position:absolute;
+	top:25%;
+	left:25%;
+	margin:-3px 0 0 -3px;
+	width:5px;
+	height:5px;
+	-moz-border-radius:   100%;
+	-webkit-border-radius:100%;
+	border-radius:        100%;
+	background:#fff;
+	content:''}
+#debug-size.position2 .position:after {
+	left:75%}
+#debug-size.position3 .position:after {
+	top:75%;
+	left:75%}
+#debug-size.position4 .position:after {
+	top:75%}
 
 /* XXS
 ---------------------------------------------------------------------------------------- //// */
@@ -359,12 +394,7 @@
 
 /* High-DPI
 ---------------------------------------------------------------------------------------- //// */
-@media	(   -moz-min-device-pixel-ratio: 1.5),
-		(   min--moz-device-pixel-ratio: 1.5),
-		(     -o-min-device-pixel-ratio: 3/2),
-		(-webkit-min-device-pixel-ratio: 1.5),
-		(        min-device-pixel-ratio: 1.5),
-		(                min-resolution: 144dpi) {
+@media (-webkit-min-device-pixel-ratio:1.5), (min-resolution:144dpi), (min-resolution:1.5dppx) {
 	.debug,
 	#debug-size table {
 		/* orange */

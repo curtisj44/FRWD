@@ -121,7 +121,7 @@
 				i,
 				output = [];
 
-			for (i = 0; i <= baselineLength; i++) {
+			for (i = 0; i <= baselineLength; i += 1) {
 				output.push('<li style="height:' + baselineHeight + 'em"></li>');
 			}
 
@@ -158,7 +158,7 @@
 				columns = debug.config.gridColumns,
 				grid = ['<div id="debug-grid">', '<div class="container">', '<div class="fields">'];
 
-			for (i = 0; i <= columns; i++) {
+			for (i = 0; i <= columns; i += 1) {
 				grid.push('<div class="region size1of' + columns + '"></div>');
 			}
 
@@ -187,7 +187,10 @@
 				rwd = siteName.rwd,
 				mediaQueries = rwd.mediaQueries,
 				updateSize = function () {
-					$debugSize.find('span').html(rwd.viewportWidth() + ' &times; ' + rwd.viewportHeight());
+					$debugSize.find('span').html(
+						rwd.viewportWidth() + ' &times; ' + rwd.viewportHeight() + ' / ' +
+						((window.devicePixelRatio) ? (Math.round(window.devicePixelRatio * 100000) / 100000) : '?')
+					);
 
 					$.each(mediaQueries, function (index, value) {
 						var result = rwd.matchViewport(index);
@@ -210,7 +213,7 @@
 				}
 
 				tr = '<tr class="' + index + '">' +
-						'<th>' + index + '</th>' + 
+						'<th>' + index + '</th>' +
 						'<td>' + query + '</td>' +
 						'<td>' + ((pixelWidth) ? pixelWidth + 'px' : '') + '</td>' +
 					'</tr>';
@@ -218,18 +221,45 @@
 				content.push(tr);
 			});
 
-			content.push('</table>');
-
-			content.push('<button class="close">&times;</button>');
+			content.push(
+				'</table>' +
+				'<button class="position" data-position="1">Position</button>'
+			);
 
 			$debugSize.html(content.join(''));
 
-			$debugSize.find('.close').on('click', function () {
-				$('#debug-panel').find('button[data-option="windowSize"]').trigger('click');
-			});
-
 			updateSize();
 			$(window).resize(updateSize);
+			debug.windowSize.position.init();
+		},
+
+		// TODO - CJ - add unit tests
+		position: {
+			init: function () {
+				// onload
+				if (Modernizr.localstorage && localStorage.getItem('debug-position')) {
+					debug.windowSize.position.update(localStorage.getItem('debug-position'));
+				}
+
+				// click event
+				$('#debug-size').find('.position').on('click', function () {
+					var current = $(this).attr('data-position'),
+						next = parseInt(current, 10) + 1;
+
+					if (next > 4) next = 1;
+
+					debug.windowSize.position.update(next);
+
+					if (Modernizr.localstorage) {
+						localStorage.setItem('debug-position', next);
+					}
+				});
+			},
+
+			update: function (i) {
+				$('#debug-size').removeClass().addClass('position' + i)
+					.find('.position').attr('data-position', i);
+			}
 		}
 	};
 
