@@ -2,6 +2,7 @@
 ---------------------------------------------------------------------------------------- //// */
 
 h1 {
+	padding:.5em 0 0;
 	font-size:60px}
 
 ul li {
@@ -11,13 +12,15 @@ ul li {
 .container {
 	text-align:center}
 
-.promo {
-	margin:0 auto 1.5em;
-	width:80%}
-.promo a {
+.button {
+	margin-right:auto;
+	margin-left:auto;
+	width:80%;
+	max-width:225px}
+.button a {
 	display:block;
 	padding:.5em;
-	border:1px solid #d2d2d2;
+	border:1px solid #666;
 	-moz-border-radius:   .5em;
 	-webkit-border-radius:.5em;
 	border-radius:        .5em;
@@ -31,43 +34,88 @@ ul li {
 	background:       -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8f8f8), color-stop(100%,#ddd));
 	background:-webkit-linear-gradient(top, #f8f8f8 0%, #ddd 100%);
 	background:        linear-gradient(top, #f8f8f8 0%, #ddd 100%);
-	color:#999;
+	color:#666;
 	text-align:center;
 	text-decoration:none}
-
-.promo b {
-	display:block;
-	color:#666}
-
-.promo a:hover,
-.promo a:focus {
-	position:relative;
-	z-index:1;
+.button a:hover,
+.button a:focus {
 	border-color:#666;
 	color:#666}
-.promo a:hover b,
-.promo a:focus b {
-	color:#000}
+
+.details {
+	overflow:hidden;
+	padding:1.5em 0 0;
+	border-top:1px solid #eee}
+.details ul {
+	margin:0}
+
+/* XS
+---------------------------------------------------------------------------------------- //// */
+@media (min-width:20em) {
+	h1 {
+		font-size:80px}
+}
 
 /* S
 ---------------------------------------------------------------------------------------- //// */
 @media (min-width:30em) {
 	h1 {
+		padding:.25em 0 0;
 		font-size:130px;
 		line-height:1em;
 		text-align:center}
+	.description {
+		margin-right:auto;
+		margin-left:auto;
+		max-width:85%;
+		font-size:2em;
+		text-align:center}
+
+	.details ul {
+		position:relative;
+		left:50%;
+		float:left;
+		margin-left:8px}
+	.details li {
+		position:relative;
+		right:50%;
+		float:left;
+		margin-right:16px}
 }
 
 /* M
 ---------------------------------------------------------------------------------------- //// */
 @media (min-width:37.5em) {
-	.container {
-		text-align:left}
+	.details ul {
+		margin-left:16px}
+	.details li {
+		margin-right:32px}
 }
 
 /* L
 ---------------------------------------------------------------------------------------- //// */
 @media (min-width:48.0625em) {
 	h1 {
-		font-size:200px}
+		margin-left:-14px;
+		font-size:200px;
+		text-align:left}
+	.description,
+	.button {
+		margin-right:0;
+		margin-left:0;
+		text-align:left}
+	.description {
+		max-width:75%}
+
+	h2 {
+		float:left;
+		margin:0 0 1.083333em; /* 0 0 24px */
+		width:25%;
+		text-align:left}
+
+	.details ul {
+		top:.5em;
+		left:0}
+	.details li {
+		right:0}
 }
