@@ -16,12 +16,12 @@
 	};
 
 	frwd.mediaQueries = {
-		'XXS': {'query': '(min-width:15em)'},		// 240px
-		'XS':  {'query': '(min-width:20em)'},		// 320px
-		'S':   {'query': '(min-width:30em)'},		// 480px
-		'M':   {'query': '(min-width:37.5em)'},		// 600px
-		'L':   {'query': '(min-width:48.0625em)'},	// 769px
-		'XL':  {'query': '(min-width:62em)'},		// 992px
+		'XXS': {'query': '(min-width:' + 240/16 + 'em)'},
+		'XS':  {'query': '(min-width:' + 300/16 + 'em)'},
+		'S':   {'query': '(min-width:' + 440/16 + 'em)'},
+		'M':   {'query': '(min-width:' + 600/16 + 'em)'},
+		'L':   {'query': '(min-width:' + 750/16 + 'em)'},
+		'XL':  {'query': '(min-width:' + 980/16 + 'em)'},
 		'High-DPI': {'query': '(-webkit-min-device-pixel-ratio:1.5), (min-resolution:144dpi), (min-resolution:1.5dppx)'}
 	};
 
