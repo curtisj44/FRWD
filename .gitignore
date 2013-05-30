@@ -1,6 +1,6 @@
 .DS_Store
 .sass-cache
 frwd.sublime-project
-/app/assets/dist/*
-/dist
-/temp
+app/assets/dist/*
+dist
+temp
