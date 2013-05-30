@@ -2,24 +2,24 @@
 
 A responsive, proportional, nestable, customizable, and mobile-first **F**ramework for **R**esponsive **W**eb **D**esign.
 
-### 1.) Responsive
+#### 1) Responsive
  - **Flexible grid** defined in percentages
  - **Flexible media** that proportionally scale down when needed
  - **media queries** defined in ems
 
-### 2.) Proportional
+#### 2) Proportional
 
 Create layouts using proportions (1/2, 2/3, 1/3, 1/4, etc.), not a rigid column grid.
 
-### 3.) Nestable
+#### 3) Nestable
 
 Easily create complex layouts.
 
-### 4.) Customizable
+#### 4) Customizable
 
 Don't like something? Change it. Define your own proportions, breakpoints, and everything else.
 
-### 5.) Mobile-First
+#### 5) Mobile-First
 
 The small screen experience is the baseline, with additional styles added using media queries.
 
