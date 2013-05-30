@@ -2,7 +2,7 @@
 	width: percentage($fraction);
 }
 
-/* $reset = [blank], none, none-left, none-right */
+// $reset = [blank], none, none-left, none-right
 @mixin region-padding($value) {
 	@if ($value == none) {
 		padding:0;
@@ -19,7 +19,7 @@
 	}
 }
 
-/* $offset = prefix or suffix */
+// $offset = prefix or suffix
 @mixin region-offset($fraction, $offset) {
 	@if ($offset == prefix) {
 		margin-left: percentage($fraction);
@@ -30,7 +30,7 @@
 	}
 }
 
-/* $order = push or pull */
+// $order = push or pull
 @mixin region-order($fraction, $order) {
 	position:relative;
 
