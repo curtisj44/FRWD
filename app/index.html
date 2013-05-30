@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="ie6" lang="en"><![endif]-->
+<!--[if IE 7]><html class="ie7" lang="en"><![endif]-->
+<!--[if IE 8]><html class="ie8" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+	<head>
+		<meta charset="utf-8" />
+		<title>FRWD</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<!--[if lte IE 8]>
+			<link rel="stylesheet" href="/assets/dist/css/global.fixed.css" />
+			<link rel="stylesheet" href="/assets/dist/css/demos.fixed.css" />
+			<link rel="stylesheet" href="/assets/dist/css/debug.fixed.css" />
+		<![endif]-->
+
+		<!--[if gt IE 8]><!-->
+			<link rel="stylesheet" href="/assets/dist/css/global.css" />
+			<link rel="stylesheet" href="/assets/dist/css/demos.css" />
+			<link rel="stylesheet" href="/assets/dist/css/debug.css" />
+		<!--<![endif]-->
+
+		<!-- build:js /assets/dist/js/head.js -->
+		<script src="assets/src/js/modernizr.custom.js"></script>
+		<script src="assets/src/js/matchMedia.js"></script>
+		<script src="assets/src/js/frwd.js"></script>
+		<script src="assets/src/js/picturefill.js"></script>
+		<!-- endbuild -->
+	</head>
+
+	<body class="index">
+		<h1>FRWD</h1>
+
+		<div class="fields">
+			<div class="region overview">
+				<p class="description">A responsive, proportional, nestable, customizable, and mobile-first grid&nbsp;framework.</p>
+
+				<p class="button">
+					<a href="/intro.html">What is it &amp; how does it&nbsp;work?</a>
+				</p>
+
+				<p class="button">
+					<a href="https://github.com/curtisj44/FRWD/">View on Github</a>
+				</p>
+
+				<div class="details">
+					<div class="details-wrap">
+						<h2>Demos:</h2>
+						<ul>
+							<li><a href="/demo1.html">1</a></li>
+							<li><a href="/demo2.html">2</a></li>
+							<li><a href="/demo3.html">3</a></li>
+							<li><a href="/demo4.html">4</a></li>
+							<li><a href="/demo5.html">5</a></li>
+							<li><a href="/demo-slider.html">Slider</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="details">
+					<div class="details-wrap">
+						<h2>Reference:</h2>
+						<ul>
+							<li><a href="/reference/styleguide/">Style Guide</a></li>
+							<li><a href="/reference/tests/">JavaScript Unit Tests</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="assets/src/js/jquery-1.8.2.min.js"><\/script>');</script>
+
+		<!-- build:js /assets/dist/js/body.js -->
+		<script src="assets/src/js/frwd.fixIE7Grid.js"></script>
+		<!-- endbuild -->
+
+		<!-- build:js /assets/dist/js/frwd.debug.js -->
+		<script src="assets/src/js/frwd.debug.js"></script>
+		<!-- endbuild -->
+	</body>
+</html>

@@ -1,0 +1,16 @@
+@mixin border-radius($value) {
+	   -moz-border-radius: $value;
+	-webkit-border-radius: $value;
+	        border-radius: $value;
+
+	// TODO - CJ - looks like this might not work?
+	@if ($value == 0) {
+		   -moz-background-clip: border;
+		-webkit-background-clip: border-box;
+		        background-clip: border-box;
+	} @else {
+		   -moz-background-clip: padding;
+		-webkit-background-clip: padding-box;
+		        background-clip: padding-box;
+	}
+}

@@ -1,0 +1,56 @@
+/* All
+---------------------------------------------------------------------------------------- //// */
+
+$black: #141f2c;
+$blue: #36a3f8;
+$green: #a4d382;
+$grey: #475059;
+$orange: #fd440d;
+$white: #f3f6f7;
+
+html {
+	background: $white;
+}
+
+body {
+	color: $black;
+	font-family:"Open Sans";
+}
+
+h1 {
+	margin:0 0 .5em;
+	padding:.5em $gutter/2 .25em;
+	background: $orange;
+	font-weight:700;
+	font-family:"Open Sans Condensed";
+
+	@include media($L) {
+		margin:0 0 .75em;
+		text-align:center;
+	}
+}
+
+h2,
+h3 {
+	font-weight:300;
+}
+
+a {
+	&:link,
+	&:visited {
+		color: $blue;
+	}
+
+	&:hover,
+	&:focus {
+		color: $grey;
+	}
+}
+
+.media-full {
+	margin-top: -21px;
+
+	@include media($L) {
+		margin-top: 0;
+	}
+}

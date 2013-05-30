@@ -1,0 +1,140 @@
+/* Index
+---------------------------------------------------------------------------------------- //// */
+
+.index {
+	text-align:center;
+
+	.overview {
+		@include region-size(1);
+	}
+
+	h1 {
+		margin-bottom:.25em;
+		padding-right:0;
+		padding-left:0;
+		border-bottom:.1em solid lighten($orange, 20);
+		font-size:80px;
+		line-height:87px;
+		line-height:1;
+
+		@include media($S) {
+			padding:.25em 0 0;
+			font-size:130px;
+			line-height:1;
+		}
+
+		@include media($S) {
+			border-bottom-width:.05em;
+		}
+
+		@include media($L) {
+			margin-left:-7px;
+			font-size:200px;
+		}
+	}
+
+	ul li {
+		padding:0;
+		background:none;
+	}
+
+	.description {
+		@include media($XS) {
+			font-size:20px;
+		}
+
+		@include media($S) {
+			margin-right:auto;
+			margin-left:auto;
+			max-width:85%;
+			font-size:2em;
+		}
+
+		@include media($L) {
+			max-width:60%;
+		}
+	}
+
+	@include media($L) {
+		h2 {
+			position:relative;
+			right:50%;
+			float:left;
+			margin:0 .5em 1em 0;
+			min-width:200px;
+			text-align:right;
+		}
+
+		.details-wrap {
+			position:relative;
+			left:50%;
+			float:left;
+		}
+	}
+
+	.details {
+		overflow:hidden;
+		margin:-1px 0 0;
+		padding:1.5em 0 0;
+		border:1px solid #d7e1ea;
+		border-width:1px 0;
+
+		ul {
+			margin:0;
+
+			@include media($S) {
+				position:relative;
+				left:50%;
+				float:left;
+				margin-left:8px;
+			}
+
+			@include media($M) {
+				margin-left:16px;
+			}
+
+			@include media($L) {
+				position:relative;
+				top:.5em;
+				right:50%;
+				left:auto;
+				float:left;
+			}
+		}
+
+		li {
+			@include media($S) {
+				position:relative;
+				right:50%;
+				float:left;
+				margin-right:16px;
+			}
+
+			@include media($M) {
+				margin-right:32px;
+			}
+
+			@include media($L) {
+				right:0;
+			}
+		}
+	}
+
+	.button {
+		margin:1.5em auto;
+
+		a {
+			display:inline-block;
+			padding:.5em 1.5em;
+			@include border-radius(.5em);
+			background: $blue;
+			color:#fff;
+			text-decoration:none;
+
+			&:hover,
+			&:focus {
+				background: $grey;
+			}
+		}
+	}
+}

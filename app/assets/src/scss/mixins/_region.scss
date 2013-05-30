@@ -1,0 +1,44 @@
+@mixin region-size($fraction) {
+	width: percentage($fraction);
+}
+
+/* $reset = [blank], none, none-left, none-right */
+@mixin region-padding($value) {
+	@if ($value == none) {
+		padding:0;
+	} @else {
+		padding:0 $gutter/2;
+	}
+
+	@if ($value == none-left) {
+		padding-left:0;
+	}
+
+	@if ($value == none-right) {
+		padding-right:0;
+	}
+}
+
+/* $offset = prefix or suffix */
+@mixin region-offset($fraction, $offset) {
+	@if ($offset == prefix) {
+		margin-left: percentage($fraction);
+	}
+
+	@if ($offset == suffix) {
+		margin-right: percentage($fraction);
+	}
+}
+
+/* $order = push or pull */
+@mixin region-order($fraction, $order) {
+	position:relative;
+
+	@if ($order == push) {
+		left: percentage($fraction);
+	}
+
+	@if ($order == pull) {
+		left: -(percentage($fraction));
+	}
+}

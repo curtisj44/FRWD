@@ -1,0 +1,69 @@
+/* Demo 2
+---------------------------------------------------------------------------------------- //// */
+
+.demo2 {
+	.main {
+		@include media($L) {
+			@include region-size(1/2);
+		}
+
+		@include media($XL) {
+			@include region-size(2/3);
+		}
+	}
+
+	.main-heading {
+		@include region-padding(none);
+	}
+
+	.main-sidebar {
+		@include region-padding(none);
+
+		@include media($XL) {
+			@include region-size(1/3);
+			@include region-padding(none-left);
+		}
+	}
+
+	.main-overview {
+		@include region-padding(none);
+
+		@include media($XL) {
+			@include region-size(2/3);
+			@include region-padding(none-right);
+		}
+	}
+
+	.aside {
+		@include media($L) {
+			@include region-size(1/2);
+		}
+
+		@include media($XL) {
+			@include region-size(1/3);
+		}
+
+		.blocks {
+			margin-bottom:1.5em;
+			border:1px solid #000;
+			border-width:1px 0;
+
+			@include media($S) {
+				margin-bottom:0;
+				border:0;
+			}
+		}
+
+		img {
+			float:left;
+			margin:0 $gutter/2 0 0;
+			width:80px;
+
+			@include media($S) {
+				float:none;
+				margin:0;
+				width:auto;
+			}
+		}
+	}
+}

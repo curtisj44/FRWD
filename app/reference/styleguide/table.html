@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="ie6" lang="en"><![endif]-->
+<!--[if IE 7]><html class="ie7" lang="en"><![endif]-->
+<!--[if IE 8]><html class="ie8" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+	<head>
+		<meta charset="utf-8" />
+		<title>Table | Style Guide</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<!--[if lte IE 8]>
+			<link rel="stylesheet" href="/assets/dist/css/global.fixed.css" />
+			<link rel="stylesheet" href="/assets/dist/css/debug.fixed.css" />
+		<![endif]-->
+
+		<!--[if gt IE 8]><!-->
+			<link rel="stylesheet" href="/assets/dist/css/global.css" />
+			<link rel="stylesheet" href="/assets/dist/css/debug.css" />
+		<!--<![endif]-->
+
+		<!-- /assets/dist/js/head.js -->
+		<script src="/assets/src/js/modernizr.custom.js"></script>
+		<script src="/assets/src/js/matchMedia.js"></script>
+		<script src="/assets/src/js/frwd.js"></script>
+		<script src="/assets/src/js/picturefill.js"></script>
+	</head>
+
+	<body>
+		<div class="fields">
+			<div class="region size1of1">
+				<h1>Table</h1>
+				<hr />
+			</div>
+		</div>
+
+		<div class="fields">
+			<div class="region size1of1">
+				<h2>Simple</h2>
+
+				<h3>Default</h3>
+				<table>
+					<thead>
+						<tr>
+							<th>Course Name</th>
+							<th>Course Tutor</th>
+							<th>Summary</th>
+							<th>Code</th>
+							<th>Fee</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							<td data-th="Course Name">After the Civil War</td>
+							<td data-th="Course Tutor">Dr. John Wroughton</td>
+							<td data-th="Summary">The course will examine the turbulent years in England after 1646. 6 weekly meetings starting Monday 13th October.</td>
+							<td data-th="Code">H27</td>
+							<td data-th="Fee">$32</td>
+						</tr>
+						<tr>
+							<td data-th="Course Name">An Introduction to Anglo-Saxon England</td>
+							<td data-th="Course Tutor">Mark Cottle</td>
+							<td data-th="Summary">One day course introducing the early medieval period reconstruction the Anglo-Saxons and their society. Saturday 18th October.</td>
+							<td data-th="Code">H28</td>
+							<td data-th="Fee">$18</td>
+						</tr>
+						<tr>
+							<td data-th="Course Name">The Glory that was Greece</td>
+							<td data-th="Course Tutor">Valerie Lorenz</td>
+							<td data-th="Summary">Birthplace of democracy, philosophy, heartland of theater, home of argument. The Romans may have done it but the Greeks did it first. Saturday day school 25th October 1997</td>
+							<td data-th="Code">H30</td>
+							<td data-th="Fee">$18</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<h3>Responsive</h3>
+				<table class="table-responsive">
+					<thead>
+						<tr>
+							<th>Course Name</th>
+							<th>Course Tutor</th>
+							<th>Summary</th>
+							<th>Code</th>
+							<th>Fee</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							<td data-th="Course Name">After the Civil War</td>
+							<td data-th="Course Tutor">Dr. John Wroughton</td>
+							<td data-th="Summary">The course will examine the turbulent years in England after 1646. 6 weekly meetings starting Monday 13th October.</td>
+							<td data-th="Code">H27</td>
+							<td data-th="Fee">$32</td>
+						</tr>
+						<tr>
+							<td data-th="Course Name">An Introduction to Anglo-Saxon England</td>
+							<td data-th="Course Tutor">Mark Cottle</td>
+							<td data-th="Summary">One day course introducing the early medieval period reconstruction the Anglo-Saxons and their society. Saturday 18th October.</td>
+							<td data-th="Code">H28</td>
+							<td data-th="Fee">$18</td>
+						</tr>
+						<tr>
+							<td data-th="Course Name">The Glory that was Greece</td>
+							<td data-th="Course Tutor">Valerie Lorenz</td>
+							<td data-th="Summary">Birthplace of democracy, philosophy, heartland of theater, home of argument. The Romans may have done it but the Greeks did it first. Saturday day school 25th October 1997</td>
+							<td data-th="Code">H30</td>
+							<td data-th="Fee">$18</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<hr />
+
+				<h2>Complex</h2>
+
+				<h3>Default</h3>
+				<table>
+					<thead>
+						<tr>
+							<th>Product(s)</th>
+							<th>Amount</th>
+							<th>Quantity</th>
+							<th>Subtotal</th>
+							<th>Options</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							<td data-th="Product(s)">
+								<img src="http://placehold.it/200x100/000" alt="fpo" /><br />
+								<a href="#fpo">$25 Thank You</a>
+							</td>
+							<td data-th="Amount">
+								$25.00
+							</td>
+							<td data-th="Quantity">
+								1
+							</td>
+							<td data-th="Subtotal">
+								$25.00
+							</td>
+							<td data-th="Options">
+								<a href="#fpo">Edit</a>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								<img src="http://placehold.it/50x50/000" alt="fpo" /><br />
+								Standard
+							</td>
+							<td data-th="Amount">
+								-
+							</td>
+							<td data-th="Quantity">
+								1
+							</td>
+							<td data-th="Subtotal">
+								No Charge
+							</td>
+							<td></td>
+						</tr>
+					</tbody>
+
+					<tbody>
+						<tr>
+							<td data-th="Product(s)">
+								<img src="http://placehold.it/200x100/000" alt="fpo" /><br />
+								<a href="#fpo">$100 Washington State University</a>
+							</td>
+							<td data-th="Amount">
+								$100.00
+							</td>
+							<td data-th="Quantity">
+								1
+							</td>
+							<td data-th="Subtotal">
+								$100.00
+							</td>
+							<td data-th="Options">
+								<a href="#fpo">Edit</a>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								<img src="http://placehold.it/50x50/000" alt="fpo" /><br />
+								Thank You
+							</td>
+							<td data-th="Amount">
+								$2.95
+							</td>
+							<td data-th="Quantity">
+								1
+							</td>
+							<td data-th="Subtotal">
+								$2.95
+							</td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+
+				<h3>Responsive</h3>
+				<table class="table-responsive">
+					<thead>
+						<tr>
+							<th>Product(s)</th>
+							<th>Amount</th>
+							<th>Quantity</th>
+							<th>Subtotal</th>
+							<th>Options</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							<td data-th="Product(s)">
+								<img src="http://placehold.it/200x100/000" alt="fpo" /><br />
+								<a href="#fpo">$25 Thank You</a>
+							</td>
+							<td data-th="Amount">
+								$25.00
+							</td>
+							<td data-th="Quantity">
+								1
+							</td>
+							<td data-th="Subtotal">
+								$25.00
+							</td>
+							<td data-th="Options">
+								<a href="#fpo">Edit</a>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								<img src="http://placehold.it/50x50/000" alt="fpo" /><br />
+								Standard
+							</td>
+							<td data-th="Amount">
+								-
+							</td>
+							<td data-th="Quantity">
+								1
+							</td>
+							<td data-th="Subtotal">
+								No Charge
+							</td>
+							<td></td>
+						</tr>
+					</tbody>
+
+					<tbody>
+						<tr>
+							<td data-th="Product(s)">
+								<img src="http://placehold.it/200x100/000" alt="fpo" /><br />
+								<a href="#fpo">$100 Washington State University</a>
+							</td>
+							<td data-th="Amount">
+								$100.00
+							</td>
+							<td data-th="Quantity">
+								1
+							</td>
+							<td data-th="Subtotal">
+								$100.00
+							</td>
+							<td data-th="Options">
+								<a href="#fpo">Edit</a>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								<img src="http://placehold.it/50x50/000" alt="fpo" /><br />
+								Thank You
+							</td>
+							<td data-th="Amount">
+								$2.95
+							</td>
+							<td data-th="Quantity">
+								1
+							</td>
+							<td data-th="Subtotal">
+								$2.95
+							</td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="/assets/src/js/jquery-1.8.2.min.js"><\/script>');</script>
+
+		<!-- /assets/dist/js/body.js -->
+		<script src="/assets/src/js/frwd.fixIE7Grid.js"></script>
+
+		<!-- /assets/dist/js/frwd.debug.js -->
+		<script src="/assets/src/js/frwd.debug.js"></script>
+	</body>
+</html>
