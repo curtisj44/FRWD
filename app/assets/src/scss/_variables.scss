@@ -5,19 +5,18 @@ $fixedWidth: false !default;
 $maxWidth: 1176px;
 $gutter: 32px;
 
-// media queries
-// TODO - CJ - remove the need to do the math here
-$XXS: '(min-width:15em)';		// 240px
-$XS: '(min-width:20em)';		// 320px
-$S: '(min-width:30em)';			// 480px
-$M: '(min-width:37.5em)';		// 600px
-$L: '(min-width:48.0625em)';	// 769px
-$XL: '(min-width:62em)';		// 992px
-$High-DPI: '(-webkit-min-device-pixel-ratio:1.5), (min-resolution:144dpi), (min-resolution:1.5dppx)';
-
 // typography
 $fontColor: #000;
 $fontStack: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $fontStackMono: "Courier New", Courier, monospace;
-$fontSize: 1em; /* 16px */
+$fontSize: 1em; // 16px
 $lineHeight: 24/16;
+
+// media queries
+$XXS: '(min-width: #{$fontSize * 15})';
+$XS: '(min-width: #{$fontSize * 20})';
+$S: '(min-width: #{$fontSize * 30})';
+$M: '(min-width: #{$fontSize * 37.5})';
+$L: '(min-width: #{$fontSize * 48.0625})';
+$XL: '(min-width: #{$fontSize * 62})';
+$High-DPI: '(-webkit-min-device-pixel-ratio:1.5), (min-resolution:144dpi), (min-resolution:1.5dppx)';
