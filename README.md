@@ -5,7 +5,7 @@ A responsive, proportional, nestable, customizable, and mobile-first **F**ramewo
 #### 1) Responsive
  - **Flexible grid** defined in percentages
  - **Flexible media** that proportionally scale down when needed
- - **media queries** defined in ems
+ - **Media queries** defined in ems
 
 #### 2) Proportional
 
