@@ -1,25 +1,32 @@
 # FRWD
 
-## A responsive, proportional, nestable, and mobile-first grid framework.
+A responsive, proportional, nestable, customizable, and mobile-first **F**ramework for **R**esponsive **W**eb **D**esign.
 
-1. ### Responsive
+## 1.) Responsive
  - **Flexible grid** defined in percentages
  - **Flexible media** that proportionally scales down when larger than its parent
  - Em-based **media queries**
 
-2. ### Proportional
+## 2.) Proportional
 
-    The sizes are based on commonly used proportions: 1/1, 1/2, 2/3, 1/3, 1/4, etc. (See the [size options](http://curtisj44.github.com/FRWD/static/reference/styleguide/grid-region-sizes.htm))
+Use 
+Create your own 
+The sizes are based on commonly used proportions: 1/1, 1/2, 2/3, 1/3, 1/4, etc.
 
-3. ### Nestable
+## 3.) Nestable
 
-    Grids can be infinitely nested within other grids.
+Grids can be infinitely nested within other grids.
 
-4. ### Mobile-First
+## 4.) Customizable
 
-    The small screen experience is the baseline, with additional styles added using media queries
+Don't like what you see? Change it.
+
+## 5.) Mobile-First
+
+The small screen experience is the baseline, with additional styles added using media queries
 
 
+<!--
 ## Getting Started
 
 The framework is built around a combination of these three elements: `container`, `fields`, and `region`.
@@ -112,3 +119,5 @@ The `blocks` style is used for repeating content holders. They appear in [two-up
     </div>
 </div>
 ```
+
+-->
