@@ -4,26 +4,24 @@ A responsive, proportional, nestable, customizable, and mobile-first **F**ramewo
 
 ## 1.) Responsive
  - **Flexible grid** defined in percentages
- - **Flexible media** that proportionally scales down when larger than its parent
- - Em-based **media queries**
+ - **Flexible media** that proportionally scale down when needed
+ - **media queries** defined in ems
 
 ## 2.) Proportional
 
-Use 
-Create your own 
-The sizes are based on commonly used proportions: 1/1, 1/2, 2/3, 1/3, 1/4, etc.
+Create layouts using any proportion (1/2, 2/3, 1/3, 1/4, etc.) instead of based on a rigid column grid.
 
 ## 3.) Nestable
 
-Grids can be infinitely nested within other grids.
+Easily create complex layouts.
 
 ## 4.) Customizable
 
-Don't like what you see? Change it.
+Don't like something? Change it. Define your own proportions, breakpoints, and everything else.
 
 ## 5.) Mobile-First
 
-The small screen experience is the baseline, with additional styles added using media queries
+The small screen experience is the baseline, with additional styles added using media queries.
 
 
 <!--
