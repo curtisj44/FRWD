@@ -1,6 +1,6 @@
 # FRWD
 
-A responsive, proportional, nestable, customizable, and mobile-first **F**ramework for **R**esponsive **W**eb **D**esign.
+A responsive, proportional, nestable, customizable, and mobile-first framework **F**or **R**esponsive **W**eb **D**esign.
 
 #### 1) Responsive
  - **Flexible grid** defined in percentages
