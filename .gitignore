@@ -1,6 +1,7 @@
 .DS_Store
 .sass-cache
-frwd.sublime-project
 app/assets/dist/*
+frwd.sublime-project
+frwd.sublime-workspace
 dist
 temp
