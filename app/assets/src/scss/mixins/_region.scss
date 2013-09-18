@@ -5,17 +5,17 @@
 // $reset = [blank], none, none-left, none-right
 @mixin region-padding($value) {
 	@if ($value == none) {
-		padding:0;
+		padding: 0;
 	} @else {
-		padding:0 $gutter/2;
+		padding: 0 $gutter/2;
 	}
 
 	@if ($value == none-left) {
-		padding-left:0;
+		padding-left: 0;
 	}
 
 	@if ($value == none-right) {
-		padding-right:0;
+		padding-right: 0;
 	}
 }
 
@@ -32,7 +32,7 @@
 
 // $order = push or pull
 @mixin region-order($fraction, $order) {
-	position:relative;
+	position: relative;
 
 	@if ($order == push) {
 		left: percentage($fraction);

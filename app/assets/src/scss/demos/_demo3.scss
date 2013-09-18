@@ -15,37 +15,37 @@
 	}
 
 	.highlights {
-		margin-bottom:1.5em;
-		border-bottom:1px solid #000;
+		margin-bottom: 1.5em;
+		border-bottom: 1px solid #000;
 
 		@include media($S) {
-			margin-bottom:0;
-			border-bottom:0;
+			margin-bottom: 0;
+			border-bottom: 0;
 		}
 
 		li {
-			overflow:hidden;
-			padding-top:1.5em;
-			border-top:1px solid #000;
+			overflow: hidden;
+			padding-top: 1.5em;
+			border-top: 1px solid #000;
 
 			@include media($S) {
-				padding-top:0;
-				border-top:0;
+				padding-top: 0;
+				border-top: 0;
 			}
 		}
 
 		img {
-			margin:0 16px 1.5em 0;
+			margin: 0 16px 1.5em 0;
 
 			@include media($XXS) {
-				float:left;
-				width:90px;
+				float: left;
+				width: 90px;
 			}
 
 			@include media($S) {
-				float:none;
-				margin:0 0 .75em;
-				width:auto;
+				float: none;
+				margin: 0 0 .75em;
+				width: auto;
 			}
 		}
 	}

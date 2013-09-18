@@ -16,7 +16,7 @@
 
 	.item {
 		@include media($M) {
-			@include region-size(1/3);	
+			@include region-size(1/3);
 		}
 	}
 

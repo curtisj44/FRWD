@@ -2,54 +2,54 @@
 ---------------------------------------------------------------------------------------- //// */
 
 table {
-	width:100%;
-	border-bottom:1px solid #000;
-	background:#eee;
+	width: 100%;
+	border-bottom: 1px solid #000;
+	background: #eee;
 
 	@include media($M) {
-		border:0;
+		border: 0;
 	}
 
 	.align_center {
-		text-align:center;
+		text-align: center;
 	}
 
 	.align_left {
-		text-align:left;
+		text-align: left;
 	}
 
 	.align_right {
-		text-align:right;
+		text-align: right;
 	}
 }
 
 thead {
-	background:#ccc;
+	background: #ccc;
 
 	@include media($M) {
-		border-bottom:1px solid #000;
+		border-bottom: 1px solid #000;
 	}
 }
 
 td,
 th {
-	padding:.5em;
-	text-align:left;
-	vertical-align:top;
+	padding: .5em;
+	text-align: left;
+	vertical-align: top;
 }
 
 th {
-	font-weight:bold;
+	font-weight: bold;
 }
 
 /* responsive ----------------------------------------------- //// */
 .generatedcontent .table-responsive {
-	display:block;
-	font-size:.875em; /* 14px */
+	display: block;
+	font-size: .875em; /* 14px */
 
 	@include media($M) {
-		display:table;
-		font-size:1em; /* 16px */
+		display: table;
+		font-size: 1em; /* 16px */
 	}
 
 	thead,
@@ -58,86 +58,86 @@ th {
 	tr,
 	td,
 	th {
-		display:block;
+		display: block;
 	}
 
 	tr {
-		overflow:hidden;
+		overflow: hidden;
 	}
 
 	@include media($M) {
 		thead {
-			display:table-header-group;
+			display: table-header-group;
 		}
 
 		tbody {
-			display:table-row-group;
+			display: table-row-group;
 		}
 
 		tfoot {
-			display:table-footer-group;
+			display: table-footer-group;
 		}
 
 		tr {
-			display:table-row;
+			display: table-row;
 		}
 
 		td,
 		th {
-			display:table-cell;
+			display: table-cell;
 		}
 	}
 
 	thead tr {
-		position:absolute;
-		top:-9999px;
-		left:-9999px;
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
 
 		@include media($M) {
-			position:static;
+			position: static;
 		}
 	}
 
 	td,
 	th {
-		position:relative;
-		float:left;
-		width:54%;
-		padding:2% 2% 2% 44%;
-		border-bottom:1px solid #ccc;
+		position: relative;
+		float: left;
+		width: 54%;
+		padding: 2% 2% 2% 44%;
+		border-bottom: 1px solid #ccc;
 
 		@include media($M) {
-			position:static;
-			float:none;
-			padding:.5em;
-			width:auto;
-			border:0;
+			position: static;
+			float: none;
+			padding: .5em;
+			width: auto;
+			border: 0;
 		}
 
 		&:before,
 		&:before {
-			position:absolute;
-			top:0;
-			left:0;
-			width:34%;
-			padding:2%;
-			font-weight:bold;
-			content:attr(data-th);
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 34%;
+			padding: 2%;
+			font-weight: bold;
+			content: attr(data-th);
 
 			@include media($M) {
-				display:none;
-				content:'';
+				display: none;
+				content: '';
 			}
 		}
 
 		&:first-child,
 		&:first-child {
-			border-top:1px solid #000;
-			background:#ccc;
+			border-top: 1px solid #000;
+			background: #ccc;
 
 			@include media($M) {
-				border:0;
-				background:none;
+				border: 0;
+				background: none;
 			}
 		}
 	}

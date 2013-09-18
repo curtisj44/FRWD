@@ -2,16 +2,16 @@
 ---------------------------------------------------------------------------------------- //// */
 
 legend {
-	margin:0 0 1em;
+	margin: 0 0 1em;
 
 	.ie7 & {
-		margin-left:-7px;
+		margin-left: -7px;
 	}
 }
 
 label {
-	font-weight:bold;
-	cursor:pointer;
+	font-weight: bold;
+	cursor: pointer;
 }
 
 /* form fields ------------------------------------------- //// */
@@ -23,59 +23,59 @@ button,
 input,
 select,
 textarea {
-	margin:0;
-	padding:6px 7px 7px; /* TODO - CJ - use ems */
-	border:1px solid #ccc;
+	margin: 0;
+	padding: 6px 7px 7px; /* TODO - CJ - use ems */
+	border: 1px solid #ccc;
 	@include border-radius(3px);
-	background-image:-webkit-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,0)); /* 1 */
-	background-color:#fff;
-	color:#000;
-	font:1em $fontStack; /* 16px/21px */
-	vertical-align:baseline;
+	background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)); /* 1 */
+	background-color: #fff;
+	color: #000;
+	font: 1em $fontStack; /* 16px/21px */
+	vertical-align: baseline;
 
 	.ie7 & {
-		vertical-align:middle;
+		vertical-align: middle;
 	}
 
 	&:hover {
-		border-color:#999;
-		outline:0;
+		border-color: #999;
+		outline: 0;
 	}
 
 	&:focus {
-		border-color:#aaa;
-		@include box-shadow(0 0 3px rgba(0,0,0,.2));
-		outline:0;
+		border-color: #aaa;
+		@include box-shadow(0 0 3px rgba(0, 0, 0, .2));
+		outline: 0;
 	}
 
 	&.disabled,
 	&.disabled,
 	&.disabled {
-		border-color:#ccc;
-		background:#ccc;
-		color:#827a71;
-		cursor:default;
+		border-color: #ccc;
+		background: #ccc;
+		color: #827a71;
+		cursor: default;
 	}
 }
 
 button,
 input {
-	line-height:normal;
+	line-height: normal;
 
 	&::-moz-focus-inner {
-		padding:0;
-		border:0;
+		padding: 0;
+		border: 0;
 	}
 }
 
 select {
-	cursor:pointer;
+	cursor: pointer;
 }
 
 textarea {
-	overflow:auto;
-	vertical-align:top;
-	resize:vertical;
+	overflow: auto;
+	vertical-align: top;
+	resize: vertical;
 }
 
 /* buttons ------------------------------------------- //// */
@@ -83,20 +83,20 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	margin:0 10px 0 0;
-	padding:.5em 1.5em;
-	background:#eee;
-	font-weight:bold;
-	-webkit-appearance:button;
-	cursor:pointer;
+	margin: 0 10px 0 0;
+	padding: .5em 1.5em;
+	background: #eee;
+	font-weight: bold;
+	-webkit-appearance: button;
+	cursor: pointer;
 
 	.ie7 & {
-		overflow:visible;
+		overflow: visible;
 	}
 
 	&:hover,
 	&:focus {
-		background:lightblue;
+		background: lightblue;
 	}
 }
 
@@ -104,10 +104,10 @@ input[type="submit"] {
 input[type="checkbox"],
 input[type="radio"] {
 	@include box-sizing(border-box);
-	margin:0 5px 0 0;
-	padding:0;
-	background:none;
-	vertical-align:text-top;
+	margin: 0 5px 0 0;
+	padding: 0;
+	background: none;
+	vertical-align: text-top;
 }
 
 /* search ------------------------------------------- //// */
@@ -119,7 +119,7 @@ input[type="search"] {
 	*/
 
 	&::-webkit-search-decoration {
-		-webkit-appearance:none;
+		-webkit-appearance: none;
 	}
 
 	/* TODO - CJ - check this */
@@ -139,51 +139,51 @@ textarea:valid {
 
 input:invalid,
 textarea:invalid {
-	background-color:#f0dddd;
+	background-color: #f0dddd;
 }
 
 /* form list ------------------------------------------- //// */
 .form {
-	margin-left:0;
-	list-style:none;
+	margin-left: 0;
+	list-style: none;
 
 	li {
-		margin:0 0 1em; /* 0 0 14px */
-		padding:0;
+		margin: 0 0 1em; /* 0 0 14px */
+		padding: 0;
 	}
 
 	input,
 	select,
 	textarea {
-		display:block;
+		display: block;
 	}
 
 	.note {
-		color:lighten($fontColor, 70);
+		color: lighten($fontColor, 70);
 	}
 
 	.error input,
 	.error select,
 	.error textarea {
-		border-color:#f00;
+		border-color: #f00;
 	}
 
 	.error .error-message {
-		color:#f00;
+		color: #f00;
 	}
 }
 
 /* inline form list item ------------------------------------------- */
 .form-inline {
-	margin:0;
+	margin: 0;
 
 	input,
 	select,
 	textarea {
-		display:inline;
+		display: inline;
 	}
 
 	label {
-		font-weight:normal;
+		font-weight: normal;
 	}
 }

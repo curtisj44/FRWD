@@ -3,8 +3,8 @@
 
 .demo1 {
 	img {
-		display:block;
-		margin:0 auto;
+		display: block;
+		margin: 0 auto;
 	}
 
 	@include media($L) {
@@ -18,21 +18,21 @@
 	}
 
 	.features {
-		margin-bottom:1.5em;
-		border-bottom:1px solid #000;
+		margin-bottom: 1.5em;
+		border-bottom: 1px solid #000;
 
 		@include media($S) {
-			margin-bottom:0;
-			border:0;
+			margin-bottom: 0;
+			border: 0;
 		}
 
 		li {
-			padding-top:1.5em;
-			border-top:1px solid #000;
+			padding-top: 1.5em;
+			border-top: 1px solid #000;
 
 			@include media($S) {
-				padding-top:0;
-				border:0;
+				padding-top: 0;
+				border: 0;
 			}
 		}
 	}

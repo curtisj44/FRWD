@@ -44,25 +44,25 @@
 		}
 
 		.blocks {
-			margin-bottom:1.5em;
-			border:1px solid #000;
-			border-width:1px 0;
+			margin-bottom: 1.5em;
+			border: 1px solid #000;
+			border-width: 1px 0;
 
 			@include media($S) {
-				margin-bottom:0;
-				border:0;
+				margin-bottom: 0;
+				border: 0;
 			}
 		}
 
 		img {
-			float:left;
-			margin:0 $gutter/2 0 0;
-			width:80px;
+			float: left;
+			margin: 0 $gutter/2 0 0;
+			width: 80px;
 
 			@include media($S) {
-				float:none;
-				margin:0;
-				width:auto;
+				float: none;
+				margin: 0;
+				width: auto;
 			}
 		}
 	}

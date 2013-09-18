@@ -2,17 +2,17 @@
 ---------------------------------------------------------------------------------------- //// */
 @media print {
 	* {
-		background:transparent !important;
-		color:#000 !important;
-		text-shadow:none !important;
-		filter:none !important;
-		-ms-filter:none !important;
+		background: transparent !important;
+		color: #000 !important;
+		text-shadow: none !important;
+		filter:     none !important;
+		-ms-filter: none !important;
 	}
 
 	a,
 	a:visited {
-		color:#444 !important;
-		text-decoration:underline;
+		color: #444 !important;
+		text-decoration: underline;
 	}
 
 	a[href]:after {
@@ -30,47 +30,47 @@
 
 	pre,
 	blockquote {
-		padding:1.5em;
-		border:1px solid #ccc;
+		padding: 1.5em;
+		border: 1px solid #ccc;
 		@include border-radius(0);
-		page-break-inside:avoid;
+		page-break-inside: avoid;
 	}
 
 	pre {
-		overflow:visible;
-		font-size:.75em; /* 12px */
-		white-space:    -pre-wrap;
-		white-space:-moz-pre-wrap;
-		white-space:  -o-pre-wrap;
-		white-space:     pre-wrap;
+		overflow: visible;
+		font-size: .75em; /* 12px */
+		white-space:     -pre-wrap;
+		white-space: -moz-pre-wrap;
+		white-space:   -o-pre-wrap;
+		white-space:      pre-wrap;
 	}
 
 	blockquote {
-		padding-bottom:0;
+		padding-bottom: 0;
 	}
 
 	thead {
-		display:table-header-group;
+		display: table-header-group;
 	}
 
 	tr,
 	img {
-		page-break-inside:avoid;
+		page-break-inside: avoid;
 	}
 
 	@page {
-		margin:.5cm;
+		margin: .5cm;
 	}
 
 	p,
 	h2,
 	h3 {
-		orphans:3;
-		widows:3;
+		orphans: 3;
+		widows: 3;
 	}
 
 	h2,
 	h3 {
-		page-break-after:avoid;
+		page-break-after: avoid;
 	}
 }
