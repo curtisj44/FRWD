@@ -1,7 +1,7 @@
 .DS_Store
 .sass-cache
-app/assets/dist/*
+.tmp
+dist
 frwd.sublime-project
 frwd.sublime-workspace
-dist
-temp
+node_modules
