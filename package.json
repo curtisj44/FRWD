@@ -1,7 +1,24 @@
 {
 	"name": "FRWD",
-	"version": "0.0.0",
+	"description": "A responsive, proportional, nestable, customizable, and mobile-first framework For Responsive Web Design.",
+	"author": "Curtis Jurgensen",
+	"version": "1.0.0",
+	"homepage": "https://frwd.curtisjurgensen.com",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/curtisj44/FRWD.git"
+	},
+
+	/*
+	// TODO - add license
+	"licenses": [{
+		"type": "MIT",
+		"url": "https://raw.github.com/wagerfield/parallax/master/LICENSE.md"
+	}],
+	*/
+
 	"dependencies": {},
+
 	"devDependencies": {
 		"grunt": "~0.4.1",
 		"grunt-contrib-copy": "~0.4.1",
@@ -26,6 +43,7 @@
 		"time-grunt": "~0.1.1",
 		"jshint-stylish": "~0.1.3"
 	},
+
 	"engines": {
 		"node": ">=0.8.0"
 	}
