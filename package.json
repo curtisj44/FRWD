@@ -9,14 +9,6 @@
 		"url": "https://github.com/curtisj44/FRWD.git"
 	},
 
-	/*
-	// TODO - add license
-	"licenses": [{
-		"type": "MIT",
-		"url": "https://raw.github.com/wagerfield/parallax/master/LICENSE.md"
-	}],
-	*/
-
 	"dependencies": {},
 
 	"devDependencies": {
