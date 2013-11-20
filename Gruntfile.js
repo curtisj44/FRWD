@@ -245,6 +245,10 @@ module.exports = function (grunt) {
 						'.tmp/assets/css/debug.css',
 						'<%= yeoman.app %>/assets/css/debug.css'
 					],
+					'<%= yeoman.dist %>/assets/css/debug.fixed.css': [
+						'.tmp/assets/css/debug.fixed.css',
+						'<%= yeoman.app %>/assets/css/debug.fixed.css'
+					],
 
 					'<%= yeoman.dist %>/assets/css/demos.css': [
 						'.tmp/assets/css/demos.css',
