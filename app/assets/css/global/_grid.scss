@@ -136,11 +136,14 @@ head {
 	.blocks-five-up > li,
 	.blocks-six-up > li {
 		float: left;
-		width: 50%}
-	.blocks-four-up > li:nth-child(2n+1),
-	.blocks-five-up > li:nth-child(2n+1),
-	.blocks-six-up > li:nth-child(2n+1) {
-		clear: left}
+		width: 50%;
+	}
+
+	.blocks-four-up > li:nth-child(2n + 1),
+	.blocks-five-up > li:nth-child(2n + 1),
+	.blocks-six-up > li:nth-child(2n + 1) {
+		clear: left;
+	}
 }
 
 /* S
@@ -150,18 +153,25 @@ head {
 	.blocks-two-up > li,
 	.blocks-three-up > li {
 		float: left;
-		width: 50%}
+		width: 50%;
+	}
+
 	.blocks-five-up > li,
 	.blocks-six-up > li {
-		width: 33.333333%}
-	.blocks-five-up > li:nth-child(2n+1),
-	.blocks-six-up > li:nth-child(2n+1) {
-		clear: none}
-	.blocks-two-up > li:nth-child(2n+1),
-	.blocks-three-up > li:nth-child(2n+1),
-	.blocks-five-up > li:nth-child(3n+1),
-	.blocks-six-up > li:nth-child(3n+1) {
-		clear: left}
+		width: 33.333333%;
+	}
+
+	.blocks-five-up > li:nth-child(2n + 1),
+	.blocks-six-up > li:nth-child(2n + 1) {
+		clear: none;
+	}
+
+	.blocks-two-up > li:nth-child(2n + 1),
+	.blocks-three-up > li:nth-child(2n + 1),
+	.blocks-five-up > li:nth-child(3n + 1),
+	.blocks-six-up > li:nth-child(3n + 1) {
+		clear: left;
+	}
 }
 
 /* M
@@ -169,23 +179,34 @@ head {
 @include media($M) {
 	/* blocks ----------------------------------------------- //// */
 	.blocks-three-up > li {
-		width: 33.333333%}
+		width: 33.333333%;
+	}
+
 	.blocks-four-up > li {
-		width: 25%}
+		width: 25%;
+	}
+
 	.blocks-five-up > li {
-		width: 20%}
+		width: 20%;
+	}
+
 	.blocks-six-up > li {
-		width: 16.666667%}
-	.blocks-three-up > li:nth-child(2n+1),
-	.blocks-four-up > li:nth-child(2n+1),
-	.blocks-five-up > li:nth-child(3n+1),
-	.blocks-six-up > li:nth-child(3n+1) {
-		clear: none}
-	.blocks-three-up > li:nth-child(3n+1),
-	.blocks-four-up > li:nth-child(4n+1),
-	.blocks-five-up > li:nth-child(5n+1),
-	.blocks-six-up > li:nth-child(6n+1) {
-		clear: left}
+		width: 16.666667%;
+	}
+
+	.blocks-three-up > li:nth-child(2n + 1),
+	.blocks-four-up > li:nth-child(2n + 1),
+	.blocks-five-up > li:nth-child(3n + 1),
+	.blocks-six-up > li:nth-child(3n + 1) {
+		clear: none;
+	}
+
+	.blocks-three-up > li:nth-child(3n + 1),
+	.blocks-four-up > li:nth-child(4n + 1),
+	.blocks-five-up > li:nth-child(5n + 1),
+	.blocks-six-up > li:nth-child(6n + 1) {
+		clear: left;
+	}
 }
 
 /* L
@@ -195,9 +216,12 @@ head {
 	/* TODO - CJ - clean up */
 	/*
 	.no-boxsizing .region {
-		padding: 0}
+		padding: 0;
+	}
+
 	.no-boxsizing .region-wrap {
-		padding: 0 16px}
+		padding: 0 16px;
+	}
 	*/
 
 	/* ---- last region (class add via JS) ---- */
@@ -206,7 +230,8 @@ head {
 	.ie7 .region-last {
 		zoom: 1;
 		float: none;
-		width: auto}
+		width: auto;
+	}
 	*/
 
 	/* reset padding ----------------------------------------------- */
@@ -214,19 +239,27 @@ head {
 	// TODO - CJ - remove and use the region mixins
 	.region.reset,
 	.region.reset-left {
-		padding-left: 0}
+		padding-left: 0;
+	}
+
 	.region.reset,
 	.region.reset-right {
-		padding-right: 0}
+		padding-right: 0;
+	}
 
 	/* TODO - CJ - clean up */
 	/*
-	.no-boxsizing .region.reset .region-wrap,
-	.no-boxsizing .region.reset-left .region-wrap {
-		padding-left: 0}
-	.no-boxsizing .region.reset .region-wrap,
-	.no-boxsizing .region.reset-right .region-wrap {
-		padding-right: 0}
+	.no-boxsizing {
+		.region.reset .region-wrap,
+		.region.reset-left .region-wrap {
+			padding-left: 0;
+		}
+
+		.region.reset .region-wrap,
+		.region.reset-right .region-wrap {
+			padding-right: 0;
+		}
+	}
 	*/
 
 	// TODO - CJ - remove and use the region mixins
@@ -335,5 +368,6 @@ head {
 	/* centered ----------------------------------------------- */
 	.region-centered {
 		float: none;
-		margin: 0 auto}
+		margin: 0 auto;
+	}
 }
