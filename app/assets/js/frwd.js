@@ -11,7 +11,7 @@
 		if (window.matchMedia && window.matchMedia('only all').matches) {
 			return window.matchMedia(frwd.mediaQueries[value].query).matches ? true : false;
 		} else {
-			return (getComputedStyle(document.getElementsByTagName('head')[0]).getPropertyValue('font-family').indexOf('/' + value) > 0) ? true : false;
+			return true;
 		}
 	};
 

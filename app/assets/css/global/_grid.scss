@@ -1,16 +1,6 @@
 /* Grid
 ---------------------------------------------------------------------------------------- //// */
 
-/* head ----------------------------------------------- //// */
-head {
-	@include media($XXS) {font-family:'/XXS'}
-	@include media($XS)  {font-family:'/XXS/XS'}
-	@include media($S)   {font-family:'/XXS/XS/S'}
-	@include media($M)   {font-family:'/XXS/XS/S/M'}
-	@include media($L)   {font-family:'/XXS/XS/S/M/L'}
-	@include media($XL)  {font-family:'/XXS/XS/S/M/L/XL'}
-}
-
 /* fields ----------------------------------------------- //// */
 .fields {
 	clear: both;
