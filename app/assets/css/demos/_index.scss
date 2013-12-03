@@ -19,12 +19,9 @@
 
 		@include media($S) {
 			padding: .25em 0 0;
+			border-bottom-width: .05em;
 			font-size: 130px;
 			line-height: 1;
-		}
-
-		@include media($S) {
-			border-bottom-width: .05em;
 		}
 
 		@include media($L) {
