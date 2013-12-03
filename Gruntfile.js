@@ -19,6 +19,7 @@ module.exports = function (grunt) {
 			app: 'app',
 			dist: 'dist'
 		},
+
 		watch: {
 			options: {
 				nospawn: false
@@ -43,6 +44,7 @@ module.exports = function (grunt) {
 				]
 			}
 		},
+
 		connect: {
 			options: {
 				port: 9000,
@@ -76,6 +78,7 @@ module.exports = function (grunt) {
 				}
 			}
 		},
+
 		clean: {
 			dist: {
 				files: [{
@@ -89,6 +92,7 @@ module.exports = function (grunt) {
 			},
 			server: '.tmp'
 		},
+
 		jshint: {
 			options: {
 				jshintrc: '.jshintrc',
@@ -101,6 +105,7 @@ module.exports = function (grunt) {
 				'test/spec/{,*/}*.js'
 			]
 		},
+
 		mocha: {
 			all: {
 				options: {
@@ -109,6 +114,7 @@ module.exports = function (grunt) {
 				}
 			}
 		},
+
 		compass: {
 			options: {
 				sassDir: '<%= yeoman.app %>/assets/css',
@@ -137,19 +143,19 @@ module.exports = function (grunt) {
 			}
 		},
 
-		//autoprefixer: {
-		//	options: {
-		//		browsers: ['last 1 version']
-		//	},
-		//	dist: {
-		//		files: [{
-		//			expand: true,
-		//			cwd: '.tmp/assets/css/',
-		//			src: '{,*/}*.css',
-		//			dest: '.tmp/assets/css/'
-		//		}]
-		//	}
-		//},
+		autoprefixer: {
+			options: {
+				browsers: ['last 1 version']
+			},
+			dist: {
+				files: [{
+					expand: true,
+					cwd: '.tmp/assets/css/',
+					src: '{,*/}*.css',
+					dest: '.tmp/assets/css/'
+				}]
+			}
+		},
 
 		// not used since Uglify task does concat, but still available if needed
 		/*
@@ -188,6 +194,7 @@ module.exports = function (grunt) {
 				ignorePath: '<%= yeoman.app %>/'
 			}
 		},
+
 		rev: {
 			dist: {
 				files: {
@@ -200,12 +207,14 @@ module.exports = function (grunt) {
 				}
 			}
 		},
+
 		useminPrepare: {
 			options: {
 				dest: '<%= yeoman.dist %>'
 			},
 			html: '<%= yeoman.app %>/index.html'
 		},
+
 		usemin: {
 			options: {
 				assetsDirs: ['<%= yeoman.dist %>']
@@ -213,6 +222,7 @@ module.exports = function (grunt) {
 			html: ['<%= yeoman.dist %>/{,*/}*.html'],
 			css: ['<%= yeoman.dist %>/assets/css/{,*/}*.css']
 		},
+
 		imagemin: {
 			dist: {
 				files: [{
@@ -223,6 +233,7 @@ module.exports = function (grunt) {
 				}]
 			}
 		},
+
 		svgmin: {
 			dist: {
 				files: [{
@@ -233,6 +244,7 @@ module.exports = function (grunt) {
 				}]
 			}
 		},
+
 		cssmin: {
 			// This task is pre-configured if you do not wish to use Usemin
 			// blocks for your CSS. By default, the Usemin block from your
@@ -280,6 +292,7 @@ module.exports = function (grunt) {
 				}
 			}
 		},
+
 		htmlmin: {
 			dist: {
 				options: {
@@ -301,6 +314,7 @@ module.exports = function (grunt) {
 				}]
 			}
 		},
+
 		// Put files not handled in other tasks here
 		copy: {
 			dist: {
@@ -325,6 +339,7 @@ module.exports = function (grunt) {
 				src: '{,*/}*.css'
 			}
 		},
+
 		concurrent: {
 			server: [
 				'compass',
@@ -337,7 +352,7 @@ module.exports = function (grunt) {
 				'compass',
 				'copy:styles',
 				'imagemin',
-				'svgmin',
+				//'svgmin',
 				'htmlmin'
 			]
 		}
@@ -377,9 +392,9 @@ module.exports = function (grunt) {
 		//'autoprefixer',
 		'concat',
 		'cssmin',
-		'uglify',
+		//'uglify',
 		'copy:dist',
-		'rev',
+		//'rev',
 		'usemin'
 	]);
 
