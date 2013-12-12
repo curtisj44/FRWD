@@ -26,7 +26,7 @@ textarea {
 	margin: 0;
 	padding: 6px 7px 7px; /* TODO - CJ - use ems */
 	border: 1px solid #ccc;
-	@include border-radius(3px);
+	border-radius: 3px;
 	background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)); /* 1 */
 	background-color: #fff;
 	color: #000;
@@ -44,7 +44,7 @@ textarea {
 
 	&:focus {
 		border-color: #aaa;
-		@include box-shadow(0 0 3px rgba(0, 0, 0, .2));
+		box-shadow: 0 0 3px rgba(0, 0, 0, .2);
 		outline: 0;
 	}
 
@@ -103,7 +103,7 @@ input[type="submit"] {
 /* checkbox, radio ------------------------------------------- //// */
 input[type="checkbox"],
 input[type="radio"] {
-	@include box-sizing(border-box);
+	box-sizing: border-box;
 	margin: 0 5px 0 0;
 	padding: 0;
 	background: none;
@@ -115,7 +115,7 @@ input[type="search"] {
 	/* TODO - CJ - check this */
 	/*
 	-webkit-appearance:textfield;
-	@include box-sizing(content-box);
+	box-sizing: content-box;
 	*/
 
 	&::-webkit-search-decoration {

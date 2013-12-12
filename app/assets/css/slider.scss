@@ -93,7 +93,7 @@ button.slider-next {
 	}
 
 	&:active {
-		@include transform(translateY(1px));
+		transform: translateY(1px);
 	}
 }
 
@@ -111,7 +111,7 @@ button.slider-next {
 
 .slider-nav {
 	.disabled {
-		@include box-shadow(none);
+		box-shadow: none;
 		opacity: .25;
 		cursor: default;
 	}
@@ -136,7 +136,7 @@ button.slider-next {
 			padding: 0;
 			width: 10px;
 			height: 10px;
-			@include border-radius(100%);
+			border-radius: 100%;
 			background: lighten($grey, 20);
 			text-indent: -9999px;
 
@@ -144,7 +144,7 @@ button.slider-next {
 				padding: .25em .5em;
 				width: auto;
 				height: auto;
-				@include border-radius(3px);
+				border-radius: 3px;
 				text-indent: 0;
 			}
 
@@ -153,7 +153,7 @@ button.slider-next {
 			}
 
 			&:active {
-				@include transform(translateY(1px));
+				transform: translateY(1px);
 			}
 		}
 	}

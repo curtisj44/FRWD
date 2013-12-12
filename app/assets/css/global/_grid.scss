@@ -32,7 +32,7 @@
 
 /* region ----------------------------------------------- //// */
 .region {
-	@include box-sizing(border-box);
+	box-sizing: border-box;
 	float: left;
 	padding: 0 $gutter/2;
 	width: 100%;
@@ -100,7 +100,7 @@
 
 	> li {
 		display: block;
-		@include box-sizing(border-box);
+		box-sizing: border-box;
 		/* clear: both; */
 		margin: 0;
 		padding: 0 $gutter/2 0 $gutter;

@@ -123,16 +123,16 @@
 		a {
 			display: inline-block;
 			padding: .5em 1.5em;
-			@include border-radius(2.5em);
+			border-radius: 2.5em;
 			background: $blue;
-			@include box-shadow(0 2px 0 lighten($blue, 20));
+			box-shadow: 0 2px 0 lighten($blue, 20);
 			color: #fff;
 			text-decoration: none;
 
 			&:hover,
 			&:focus {
 				background: $grey;
-				@include box-shadow(0 2px 0 lighten($grey, 20));
+				box-shadow: 0 2px 0 lighten($grey, 20);
 			}
 		}
 	}

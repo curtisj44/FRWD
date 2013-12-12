@@ -145,7 +145,13 @@ module.exports = function (grunt) {
 
 		autoprefixer: {
 			options: {
-				browsers: ['last 1 version']
+				browsers: [
+					'> 1%',
+					'last 2 versions',
+					'ff 17',
+					'ie 8',
+					'opera 12.1'
+				]
 			},
 			dist: {
 				files: [{
@@ -366,7 +372,7 @@ module.exports = function (grunt) {
 		grunt.task.run([
 			'clean:server',
 			'concurrent:server',
-			//'autoprefixer',
+			'autoprefixer',
 			'connect:livereload',
 			'watch'
 		]);
@@ -380,7 +386,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('test', [
 		'clean:server',
 		'concurrent:test',
-		//'autoprefixer',
+		'autoprefixer',
 		'connect:test',
 		'mocha'
 	]);
@@ -389,7 +395,7 @@ module.exports = function (grunt) {
 		'clean:dist',
 		'useminPrepare',
 		'concurrent:dist',
-		//'autoprefixer',
+		'autoprefixer',
 		'concat',
 		'cssmin',
 		//'uglify',
