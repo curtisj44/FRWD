@@ -125,14 +125,12 @@
 			padding: .5em 1.5em;
 			border-radius: 2.5em;
 			background: $blue;
-			box-shadow: 0 2px 0 lighten($blue, 20);
 			color: #fff;
 			text-decoration: none;
 
 			&:hover,
 			&:focus {
 				background: $grey;
-				box-shadow: 0 2px 0 lighten($grey, 20);
 			}
 		}
 	}
