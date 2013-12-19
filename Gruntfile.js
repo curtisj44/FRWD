@@ -363,7 +363,18 @@ module.exports = function (grunt) {
 				//'svgmin',
 				'htmlmin'
 			]
-		}
+		},
+
+		cmq: {
+			options: {
+				log: false
+			},
+			your_target: {
+				files: {
+					'.tmp/assets/css': ['.tmp/assets/css/*.css']
+				}
+			}
+		},
 	});
 
 	grunt.registerTask('serve', function (target) {
@@ -375,6 +386,7 @@ module.exports = function (grunt) {
 			'clean:server',
 			'concurrent:server',
 			'autoprefixer',
+			'cmq',
 			'connect:livereload',
 			'watch'
 		]);
@@ -398,6 +410,7 @@ module.exports = function (grunt) {
 		'useminPrepare',
 		'concurrent:dist',
 		'autoprefixer',
+		'cmq',
 		'concat',
 		'cssmin',
 		'uglify',
