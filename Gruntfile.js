@@ -187,8 +187,8 @@ module.exports = function (grunt) {
 		uglify: {
 			generated: {
 				files: [{
-					dest: 'dist/assets/js/global.js',
-					src: ['.tmp/concat/assets/js/global.js']
+					dest: 'dist/assets/js/head.js',
+					src: ['.tmp/concat/assets/js/head.js']
 				}]
 			}
 		},
