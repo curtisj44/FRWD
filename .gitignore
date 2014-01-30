@@ -1,6 +1,7 @@
 .DS_Store
 .sass-cache
 .tmp
+app/assets/js/frwd.mediaQueries.js
 dist
 frwd.sublime-project
 frwd.sublime-workspace

@@ -26,7 +26,7 @@ module.exports = function (grunt) {
 			},
 			compass: {
 				files: ['<%= yeoman.app %>/assets/css/{,*/}*.{scss,sass}'],
-				tasks: ['compass:server']
+				tasks: ['compass:server', 'copy:mediaQueries']
 			},
 			styles: {
 				files: ['<%= yeoman.app %>/assets/css/{,*/}*.css'],
@@ -345,6 +345,25 @@ module.exports = function (grunt) {
 				cwd: '<%= yeoman.app %>/assets/css',
 				dest: '.tmp/assets/css/',
 				src: '{,*/}*.css'
+			},
+			mediaQueries: {
+				src: '<%= yeoman.app %>/assets/css/_media-queries.scss',
+				dest: '<%= yeoman.app %>/assets/js/frwd.mediaQueries.js',
+				options: {
+					process: function (content, srcpath) {
+						var data = content.replace(/\$/g, '\t\'')
+							.replace(/: \'/g, '\': {\'query\': \'')
+							.replace(/\+ \(/g, '+ ')
+							.replace(/\) \+/g, ' +')
+							.replace(/;/g, '},');
+
+						if (data.charAt(data.length - 1) === ',') {
+							data = data.substring(0, data.length - 1);
+						}
+
+						return '// Do not edit. This file is generated via "grunt copy:mediaQueries"\nfrwd.mediaQueries = {\n' + data + '\n};';
+					}
+				}
 			}
 		},
 
