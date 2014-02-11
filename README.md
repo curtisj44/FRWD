@@ -26,3 +26,32 @@ A responsive, proportional, nestable, customizable, and mobile-first approach fo
 3. ```npm install```
 
 4. ```bower install```
+
+
+
+<!--
+
+basic setup
+	- Yeoman
+	- Sass
+
+Media Query maintenance
+	CSS
+	JS
+
+Sass mixins
+
+JS API
+
+Debug
+
+Browser Support
+
+Features
+	- mobile-first
+	- fixed width layout for non-mq supporting IEs
+	- em-based mqs
+	- support for hi-DPI
+	- no lame .visible-phone classes
+
+-->
