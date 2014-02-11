@@ -1,125 +1,33 @@
 # FRWD
 
-A responsive, proportional, nestable, customizable, and mobile-first framework **F**or **R**esponsive **W**eb **D**esign.
+A responsive, proportional, nestable, customizable, and mobile-first framework __F__or __R__esponsive __W__eb __D__esign.
 
-#### 1) Responsive
- - **Flexible grid** defined in percentages
- - **Flexible media** that proportionally scale down when needed
- - **Media queries** defined in ems
+1. __Responsive__:
+ - _Flexible grid_ defined in percentages
+ - _Flexible media_ that proportionally scale down when needed
+ - _Media queries_ defined in ems
 
-#### 2) Proportional
+2.  __Proportional__: create layouts using proportions (1/2, 2/3, 1/4, etc.), not predefined non-semantic classes or a rigid column grid.
 
-Create layouts using proportions (1/2, 2/3, 1/3, 1/4, etc.), not a rigid column grid.
+3. __Nestable__ -  Easily create complex layouts.
 
-#### 3) Nestable
+4. __Customizable_ - Don't like something? Change it. Define your own proportions, breakpoints, and everything else.
 
-Easily create complex layouts.
+5. __Mobile-First__ - The small screen experience is the baseline, with additional styles added using media queries.
 
-#### 4) Customizable
+- - -
 
-Don't like something? Change it. Define your own proportions, breakpoints, and everything else.
+## Quick Start
 
-#### 5) Mobile-First
+1.  Have the following requirements installed: [node](http://nodejs.org/), [npm](https://www.npmjs.org/), and [bower](http://bower.io/)
 
-The small screen experience is the baseline, with additional styles added using media queries.
+2. Clone the repo: ```git clone https://github.com/curtisj44/FRWD.git```
+
+3. ```npm install```
+
+4. ```bower install```
+
 
 - - -
 
 More details coming soon&hellip;
-
-
-<!--
-## Getting Started
-
-The framework is built around a combination of these three elements: `container`, `fields`, and `region`.
-
-1. The `container` class sets the max-width of the page and centers it horizontally. It also sets the left and right margins on small screens.
-
-2. The `fields` class defines horizontal divisions of the page. (The can be thought of as  &ldquo;rows&rdquo;)
-
-3. The `region` class creates vertical divisions of the page with defined sizes for containing content. (They can be thought of as &ldquo;columns&rdquo;)
-
-The basic markup looks like this:
-
-``` html
-<div class="container">
-    <div class="fields">
-        <div class="region size2of3">2/3</div>
-        <div class="region size1of3">1/3</div>
-    </div>
-</div>
-```
-
-## Sizes
-
-A variety of sizes are built in. See [Sizes](http://curtisj44.github.com/FRWD/static/reference/styleguide/grid-region-sizes.htm).
-
-## Nesting
-
-Nesting can look something like this:
-
-``` html
-<div class="container">
-    <div class="fields">
-        <div class="region size2of3 reset">
-                <div class="fields">
-                    <div class="region size2of3">2/3</div>
-                    <div class="region size1of3">1/3</div>
-            </div>
-        </div>
-        <div class="region size1of3">1/3</div>
-    </div>
-</div>
-```
-
-## Prefix & Suffix
-
-Regions can be offset using this technique. This allows for additional space before, after, and/or between regions. See [Prefix & Suffix](http://curtisj44.github.com/FRWD/static/reference/styleguide/grid-region-prefix-suffix.htm).
-
-``` html
-<div class="container">
-    <div class="fields">
-        <div class="region size1of5">1/5</div>
-    </div>
-    <div class="fields">
-        <div class="region size3of5 prefix1of5">3/5</div>
-    </div>
-</div>
-```
-
-## Push & Pull
-
-The visual order of the regions can be different from the source order using this technique. See [Push & Pull](http://curtisj44.github.com/FRWD/static/reference/styleguide/grid-region-push-pull.htm).
-
-## Centering
-
-Pretty self-explanatory...
-
-``` html
-<div class="container">
-    <div class="fields">
-        <div class="region size1of7 region-centered">1/7</div>
-    </div>
-</div>
-```
-
-## Blocks
-
-The `blocks` style is used for repeating content holders. They appear in [two-up](http://curtisj44.github.com/FRWD/static/reference/styleguide/grid-blocks-two.htm), [three-up](http://curtisj44.github.com/FRWD/static/reference/styleguide/grid-blocks-three.htm), [four-up](http://curtisj44.github.com/FRWD/static/reference/styleguide/grid-blocks-four.htm), [five-up](http://curtisj44.github.com/FRWD/static/reference/styleguide/grid-blocks-five.htm), and [six-up](http://curtisj44.github.com/FRWD/static/reference/styleguide/grid-blocks-six.htm) variations.
-
-``` html
-<div class="container">
-    <div class="fields">
-        <div class="region size1of1">
-            <ol class="blocks blocks-four-up">
-                <li>...</li>
-                <li>...</li>
-                <li>...</li>
-                ...
-            </ol>
-        </div>
-    </div>
-</div>
-```
-
--->
