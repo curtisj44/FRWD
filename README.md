@@ -1,6 +1,6 @@
 # FRWD
 
-A responsive, proportional, nestable, customizable, and mobile-first framework __F__or __R__esponsive __W__eb __D__esign.
+A responsive, proportional, nestable, customizable, and mobile-first approach for responsive web design.
 
 1. __Responsive__:
  - _Flexible grid_ defined in percentages
