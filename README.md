@@ -11,7 +11,7 @@ A responsive, proportional, nestable, customizable, and mobile-first framework _
 
 3. __Nestable__ -  Easily create complex layouts.
 
-4. __Customizable_ - Don't like something? Change it. Define your own proportions, breakpoints, and everything else.
+4. __Customizable__ - Don't like something? Change it. Define your own proportions, breakpoints, and everything else.
 
 5. __Mobile-First__ - The small screen experience is the baseline, with additional styles added using media queries.
 
