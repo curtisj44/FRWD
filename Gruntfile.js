@@ -1,4 +1,3 @@
-// Generated on 2013-11-18 using generator-webapp 0.4.4
 'use strict';
 
 // # Globbing
@@ -8,9 +7,7 @@
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
-	// show elapsed time at the end
 	require('time-grunt')(grunt);
-	// load all grunt tasks
 	require('load-grunt-tasks')(grunt);
 
 	grunt.initConfig({
