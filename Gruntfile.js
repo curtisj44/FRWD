@@ -23,11 +23,19 @@ module.exports = function (grunt) {
 			},
 			compass: {
 				files: ['<%= yeoman.app %>/assets/css/{,*/}*.{scss,sass}'],
-				tasks: ['compass:server', 'copy:mediaQueries']
+				tasks: [
+					'copy:normalize',
+					'copy:mediaQueries',
+					'compass:server',
+					'autoprefixer',
+					'cmq'
+				]
 			},
 			styles: {
 				files: ['<%= yeoman.app %>/assets/css/{,*/}*.css'],
-				tasks: ['copy:styles']
+				tasks: [
+					'copy:styles'
+				]
 			},
 			livereload: {
 				options: {
@@ -120,7 +128,7 @@ module.exports = function (grunt) {
 				imagesDir: '<%= yeoman.app %>/assets/images',
 				javascriptsDir: '<%= yeoman.app %>/assets/js',
 				fontsDir: '<%= yeoman.app %>/assets/fonts',
-				//importPath: '<%= yeoman.app %>/bower_components',
+				importPath: '<%= yeoman.app %>/assets/bower_components',
 				httpImagesPath: '/assets/images',
 				httpGeneratedImagesPath: '/assets/images/generated',
 				httpFontsPath: '/assets/fonts',
@@ -329,6 +337,7 @@ module.exports = function (grunt) {
 					]
 				}]
 			},
+
 			styles: {
 				expand: true,
 				dot: true,
@@ -336,6 +345,12 @@ module.exports = function (grunt) {
 				dest: '.tmp/assets/css/',
 				src: '{,*/}*.css'
 			},
+
+			normalize: {
+				src: '<%= yeoman.app %>/assets/bower_components/normalize-css/normalize.css',
+				dest: '<%= yeoman.app %>/assets/css/global/_normalize.scss'
+			},
+
 			mediaQueries: {
 				src: '<%= yeoman.app %>/assets/css/_media-queries.scss',
 				dest: '<%= yeoman.app %>/assets/js/frwd.mediaQueries.js',
@@ -393,6 +408,8 @@ module.exports = function (grunt) {
 
 		grunt.task.run([
 			'clean:server',
+			'copy:normalize',
+			'copy:mediaQueries',
 			'concurrent:server',
 			'autoprefixer',
 			'cmq',
@@ -403,6 +420,7 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('test', [
 		'clean:server',
+		'copy:normalize',
 		'concurrent:test',
 		'autoprefixer',
 		'connect:test',
@@ -412,6 +430,8 @@ module.exports = function (grunt) {
 	grunt.registerTask('build', [
 		'clean:dist',
 		'useminPrepare',
+		'copy:normalize',
+		'copy:mediaQueries',
 		'concurrent:dist',
 		'autoprefixer',
 		'cmq',

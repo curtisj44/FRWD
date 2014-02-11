@@ -1,6 +1,8 @@
 .DS_Store
 .sass-cache
 .tmp
+app/assets/bower_components
+app/assets/css/global/_normalize.scss
 app/assets/js/frwd.mediaQueries.js
 dist
 frwd.sublime-project

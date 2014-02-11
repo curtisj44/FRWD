@@ -23,7 +23,6 @@ button,
 input,
 select,
 textarea {
-	margin: 0;
 	padding: 6px 7px 7px; /* TODO - CJ - use ems */
 	border: 1px solid #ccc;
 	border-radius: 3px;
@@ -48,23 +47,10 @@ textarea {
 		outline: 0;
 	}
 
-	&.disabled,
-	&.disabled,
 	&.disabled {
 		border-color: #ccc;
 		background: #ccc;
 		color: #827a71;
-		cursor: default;
-	}
-}
-
-button,
-input {
-	line-height: normal;
-
-	&::-moz-focus-inner {
-		padding: 0;
-		border: 0;
 	}
 }
 
@@ -73,7 +59,6 @@ select {
 }
 
 textarea {
-	overflow: auto;
 	vertical-align: top;
 	resize: vertical;
 }
@@ -87,12 +72,6 @@ input[type="submit"] {
 	padding: .5em 1.5em;
 	background: #eee;
 	font-weight: bold;
-	-webkit-appearance: button;
-	cursor: pointer;
-
-	.ie7 & {
-		overflow: visible;
-	}
 
 	&:hover,
 	&:focus {
@@ -103,32 +82,7 @@ input[type="submit"] {
 /* checkbox, radio ------------------------------------------- //// */
 input[type="checkbox"],
 input[type="radio"] {
-	box-sizing: border-box;
 	margin: 0 5px 0 0;
-	padding: 0;
-	background: none;
-	vertical-align: text-top;
-}
-
-/* search ------------------------------------------- //// */
-input[type="search"] {
-	/* TODO - CJ - check this */
-	/*
-	-webkit-appearance:textfield;
-	box-sizing: content-box;
-	*/
-
-	&::-webkit-search-decoration {
-		-webkit-appearance: none;
-	}
-
-	/* TODO - CJ - check this */
-	/*
-	&::-webkit-search-decoration,
-	&::-webkit-search-cancel-button {
-		display:none;
-	}
-	*/
 }
 
 /* valid, invalid ------------------------------------------- //// */
