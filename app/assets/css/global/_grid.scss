@@ -101,16 +101,9 @@
 	> li {
 		display: block;
 		box-sizing: border-box;
-		/* clear: both; */
 		margin: 0;
 		padding: 0 $gutter/2 0 $gutter;
 		background: none;
-
-		/*
-		@include media($XS) {
-			clear: none;
-		}
-		*/
 
 		@include media($S) {
 			padding-right: 0;
@@ -202,56 +195,6 @@
 /* L
 ---------------------------------------------------------------------------------------- //// */
 @include media($L) {
-	/* region ----------------------------------------------- //// */
-	/* TODO - CJ - clean up */
-	/*
-	.no-boxsizing .region {
-		padding: 0;
-	}
-
-	.no-boxsizing .region-wrap {
-		padding: 0 16px;
-	}
-	*/
-
-	/* ---- last region (class add via JS) ---- */
-	/* TODO - CJ - clean up */
-	/*
-	.ie7 .region-last {
-		zoom: 1;
-		float: none;
-		width: auto;
-	}
-	*/
-
-	/* reset padding ----------------------------------------------- */
-
-	// TODO - CJ - remove and use the region mixins
-	.region.reset,
-	.region.reset-left {
-		padding-left: 0;
-	}
-
-	.region.reset,
-	.region.reset-right {
-		padding-right: 0;
-	}
-
-	/* TODO - CJ - clean up */
-	/*
-	.no-boxsizing {
-		.region.reset .region-wrap,
-		.region.reset-left .region-wrap {
-			padding-left: 0;
-		}
-
-		.region.reset .region-wrap,
-		.region.reset-right .region-wrap {
-			padding-right: 0;
-		}
-	}
-	*/
-
 	/* centered ----------------------------------------------- */
 	.region-centered {
 		float: none;
