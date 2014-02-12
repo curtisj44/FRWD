@@ -407,7 +407,7 @@ module.exports = function (grunt) {
 					'package.json'
 				],
 				commit: false,
-				commitMessage: 'Bump version to v%VERSION%',
+				commitMessage: 'Version bumped to v%VERSION%',
 				createTag: false,
 				push: false
 			}
