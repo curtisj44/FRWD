@@ -399,6 +399,19 @@ module.exports = function (grunt) {
 				}
 			}
 		},
+
+		bump: {
+			options: {
+				files: [
+					'bower.json',
+					'package.json'
+				],
+				commit: false,
+				commitMessage: 'Bump version to v%VERSION%',
+				createTag: false,
+				push: false
+			}
+		}
 	});
 
 	grunt.registerTask('serve', function (target) {
