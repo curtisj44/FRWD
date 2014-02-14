@@ -18,8 +18,9 @@
 			'<li><button data-option="boxes">Highlight regions</button></li>' +
 			'<li><button data-option="baseline">Show baseline</button></li>' +
 			'<li><button data-option="grid">Show grid</button></li>' +
+			'<li><button data-option="viewportSize">Viewport size</button></li>' +
 			'<li>' +
-				'<button data-option="viewport">Viewport details</button>' +
+				'<button data-option="viewportSummary">Viewport summary</button>' +
 				'<button class="position" data-position="1">Position</button>' +
 			'</li>' +
 			'<li><button data-option="visualize">Visualize breakpoints</button></li>' +
@@ -176,15 +177,38 @@
 		}
 	};
 
-	debug.viewport = {
+	debug.viewportSize = {
 		off: function () {
-			$('#debug-viewport').remove();
+			$('#debug-viewport-size').remove();
 		},
 
 		on: function () {
-			$('body').append('<div id="debug-viewport"></div>');
+			$('body').append('<div id="debug-viewport-size"></div>');
 
-			var $debugViewport = $('#debug-viewport'),
+			var content = '',
+				$debugViewportSize = $('#debug-viewport-size'),
+
+				updateSize = function () {
+					$debugViewportSize.html(
+						debug.viewportWidth() + ' &times; ' + debug.viewportHeight() + ' / ' +
+						(window.devicePixelRatio ? (Math.round(window.devicePixelRatio * 100000) / 100000) : '?')
+					);
+				};
+
+			updateSize();
+			$(window).resize(updateSize);
+		}
+	};
+
+	debug.viewportSummary = {
+		off: function () {
+			$('#debug-viewport-summary').remove();
+		},
+
+		on: function () {
+			$('body').append('<div id="debug-viewport-summary"></div>');
+
+			var $debugViewportSummary = $('#debug-viewport-summary'),
 				content = '',
 				mediaQueries = frwd.mediaQueries,
 
@@ -199,23 +223,17 @@
 				},
 
 				updateSize = function () {
-					$debugViewport.find('span').html(
-						debug.viewportWidth() + ' &times; ' + debug.viewportHeight() + ' / ' +
-						(window.devicePixelRatio ? (Math.round(window.devicePixelRatio * 100000) / 100000) : '?')
-					);
-
 					$.each(mediaQueries, function (index, value) {
 						var result = frwd.matchViewport(index);
-						$debugViewport.find('.' + index).removeClass('' + !result).addClass('' + result);
+						$debugViewportSummary.find('.' + index).removeClass('' + !result).addClass('' + result);
 					});
 				};
 
-			content += '<span>?</span>' +
-					'<table>' +
-						'<tr class="none true">' +
-							'<th>none</th>' +
-							'<td colspan="3">no active media queries</td>' +
-						'</tr>';
+			content += '<table>' +
+				'<tr class="none true">' +
+					'<th>none</th>' +
+					'<td colspan="3">no active media queries</td>' +
+				'</tr>';
 
 			$.each(mediaQueries, function (index, value) {
 				var query = value.query,
@@ -230,19 +248,19 @@
 
 			content += '</table>';
 
-			$debugViewport.html(content);
+			$debugViewportSummary.html(content);
 
 			updateSize();
 			$(window).resize(updateSize);
-			debug.viewport.position.init();
-			debug.viewport.minimize.init();
+			debug.viewportSummary.position.init();
+			debug.viewportSummary.minimize.init();
 		},
 
 		minimize: {
 			click: function () {
 				// TODO - CJ - cache this selector
-				$('#debug-viewport').on('click', function () {
-					debug.viewport.minimize[($(this).hasClass('minimized')) ? 'off' : 'on']();
+				$('#debug-viewport-summary').on('click', function () {
+					debug.viewportSummary.minimize[($(this).hasClass('minimized')) ? 'off' : 'on']();
 					return false;
 				});
 			},
@@ -250,16 +268,16 @@
 			// TODO - CJ - add unit tests
 			init: function () {
 				if (Modernizr.localstorage && localStorage.getItem('debug-minimized')) {
-					debug.viewport.minimize[localStorage.getItem('debug-minimized')]();
+					debug.viewportSummary.minimize[localStorage.getItem('debug-minimized')]();
 				}
 
-				debug.viewport.minimize.click();
+				debug.viewportSummary.minimize.click();
 			},
 
 			// TODO - CJ - add unit tests
 			off: function () {
 				// TODO - CJ - cache this selector
-				$('#debug-viewport').removeClass('minimized');
+				$('#debug-viewport-summary').removeClass('minimized');
 
 				if (Modernizr.localstorage) {
 					localStorage.setItem('debug-minimized', 'off');
@@ -269,7 +287,7 @@
 			// TODO - CJ - add unit tests
 			on: function () {
 				// TODO - CJ - cache this selector
-				$('#debug-viewport').addClass('minimized');
+				$('#debug-viewport-summary').addClass('minimized');
 
 				if (Modernizr.localstorage) {
 					localStorage.setItem('debug-minimized', 'on');
@@ -286,7 +304,7 @@
 
 					if (next > 4) next = 1;
 
-					debug.viewport.position.move(next);
+					debug.viewportSummary.position.move(next);
 
 					if (Modernizr.localstorage) {
 						localStorage.setItem('debug-position', next);
@@ -297,20 +315,20 @@
 			// TODO - CJ - add unit tests
 			init: function () {
 				if (Modernizr.localstorage && localStorage.getItem('debug-position')) {
-					debug.viewport.position.move(localStorage.getItem('debug-position'));
+					debug.viewportSummary.position.move(localStorage.getItem('debug-position'));
 				}
 
-				debug.viewport.position.click();
+				debug.viewportSummary.position.click();
 			},
 
 			// TODO - CJ - add unit tests
 			move: function (i) {
-				var $debugViewport = $('#debug-viewport'),
+				var $debugViewportSummary = $('#debug-viewport-summary'),
 					keeper = 'minimized',
-					reAddClass = ($debugViewport.hasClass(keeper)) ? true : false;
+					reAddClass = ($debugViewportSummary.hasClass(keeper)) ? true : false;
 
-				$debugViewport.removeClass().addClass('position' + i);
-				if (reAddClass) $debugViewport.addClass(keeper);
+				$debugViewportSummary.removeClass().addClass('position' + i);
+				if (reAddClass) $debugViewportSummary.addClass(keeper);
 				$('#debug-panel').find('.position').attr('data-position', i);
 			}
 		}
@@ -328,6 +346,7 @@
 		off: function () {
 			$('.debug-visualize').remove();
 		},
+
 		on: function () {
 			var query,
 				width,

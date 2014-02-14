@@ -359,8 +359,20 @@
 	}
 }
 
-/* viewport details ----------------------------------------------- //// */
-#debug-viewport {
+/* viewport size ----------------------------------------------- //// */
+#debug-viewport-size {
+	@extend %panel-design;
+	position: absolute;
+	z-index: 1;
+	top: 1px;
+	left: 50%;
+	margin-left: -50px;
+	padding: 1px 0;
+	min-width: 100px;
+}
+
+/* viewport summary ----------------------------------------------- //// */
+#debug-viewport-summary {
 	@extend %panel-design;
 	@extend %panel-position;
 	z-index: 999998;
@@ -388,11 +400,6 @@
 	&.position4 {
 		bottom: 0;
 		left: 0;
-	}
-
-	span {
-		display: block;
-		padding: .65em .5em 1.15em;
 	}
 
 	table {
