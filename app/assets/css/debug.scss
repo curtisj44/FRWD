@@ -26,6 +26,37 @@
 	box-shadow: 0 1px 0 rgba(255, 255, 255, .2);
 }
 
+/* color ----------------------------------------------- //// */
+.debug {
+	@include media($XXS) {
+		@include background-color-rgba(#fcf, rgba(255, 0, 255, .2)); /* pink */
+	}
+
+	@include media($XS) {
+		@include background-color-rgba(#ffc, rgba(255, 255, 0, .2)); /* yellow */
+	}
+
+	@include media($S) {
+		@include background-color-rgba(#fcc, rgba(255, 0, 0, .2)); /* red */
+	}
+
+	@include media($M) {
+		@include background-color-rgba(#cce0ff, rgba(0, 100, 255, .2)); /* blue */
+	}
+
+	@include media($L) {
+		@include background-color-rgba(#cfc, rgba(0, 255, 0, .2)); /* green */
+	}
+
+	@include media($XL) {
+		@include background-color-rgba(#ffc, rgba(255, 255, 0, .2)); /* yellow */
+	}
+
+	@include media($High-DPI) {
+		@include background-color-rgba(#ffe0cc, rgba(255, 100, 0, .2)); /* orange */
+	}
+}
+
 /* panel ----------------------------------------------- //// */
 #debug-panel {
 	@extend %panel-position;
@@ -366,6 +397,7 @@
 
 	table {
 		@extend %panel-inner;
+		@extend .debug;
 		border-collapse: inherit;
 		@include background-color-rgba(#fff, rgba(0, 0, 0, .7));
 		@include color-rgba(#000, rgba(255, 255, 255, .7));
@@ -430,34 +462,72 @@
 	}
 }
 
-/* color ----------------------------------------------- //// */
-.debug,
-#debug-viewport table {
-	@include media($XXS) {
-		@include background-color-rgba(#fcf, rgba(255, 0, 255, .2)); /* pink */
+/* visualize ----------------------------------------------- //// */
+.debug-visualize {
+	position: fixed;
+	top: 0;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 22px;
+	@include background-color-rgba(#333, rgba(0, 0, 0, .1));
+
+	li {
+		@extend .debug;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		margin: 0;
+		padding: 0;
+		height: 100%;
+
+		&:after,
+		&:before {
+			position: relative;
+			z-index: 1;
+			float: left;
+			margin: 4px -18px 0;
+			padding: 2px 0 1px;
+			min-width: 36px;
+			@include color-rgba(#fff, rgba(255, 255, 255, .8));
+			color: #fff;
+			font: 11px/1 Arial, sans-serif;
+			text-align: center;
+			content: attr(data-size);
+		}
+
+		&:after {
+			float: right;
+		}
 	}
 
-	@include media($XS) {
-		@include background-color-rgba(#ffc, rgba(255, 255, 0, .2)); /* yellow */
+	span,
+	b {
+		&:after,
+		&:before {
+			position: absolute;
+			left: 0;
+			z-index: 1;
+			width: 1px;
+			height: 4px;
+			@include background-color-rgba(#fff, rgba(255, 255, 255, .8));
+			content: '';
+		}
+
+		&:after {
+			top: 0;
+		}
+
+		&:before {
+			bottom: 0;
+		}
 	}
 
-	@include media($S) {
-		@include background-color-rgba(#fcc, rgba(255, 0, 0, .2)); /* red */
-	}
-
-	@include media($M) {
-		@include background-color-rgba(#cce0ff, rgba(0, 100, 255, .2)); /* blue */
-	}
-
-	@include media($L) {
-		@include background-color-rgba(#cfc, rgba(0, 255, 0, .2)); /* green */
-	}
-
-	@include media($XL) {
-		@include background-color-rgba(#ffc, rgba(255, 255, 0, .2)); /* yellow */
-	}
-
-	@include media($High-DPI) {
-		@include background-color-rgba(#ffe0cc, rgba(255, 100, 0, .2)); /* orange */
+	b {
+		&:after,
+		&:before {
+			left: 100%;
+			margin-left: -1px;
+		}
 	}
 }

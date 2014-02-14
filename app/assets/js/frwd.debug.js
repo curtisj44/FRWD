@@ -22,6 +22,7 @@
 				'<button data-option="viewport">Viewport details</button>' +
 				'<button class="position" data-position="1">Position</button>' +
 			'</li>' +
+			'<li><button data-option="visualize">Visualize breakpoints</button></li>' +
 			'</ul>' +
 			'</div>').appendTo('body');
 
@@ -186,10 +187,21 @@
 			var $debugViewport = $('#debug-viewport'),
 				content = '',
 				mediaQueries = frwd.mediaQueries,
+
+				calculatePixelWidth = function (query, property) {
+					var value;
+
+					if (query.indexOf(property) > 0 && query.indexOf('em') > 0) {
+						value = Math.round(query.replace('(' + property + ':', '').replace('em)', '') * debug.config.fontSize * 100000) / 100000;
+					}
+
+					return value ? value : false;
+				},
+
 				updateSize = function () {
 					$debugViewport.find('span').html(
 						debug.viewportWidth() + ' &times; ' + debug.viewportHeight() + ' / ' +
-						((window.devicePixelRatio) ? (Math.round(window.devicePixelRatio * 100000) / 100000) : '?')
+						(window.devicePixelRatio ? (Math.round(window.devicePixelRatio * 100000) / 100000) : '?')
 					);
 
 					$.each(mediaQueries, function (index, value) {
@@ -199,25 +211,20 @@
 				};
 
 			content += '<span>?</span>' +
-						'<table>' +
-							'<tr class="none true">' +
-								'<th>none</th>' +
-								'<td colspan="3">no active media queries</td>' +
-							'</tr>';
+					'<table>' +
+						'<tr class="none true">' +
+							'<th>none</th>' +
+							'<td colspan="3">no active media queries</td>' +
+						'</tr>';
 
 			$.each(mediaQueries, function (index, value) {
 				var query = value.query,
-					pixelWidth,
-					tr;
-
-				if (query.indexOf('min-width') > 0 && query.indexOf('em') > 0) {
-					pixelWidth = Math.round(query.replace('(min-width:', '').replace('em)', '') * debug.config.fontSize * 100000) / 100000;
-				}
+					pixels = calculatePixelWidth(query, 'min-width') || calculatePixelWidth(query, 'min-height');
 
 				content += '<tr class="' + index + '">' +
 						'<th>' + index + '</th>' +
 						'<td>' + query + '</td>' +
-						'<td>' + ((pixelWidth) ? pixelWidth + 'px' : '') + '</td>' +
+						'<td>' + (pixels ? pixels + 'px' : '') + '</td>' +
 					'</tr>';
 			});
 
@@ -315,6 +322,30 @@
 
 	debug.viewportWidth = function () {
 		return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth || 0;
+	};
+
+	debug.visualize = {
+		off: function () {
+			$('.debug-visualize').remove();
+		},
+		on: function () {
+			var query,
+				width,
+				widthContent = '';
+
+			$.each(frwd.mediaQueries, function (index, value) {
+				query = value.query;
+
+				if (query.indexOf('min-width') > 0 && query.indexOf('em') > 0) {
+					width = Math.round(query.replace('(min-width:', '').replace('em)', '') * debug.config.fontSize * 100000) / 100000;
+					widthContent += '<li data-size="' + index + '" style="margin-left: -' + width/2 + 'px; width: ' + width + 'px"><span><b></b></span></li>';
+				}
+			});
+
+			if (widthContent) {
+				$('body').append('<ol class="debug-visualize debug-visualize-width">' + widthContent + '</ol>');
+			}
+		}
 	};
 
 	$(debug.buildPanel);
