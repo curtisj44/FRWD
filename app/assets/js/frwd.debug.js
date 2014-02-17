@@ -152,6 +152,24 @@
 		}
 	};
 
+	debug.calculatePixels = function (query, property) {
+		var value;
+
+		if (query.indexOf(property) > 0) {
+			value = query.replace('(' + property + ':', '');
+
+			if (query.indexOf('em') > 0) {
+				value = Math.round(value.replace('em)', '') * debug.config.fontSize * 100000) / 100000;
+			}
+
+			if (query.indexOf('px') > 0) {
+				value = value.replace('px)', '');
+			}
+		}
+
+		return value ? value : false;
+	};
+
 	debug.grid = {
 		off: function () {
 			$('#debug-grid').remove();
@@ -212,16 +230,6 @@
 				content = '',
 				mediaQueries = frwd.mediaQueries,
 
-				calculatePixelWidth = function (query, property) {
-					var value;
-
-					if (query.indexOf(property) > 0 && query.indexOf('em') > 0) {
-						value = Math.round(query.replace('(' + property + ':', '').replace('em)', '') * debug.config.fontSize * 100000) / 100000;
-					}
-
-					return value ? value : false;
-				},
-
 				updateSize = function () {
 					$.each(mediaQueries, function (index, value) {
 						var result = frwd.matchViewport(index);
@@ -237,7 +245,7 @@
 
 			$.each(mediaQueries, function (index, value) {
 				var query = value.query,
-					pixels = calculatePixelWidth(query, 'min-width') || calculatePixelWidth(query, 'min-height');
+					pixels = debug.calculatePixels(query, 'min-width') || debug.calculatePixels(query, 'min-height');
 
 				content += '<tr class="' + index + '">' +
 						'<th>' + index + '</th>' +
@@ -349,20 +357,29 @@
 
 		on: function () {
 			var query,
-				width,
-				widthContent = '';
+				widths = '',
+				heights = '';
 
 			$.each(frwd.mediaQueries, function (index, value) {
 				query = value.query;
 
-				if (query.indexOf('min-width') > 0 && query.indexOf('em') > 0) {
-					width = Math.round(query.replace('(min-width:', '').replace('em)', '') * debug.config.fontSize * 100000) / 100000;
-					widthContent += '<li data-size="' + index + '" style="margin-left: -' + width/2 + 'px; width: ' + width + 'px"><span><b></b></span></li>';
+				if (query.indexOf('min-width') > 0) {
+					value = debug.calculatePixels(query, 'min-width');
+					widths += '<li style="width: ' + value + 'px"><span>' + index + '</span></li>';
+				}
+
+				if (query.indexOf('min-height') > 0) {
+					value = debug.calculatePixels(query, 'min-height');
+					heights += '<li style="height: ' + value + 'px"><span>' + index + '</span></li>';
 				}
 			});
 
-			if (widthContent) {
-				$('body').append('<ol class="debug-visualize debug-visualize-width">' + widthContent + '</ol>');
+			if (widths) {
+				$('body').append('<ol class="debug-visualize debug-visualize-width">' + widths + '</ol>');
+			}
+
+			if (heights) {
+				$('body').append('<ol class="debug-visualize debug-visualize-height">' + heights + '</ol>');
 			}
 		}
 	};
