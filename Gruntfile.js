@@ -411,6 +411,18 @@ module.exports = function (grunt) {
 				createTag: false,
 				push: false
 			}
+		},
+
+		kss: {
+			options: {
+				includeType: 'sass',
+				template: '<%= yeoman.app %>/styleguide-template'
+			},
+			dist: {
+				files: {
+					'<%= yeoman.app %>/styleguide': ['<%= yeoman.app %>/assets/css']
+				}
+			}
 		}
 	});
 

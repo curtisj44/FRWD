@@ -1,5 +1,46 @@
-/* Table
----------------------------------------------------------------------------------------- //// */
+/*
+Tables
+
+Markup:
+<table class="{$modifiers}">
+	<thead>
+		<tr>
+			<th>Course Name</th>
+			<th>Course Tutor</th>
+			<th>Summary</th>
+			<th>Code</th>
+			<th>Fee</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td data-th="Course Name">After the Civil War</td>
+			<td data-th="Course Tutor">Dr. John Wroughton</td>
+			<td data-th="Summary">The course will examine the turbulent years in England after 1646. 6 weekly meetings starting Monday 13th October.</td>
+			<td data-th="Code">H27</td>
+			<td data-th="Fee">$32</td>
+		</tr>
+		<tr>
+			<td data-th="Course Name">An Introduction to Anglo-Saxon England</td>
+			<td data-th="Course Tutor">Mark Cottle</td>
+			<td data-th="Summary">One day course introducing the early medieval period reconstruction the Anglo-Saxons and their society. Saturday 18th October.</td>
+			<td data-th="Code">H28</td>
+			<td data-th="Fee">$18</td>
+		</tr>
+		<tr>
+			<td data-th="Course Name">The Glory that was Greece</td>
+			<td data-th="Course Tutor">Valerie Lorenz</td>
+			<td data-th="Summary">Birthplace of democracy, philosophy, heartland of theater, home of argument. The Romans may have done it but the Greeks did it first. Saturday day school 25th October 1997</td>
+			<td data-th="Code">H30</td>
+			<td data-th="Fee">$18</td>
+		</tr>
+	</tbody>
+</table>
+
+.table-responsive			- Responsive
+
+Styleguide 2.0
+*/
 
 table {
 	width: 100%;

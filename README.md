@@ -17,16 +17,23 @@ A responsive, proportional, nestable, customizable, and mobile-first approach fo
 
 
 
-## Quick Start
+## Getting Started
 
 1. Have the following requirements installed: [node](http://nodejs.org/), [npm](https://www.npmjs.org/), and [bower](http://bower.io/)
 
 2. Clone the repo: ```git clone https://github.com/curtisj44/FRWD.git```
 
-3. ```npm install```
+3. Run ```npm install```
 
-4. ```bower install```
+4. Run ```bower install```
 
+
+
+## Style Guide
+
+FRWD is set up to generate a style guide / pattern library using [kss-node](https://github.com/hughsk/kss-node).
+
+To build the style guide, run ```grunt kss```
 
 
 <!--

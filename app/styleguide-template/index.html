@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="ie6" lang="en"><![endif]-->
+<!--[if IE 7]><html class="ie7" lang="en"><![endif]-->
+<!--[if IE 8]><html class="ie8" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en" class="{{#if overview}} index{{/if}}"><!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<title>
+			{{#if overview}}
+
+			{{else}}
+				{{#eachSection rootNumber}}
+					{{#whenDepth 1}}
+						{{header}} |
+					{{/whenDepth}}
+				{{/eachSection}}
+			{{/if}}
+
+			Style Guide
+		</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content="kss-node" />
+		<link rel="stylesheet" href="/styleguide/public/kss.css" />
+
+		<!--[if (lt IE 9) & (!IEMobile)]>
+			<link rel="stylesheet" href="/assets/css/global.fixed.css" />
+			<link rel="stylesheet" href="/assets/css/debug.fixed.css" />
+		<![endif]-->
+
+		<!--[if (gt IE 8) | (IEMobile)]><!-->
+			<link rel="stylesheet" href="/assets/css/global.css" />
+			<link rel="stylesheet" href="/assets/css/debug.css" />
+		<!--<![endif]-->
+
+		<!-- build:js assets/js/head.js -->
+		<script src="/assets/js/modernizr.custom.js"></script>
+		<script src="/assets/js/matchMedia.js"></script>
+		<script src="/assets/js/frwd.js"></script>
+		<script src="/assets/js/frwd.mediaQueries.js"></script>
+		<script src="/assets/js/picturefill.js"></script>
+		<!-- endbuild -->
+	</head>
+
+	<body>
+		{{#if overview}}
+			<div id="kss-index">
+				<h1>Style Guide</h1>
+
+				<nav>
+					<ol>
+						{{#eachRoot}}
+							<li>
+								<a href="/styleguide/section-{{reference}}.html">
+									<i>{{reference}}.0:</i>
+									{{header}}
+								</a>
+							</li>
+						{{/eachRoot}}
+					</ol>
+				</nav>
+			</div>
+		{{else}}
+			<a id="kss-back" href="/styleguide/">Back to Index</a>
+
+			<div role="main" id="kss-main">
+				<article id="kss-content">
+					{{!
+						Find each section, in order.
+						If there's no markup or modifiers supplied, use a Markdown-only layout instead.
+
+						The "root" element comes first in this loop, and can be detected using
+						the "#whenDepth 1" block as seen below.
+					}}
+
+					{{#eachSection rootNumber}}
+						{{#whenDepth 1}}
+							<h1 class="kss-title">{{reference}}.0: {{header}}</h1>
+						{{else}}
+							<section class="kss-depth-{{refDepth}}">
+								<div class="kss-bookmark" id="section-{{reference}}">{{reference}}</div>
+
+								{{#whenDepth 2}}
+									<h1 class="kss-title">
+								{{else}}
+									<h2 class="kss-title">
+								{{/whenDepth}}
+
+								{{reference}}: {{header}}
+
+								{{#ifAny markup modifiers}}
+									<a class="kss-flag kss-markup-link" href="#section-{{reference}}-markup">Markup</a>
+								{{/ifAny}}
+
+								{{#if deprecated}}
+									<div class="kss-flag kss-flag-deprecated">Deprecated</div>
+								{{/if}}
+
+								{{#if experimental}}
+									<div class="kss-flag kss-flag-experimental">Experimental</div>
+								{{/if}}
+
+								{{#whenDepth 2}}
+									</h1>
+								{{else}}
+									</h2>
+								{{/whenDepth}}
+						{{/whenDepth}}
+
+						{{#ifAny markup modifiers}}
+							{{#if description}}
+								<div class="kss-desc">{{html description}}</div>
+							{{/if}}
+
+							<div class="kss-markup" id="section-{{reference}}-markup" data-markup="section-{{reference}}-markup">
+								<pre class="prettyprint lang-html">{{markup}}</pre>
+							</div>
+
+							<div class="kss-modifier-details">
+								<p>Default</p>
+							</div>
+
+							<div class="kss-element kss-element-default" data-element="{{header}}">
+								{{modifierMarkup}}
+							</div>
+
+							{{#eachModifier}}
+								<div class="kss-modifier-details">
+									{{html description}}
+									<code class="kss-modifier-name">{{name}}</code>
+								</div>
+
+								<div class="kss-element kss-modifier" data-element="{{../header}}">
+									{{modifierMarkup}}
+								</div>
+							{{/eachModifier}}
+						{{else}}
+							{{#if description}}
+								{{html description}}
+							{{/if}}
+						{{/ifAny}}
+
+						{{#whenDepth 1}} {{else}}
+							</section>
+						{{/whenDepth}}
+					{{/eachSection}}
+				</article>
+			</div>
+		{{/if}}
+
+		<!--[if lt IE 9]>
+			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+			<script>window.jQuery || document.write('<script src="/assets/js/jquery-1.10.2.min.js"><\/script>');</script>
+		<![endif]-->
+
+		<!--[if gt IE 8]><!-->
+			<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+			<script>window.jQuery || document.write('<script src="/assets/js/jquery-2.0.3.min.js"><\/script>');</script>
+		<!--<![endif]-->
+
+		<!-- build:js assets/js/frwd.debug.js -->
+		<script src="/assets/js/frwd.debug.js"></script>
+		<!-- endbuild -->
+
+		<script src="/styleguide/public/prettify.js"></script>
+
+		<script>
+			function markupDisplay() {
+				$('.kss-markup-link').on('click', function () {
+					var show = 'kss-show',
+						reference = ($(this).attr('href')).replace('#', ''),
+						$markup = $('[data-markup="' + reference + '"]');
+
+					$markup[$markup.hasClass(show) ? 'removeClass' : 'addClass'](show);
+
+					return false;
+				});
+			}
+
+			$(function () {
+				$('.kss-overview pre > code').addClass('prettyprint');
+				prettyPrint();
+				markupDisplay();
+			});
+		</script>
+	</body>
+</html>

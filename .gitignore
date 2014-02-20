@@ -4,6 +4,7 @@
 app/assets/bower_components
 app/assets/css/global/_normalize.scss
 app/assets/js/frwd.mediaQueries.js
+app/styleguide
 dist
 frwd.sublime-project
 frwd.sublime-workspace

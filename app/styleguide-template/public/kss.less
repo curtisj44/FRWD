@@ -1,0 +1,300 @@
+// kss-node styleguide layout
+
+@kssCode: Consolas, Monaco, 'Andale Mono', monospace;
+@kssHelveticaNeue: "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
+@kssHelveticaNeueLight: "Helvetica Neue Light", HelveticaNeueLight, "HelveticaNeue-Light", @kssHelveticaNeue;
+@kssOuterPadding: 10px;
+@kssDeprecated: #C92E08; // rgba(255, 50, 0, .8)
+@kssExperimental: #06D2D2; // rgba(0, 255, 255, .8)
+
+html {
+	overflow-y: scroll;
+	background: #f9f9f9;
+}
+
+.index,
+.index body {
+	height: 100%;
+}
+
+#kss-index {
+	padding: 0 10px;
+	min-height: 100%;
+	background: #222;
+
+	h1 {
+		margin: 0 0 2.5em;
+		padding: 1em 0 0;
+		color: #fff;
+		font: 14px~"/"1.2 @kssHelveticaNeueLight;
+		letter-spacing: .05em;
+		text-transform: uppercase;
+	}
+
+	img {
+		display: block;
+		margin: 0 0 8/14em;
+		max-width: 200px;
+	}
+
+	nav {
+		font: 14px~"/"20px @kssHelveticaNeueLight;
+	}
+
+	ol {
+		margin: 0;
+		padding: 0;
+	}
+
+	a {
+		display: block;
+		position: relative;
+		padding: .2em 0;
+		color: #888;
+		font-weight: 300;
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			color: #fff !important;
+		}
+	}
+
+	li {
+		margin: 0;
+		padding: 0;
+
+		li {
+			margin: 0 10px 0 0;
+			padding: 0;
+			font-size: 13px;
+			line-height: 18px;
+
+			a {
+				color: #666;
+			}
+		}
+
+		i {
+			font-size: 13px;
+			font-style: normal;
+		}
+	}
+
+	.depth-1 {
+		display: none; // TODO - would be better not to output in the HTML
+	}
+}
+
+#kss-back {
+	display: block;
+	padding: .5em @kssOuterPadding;
+	background: #222;
+	color: #888;
+	font: 300 12px~"/"1 @kssHelveticaNeueLight;
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		color: #fff;
+	}
+}
+
+#kss-content {
+	overflow: hidden;
+}
+
+.kss-title {
+	position: relative;
+	margin: 0 0 1.25em;
+	padding: 40px @kssOuterPadding 0;
+	color: #999;
+	font: 300 22px~"/"1 @kssHelveticaNeueLight;
+
+	section & {
+		margin: 0 0 .75em;
+		padding: 0 @kssOuterPadding;
+		font-size: 18px;
+	}
+
+	.kss-depth-3 & {
+		margin-top: 1.25em;
+		background: none;
+		color: #999;
+		font-size: 16px;
+	}
+}
+
+.kss-overview {
+	padding: 0 @kssOuterPadding 3em;
+
+	h2 {
+		margin: 1.5em 0 .75em;
+		padding: 1.5em 0 0;
+		border-top: 1px solid #e6e6e6;
+		color: #999;
+		font: 300 28px~"/"1 @kssHelveticaNeueLight;
+	}
+
+	h3 {
+		margin: 2.5em 0 0;
+		font-weight: 600;
+		font-size: 16px;
+		line-height: 1;
+		text-transform: uppercase;
+	}
+
+	code,
+	pre {
+		background: #f1f1f1;
+	}
+
+	pre {
+		padding: 4em !important;
+		border-radius: 1em;
+	}
+}
+
+.kss-desc {
+	padding: 0 @kssOuterPadding;
+	font-size: 18px;
+	line-height: 20px;
+}
+
+.kss-bookmark {
+	position: absolute;
+	left: -50px;
+}
+
+.kss-modifier-details {
+	position: relative;
+	margin: 0 0 1em;
+	padding: 0 @kssOuterPadding .2em;
+	border-bottom: 1px solid #eee;
+	color: #bbb;
+	font: 14px @kssHelveticaNeue;
+
+	p {
+		margin: 0;
+	}
+
+	code {
+		position: absolute;
+		top: 0;
+		right: @kssOuterPadding;
+		background: none;
+		text-align: right;
+	}
+}
+
+.kss-element {
+	position: relative;
+	overflow: hidden;
+	margin: 0 0 1.5em;
+	padding: 0 @kssOuterPadding;
+}
+
+.kss-flag {
+	float: right;
+	margin: 5px 0 0 10px;
+	padding: .3em;
+	border-radius: 2px;
+	background: #ccc;
+	color: #fff;
+	color: rgba(255, 255, 255, .9);
+	font: 400 10px~"/"1 @kssHelveticaNeue;
+	text-decoration: none;
+	text-transform: uppercase;
+
+	&.kss-flag-deprecated {
+		background: @kssDeprecated;;
+	}
+
+	&.kss-flag-experimental {
+		background: @kssExperimental;
+	}
+}
+
+a.kss-markup-link {
+	color: #fff !important;
+
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+	}
+}
+
+.kss-markup {
+	overflow: auto;
+	background: #f1f1f1;
+	-webkit-transition: max-height .3s ease-out;
+	transition:         max-height .3s ease-out;
+
+	.js & {
+		overflow: hidden;
+		max-height: 0;
+	}
+
+	&.kss-show {
+		overflow: auto;
+		max-height: 20em;
+	}
+}
+
+.kss-overview,
+.kss-markup {
+	pre {
+		margin: 0;
+		padding: 2em @kssOuterPadding;
+		font-size: 12px;
+		line-height: 1.5;
+		white-space: pre;
+		word-wrap: normal;
+
+		@kssTabSize: 4;
+		-moz-tab-size:    @kssTabSize;
+		-o-tab-size:      @kssTabSize;
+		-webkit-tab-size: @kssTabSize;
+		tab-size:         @kssTabSize;
+	}
+}
+
+// code syntax highlighting
+.pln,
+.kwd,
+.pun,
+.opn,
+.clo,
+.dec {
+	color: #333;
+}
+
+.str {
+	color: #dd1144;
+}
+
+.com {
+	color: #998;
+}
+
+.typ,
+.lit {
+	color: #458;
+}
+
+.tag {
+	color: navy;
+}
+
+.atn,
+.var {
+	color: teal;
+}
+
+.atv {
+	color: #d14;
+}
+
+.fun {
+	color: #900;
+}
