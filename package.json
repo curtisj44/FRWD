@@ -2,7 +2,7 @@
   "name": "FRWD",
   "author": "Curtis Jurgensen",
   "description": "A responsive, proportional, nestable, customizable, and mobile-first framework For Responsive Web Design.",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "homepage": "https://frwd.curtisjurgensen.com",
   "repository": {
     "type": "git",
