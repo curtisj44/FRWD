@@ -39,33 +39,15 @@ Markup:
 
 .table-responsive			- Responsive
 
-Styleguide 2.0
+Styleguide 7.0
 */
 
 table {
 	width: 100%;
-	border-bottom: 1px solid #000;
-	background: #eee;
-
-	@include media($M) {
-		border: 0;
-	}
-
-	.align-center {
-		text-align: center;
-	}
-
-	.align-left {
-		text-align: left;
-	}
-
-	.align-right {
-		text-align: right;
-	}
 }
 
 thead {
-	background: #ccc;
+	background: #eee;
 
 	@include media($M) {
 		border-bottom: 1px solid #000;
@@ -86,10 +68,12 @@ th {
 /* responsive ----------------------------------------------- //// */
 .generatedcontent .table-responsive {
 	display: block;
+	border-bottom: 1px solid #000;
 	font-size: .875em; /* 14px */
 
 	@include media($M) {
 		display: table;
+		border: 0;
 		font-size: 1em; /* 16px */
 	}
 
@@ -155,7 +139,6 @@ th {
 			border: 0;
 		}
 
-		&:before,
 		&:before {
 			position: absolute;
 			top: 0;
@@ -171,7 +154,6 @@ th {
 			}
 		}
 
-		&:first-child,
 		&:first-child {
 			border-top: 1px solid #000;
 			background: #ccc;
@@ -180,6 +162,10 @@ th {
 				border: 0;
 				background: none;
 			}
+		}
+
+		&:last-child {
+			border: 0;
 		}
 	}
 }
