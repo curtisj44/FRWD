@@ -176,36 +176,38 @@ module.exports = function (grunt) {
 			}
 		},
 
-		// not used since Uglify task does concat, but still available if needed
-		/*
 		concat: {
-			generated: {
-				files: [{
-					dest: '.tmp/concat/assets/js/global.js',
-					src: [
-						'.tmp/assets/js/main.js',
-						'app/assets/js/main.js',
-						'.tmp/assets/js/test.js',
-						'app/assets/js/test.js'
-					]
-				}]
-			}
-		},
-		*/
+			'.tmp/assets/js/frwd.debug.js': [
+				'<%= yeoman.app %>/assets/js/frwd.debug.js'
+			],
 
-		// not enabled since usemin task does concat and uglify
-		// check index.html to edit your build targets
-		// enable this task if you prefer defining your build targets here
-		/*
-		uglify: {
-			generated: {
-				files: [{
-					dest: 'dist/assets/js/head.js',
-					src: ['.tmp/concat/assets/js/head.js']
-				}]
-			}
+			'.tmp/assets/js/head.js': [
+				'<%= yeoman.app %>/assets/js/modernizr.custom.js',
+				'<%= yeoman.app %>/assets/js/matchMedia.js',
+				'<%= yeoman.app %>/assets/js/frwd.js',
+				'<%= yeoman.app %>/assets/js/frwd.mediaQueries.js',
+				'<%= yeoman.app %>/assets/js/picturefill.js'
+			],
+
+			'.tmp/assets/js/slider.js': [
+				'<%= yeoman.app %>/assets/js/swipe2.js',
+				'<%= yeoman.app %>/assets/js/frwd.slider.js'
+			]
 		},
-		*/
+
+		uglify: {
+			'<%= yeoman.dist %>/assets/js/frwd.debug.js': [
+				'.tmp/assets/js/frwd.debug.js'
+			],
+
+			'<%= yeoman.dist %>/assets/js/head.js': [
+				'.tmp/assets/js/head.js'
+			],
+
+			'<%= yeoman.dist %>/assets/js/slider.js': [
+				'.tmp/assets/js/slider.js'
+			]
+		},
 
 		rev: {
 			dist: {
@@ -232,12 +234,6 @@ module.exports = function (grunt) {
 		},
 
 		cssmin: {
-			// This task is pre-configured if you do not wish to use Usemin
-			// blocks for your CSS. By default, the Usemin block from your
-			// `index.html` will take care of minification, e.g.
-			//
-			//     <!-- build:css({.tmp,app}) styles/main.css -->
-			//
 			dist: {
 				files: {
 					'<%= yeoman.dist %>/assets/css/debug.css': [
@@ -427,6 +423,8 @@ module.exports = function (grunt) {
 			'concurrent:server',
 			'autoprefixer',
 			'cmq',
+			'concat',
+			'uglify',
 			'connect:livereload',
 			'watch'
 		]);
@@ -453,6 +451,7 @@ module.exports = function (grunt) {
 		'uglify',
 		'copy:dist',
 		//'rev',
+		'htmlmin'
 	]);
 
 	grunt.registerTask('default', [
