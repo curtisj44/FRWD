@@ -24,8 +24,17 @@ body {
 }
 
 /* default margin ----------------------------------------------- //// */
-p, ul, ol, li, dl, table, hr, pre {
-	margin-bottom: 1.5em; /* 24px */
+p,
+ul,
+ol,
+li,
+dl,
+dt,
+table,
+hr,
+pre,
+blockquote {
+	margin: 0 0 1.5em;
 }
 
 /* ::selection ----------------------------------------------- //// */
