@@ -220,21 +220,6 @@ module.exports = function (grunt) {
 			}
 		},
 
-		useminPrepare: {
-			options: {
-				dest: '<%= yeoman.dist %>'
-			},
-			html: '<%= yeoman.app %>/index.html'
-		},
-
-		usemin: {
-			options: {
-				assetsDirs: ['<%= yeoman.dist %>']
-			},
-			html: ['<%= yeoman.dist %>/{,*/}*.html'],
-			css: ['<%= yeoman.dist %>/assets/css/{,*/}*.css']
-		},
-
 		imagemin: {
 			dist: {
 				files: [{
@@ -470,7 +455,6 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('build', [
 		'clean:dist',
-		'useminPrepare',
 		'copy:normalize',
 		'copy:mediaQueries',
 		'concurrent:dist',
@@ -481,7 +465,6 @@ module.exports = function (grunt) {
 		'uglify',
 		'copy:dist',
 		//'rev',
-		'usemin'
 	]);
 
 	grunt.registerTask('default', [
