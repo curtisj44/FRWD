@@ -49,6 +49,16 @@ blockquote {
 }
 
 /* links ----------------------------------------------- //// */
+
+/*
+Links
+
+Markup:
+<a href="/">Go to the home page</a> or <a href="#fpo">return to the top of this page</a>.
+
+Styleguide 1.0
+*/
+
 a:link,
 a:visited,
 a:hover,
@@ -72,7 +82,24 @@ video {
 	height: auto;
 }
 
-/* image ----------------------------------------------- */
+/*
+Images
+
+Markup:
+<p>
+	<img class="{$modifiers}" src="http://placehold.it/250x250" alt="fpo" />
+	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+</p>
+<p>
+	Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</p>
+
+.image-left			- Left
+.image-right		- Right
+
+Styleguide 2.0
+*/
+
 img {
 	vertical-align: bottom;
 
@@ -100,17 +127,38 @@ img {
 	display: none;
 }
 
-/* ordered, unordered lists ----------------------------------------------- //// */
 /*
-ol {
-	margin-left: 24px;
-	list-style: decimal;
-}
+Lists
 
-ul li {
-	padding: 0 0 0 24px;
-	background: url(../images/bullet.png) no-repeat 0 .5em;
-}
+Styleguide 3.0
+*/
+
+/*
+Ordered Lists
+
+Markup:
+<ol>
+	<li>Duis aute irure dolor in reprehenderit</li>
+	<li>Voluptate velit esse cillum dolore eu fugiat nulla pariatur</li>
+	<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+	<li>In culpa qui officia deserunt mollit anim id est laborum.</li>
+</ol>
+
+Styleguide 3.1
+*/
+
+/*
+Unordered Lists
+
+Markup:
+<ul>
+	<li>Duis aute irure dolor in reprehenderit</li>
+	<li>Voluptate velit esse cillum dolore eu fugiat nulla pariatur</li>
+	<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+	<li>In culpa qui officia deserunt mollit anim id est laborum.</li>
+</ul>
+
+Styleguide 3.2
 */
 
 ol,
@@ -119,12 +167,26 @@ ul {
 	list-style: none;
 }
 
-/* definition list ----------------------------------------------- //// */
 /*
+Definition Lists
+
+Markup:
+<dl>
+	<dt>Duis aute irure dolor in reprehenderit</dt>
+	<dd>Voluptate velit esse cillum dolore eu fugiat nulla pariatur</dd>
+	<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</dd>
+</dl>
+
+Styleguide 3.3
+*/
+
 dt {
 	font-weight: bold;
 }
-*/
+
+dd {
+	margin: 0;
+}
 
 /* hidden ----------------------------------------- //// */
 /*
@@ -175,8 +237,199 @@ dt {
 }
 
 /* misc ------------------------------------------- //// */
+
+/*
+Text Level Semantics
+
+This format is heavily influenced by: [Paul Robert Lloyd&rsquo;s Barebones](http://barebones.paulrobertlloyd.com/_styleguide.php)
+
+Styleguide 4.0
+*/
+
+
+/*
+Stressed Emphasis
+
+Markup:
+<p>You simply <em>must</em> try the negitoro maki!</p>
+
+Styleguide 4.1
+*/
+
+/*
+Strong Importance
+
+Markup:
+<p><strong>Don&rsquo;t</strong> stick nails in the electrical outlet.</p>
+
+Styleguide 4.2
+*/
+
+
+/*
+Small Print
+
+Markup:
+<p><small>Copyright &copy; 1922-2011 Acme Corporation. All Rights Reserved.</small></p>
+
+Styleguide 4.3
+*/
+
+
+/*
+Strikethrough
+
+Markup:
+<p><s>Recommended retail price: £3.99 per bottle</s></p>
+
+Styleguide 4.4
+*/
+
+
+/*
+Citations
+
+Markup:
+<p><cite>Universal Declaration of Human Rights</cite>, United Nations, December 1948. Adopted by General Assembly resolution 217 A (III).</p>
+
+Styleguide 4.5
+*/
+
+
+/*
+Inline quotes
+
+Markup:
+<p>John said, <q>I saw Lucy at lunch, she told me <q>Mary wants you to get some ice cream on your way home</q>. I think I will get some at Ben and Jerry’s, on Gloucester Road.</q></p>
+
+Styleguide 4.6
+*/
+
+/*
+Definition
+
+Markup:
+<p>Bob&rsquo;s <dfn title="Dog">canine</dfn> mother and <dfn title="Horse">equine</dfn> father sat him down and carefully explained that he was an <dfn title="A mutation that combines two or more sets of chromosomes from different species">allopolyploid</dfn> organism.</p>
+
+Styleguide 4.7
+*/
+
+/*
+Abbreviation
+
+Markup:
+<p><abbr title="British Broadcasting Corportation">BBC</abbr>, <abbr title="HyperText Markup Language">HTML</abbr>, and <abbr title="Staffordshire">Staffs.</abbr></p>
+
+Styleguide 4.8
+*/
+
+
+/*
+Code
+
+Markup:
+<p>
+	When you call the <code>activate()</code> method on the <code>robotSnowman</code> object, the eyes glow.
+</p>
+<pre><code>function getJelly() {
+	echo $aDeliciousSnack;
+}</code></pre>
+
+Styleguide 4.9
+*/
+
+/*
+Variable
+
+Markup:
+<p>If there are <var>n</var> pipes leading to the ice cream factory then I expect at <em>least</em> <var>n</var> flavours of ice cream to be available for purchase!</p>
+
+Styleguide 4.10
+*/
+
+
+/*
+Sample output
+
+Markup:
+<p>The computer said <samp>Too much cheese in tray two</samp> but I didn’t know what that meant.</p>
+
+Styleguide 4.11
+*/
+
+/*
+Keyboard entry
+
+Markup:
+<p>To take a screenshot on your Mac, press <kbd>⌘ Cmd</kbd> + <kbd>⇧ Shift</kbd> + <kbd>3</kbd>.</p>
+
+Styleguide 4.12
+*/
+
+/*
+Superscript and subscript text
+
+Markup:
+<p>The coordinate of the <var>i</var>th point is (<var>x<sub><var>i</var></sub></var>, <var>y<sub><var>i</var></sub></var>). For example, the 10th point has coordinate (<var>x<sub>10</sub></var>, <var>y<sub>10</sub></var>).</p>
+<p>f(<var>x</var>, <var>n</var>) = log<sub>4</sub><var>x</var><sup><var>n</var></sup></p>
+
+Styleguide 4.13
+*/
+
+/*
+Italicised
+
+Markup:
+<p>There is a certain <i lang="fr">je ne sais quoi</i> in the air.</p>
+
+Styleguide 4.14
+*/
+
+
+/*
+Emboldened
+
+Markup:
+<p>You enter a small room. Your <b>sword</b> glows brighter. A <b>rat</b> scurries past the corner wall.</p>
+
+Styleguide 4.15
+*/
+
+/*
+Marked or highlighted text
+
+Markup:
+<p>I also have some <mark>kitten</mark>s who are visiting me these days. They&rsquo;re really cute. I think they like my garden! Maybe I should adopt a <mark>kitten</mark>.</p>
+
+Styleguide 4.16
+*/
+
+/*
+Edits
+
+Markup:
+<p>She bought <del datetime="2005-05-30T13:00:00">two</del> <ins datetime="2005-05-30T13:00:00">five</ins> pairs of shoes.</p>
+
+Styleguide 4.17
+*/
+
+
+/*
+Pre-formatted text
+
+Markup:
+<pre>  ! " # $ % &amp; ' ( ) * + , - . /
+0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ?
+@ A B C D E F G H I J K L M N O
+P Q R S T U V W X Y Z [ \ ] ^ _
+` a b c d e f g h i j k l m n o
+p q r s t u v w x y z { | } ~</pre>
+
+Styleguide 4.18
+*/
+
 abbr {
-	color: lighten($fontColor, 30);
+	color: lighten($font-color, 30);
 	font-size: .875em; /* 14px */
 	letter-spacing: .0714em; /* 1px */
 }
@@ -185,44 +438,51 @@ del {
 	text-decoration: line-through;
 }
 
-em,
-i,
-var,
-samp,
-cite {
-	color: lighten($fontColor, 30);
-	font-style: italic;
+// em,
+// i,
+// var,
+// samp,
+// cite {
+// 	color: lighten($font-color, 30);
+// 	font-style: italic;
+// }
+
+ins,
+mark,
+samp {
+	padding: 0 .25em;
 }
 
 samp {
-	margin: 0 .25em;
-	font-family: $fontStackMono;
-	font-size: .875em; /* 14px */
+	background: #f9f9f9;
+	font-family: $font-stack-mono;
 }
 
 ins {
-	background: #ff9;
-	color: #000;
+	background: #e9e9e9;
 	text-decoration: none;
+}
+
+mark {
+	background: #fff9d9;
 }
 
 kbd {
 	margin: 0 .25em;
 	padding: .1429em .4286em;
-	border: 1px solid #E6E6E6;
+	border: 1px solid #e6e6e6;
 	border-radius: 4px;
 	background: #fcfcfc;
 	color: #666;
 	font-size: .875em; /* 14px */
 	line-height: .9;
-	font-family: $fontStackMono;
+	font-family: $font-stack-mono;
 }
 
 code {
 	display: inline-block;
-	background: #eee;
-	font-family: $fontStackMono;
-	font-size: .875em; /* 14px */
+	color: #b03;
+	font-family: $font-stack-mono;
 }
 
 pre {
@@ -230,18 +490,60 @@ pre {
 	-webkit-overflow-scrolling: touch;
 	tab-size: 4;
 	padding: .5em 1em;
-	border: 1px solid #000;
-	border-radius: 3px;
-	background: #383a3f;
-	color: #abe0ff;
-	font-size: $fontSize;
+	font-size: $font-size;
 
 	code {
 		background: none;
 	}
 }
 
-/* text alignment ------------------------------------------- //// */
+/*
+Horizontal Rule
+
+Markup:
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<hr />
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+Styleguide 4.19
+*/
+
+hr {
+	border: 0;
+	border-top: 1px solid #ccc;
+}
+
+
+/*
+Blockquote
+
+Markup:
+<blockquote cite="http://hansard.millbanksystems.com/commons/1947/nov/11/parliament-bill#column_206">
+	<p>Many forms of Government have been tried, and will be tried in this world of sin and woe. No one pretends that democracy is perfect or all-wise. Indeed, it has been said that democracy is the worst form of government except all those other forms that have been tried from time to time.</p>
+</blockquote>
+
+Styleguide 4.20
+*/
+
+blockquote {
+	padding: 0 0 0 1em;
+	border-left: 3px solid #ccc;
+	color: #666;
+}
+
+/*
+Text Alignment
+
+Markup:
+<p class="{$modifiers}">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+.align-center			- Align center
+.align-left				- Align left
+.align-right			- Align right
+
+Styleguide 5.0
+*/
+
 .align-center {
 	text-align: center;
 }

@@ -1,5 +1,30 @@
-/* Forms
----------------------------------------------------------------------------------------- //// */
+/*
+Forms
+
+Markup:
+<ol class="form">
+	<li>
+		<label for="input">Input</label>
+		<input name="input" id="input" {$modifiers} />
+	</li>
+	<li>
+		<label for="selectbox">Selectbox</label>
+		<select id="selectbox" {$modifiers}>
+			<option value="">Lorem ipsum</option>
+			<option value="1">Dolor sit amet</option>
+			<option value="2">Lorem ipsum</option>
+		</select>
+	</li>
+	<li>
+		<label for="textarea">Textarea</label>
+		<textarea id="textarea" rows="5" cols="35" {$modifiers}></textarea>
+	</li>
+</ol>
+
+disabled			- Disabled
+
+Styleguide 8.0
+*/
 
 legend {
 	margin: 0 0 1em;
@@ -14,22 +39,17 @@ label {
 	cursor: pointer;
 }
 
-/* form fields ------------------------------------------- //// */
-/* 
-1. Remove the inner shadow on iOS
-*/
-
 button,
 input,
 select,
 textarea {
-	padding: 6px 7px 7px; /* TODO - CJ - use ems */
+	padding: .5em;
 	border: 1px solid #ccc;
-	border-radius: 3px;
-	background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)); /* 1 */
+	border-radius: 0;
+	background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)); // remove inner shadow in iOS
 	background-color: #fff;
 	color: #000;
-	font: 1em $fontStack; /* 16px/21px */
+	font: 1em $font-stack; /* 16px/21px */
 	vertical-align: baseline;
 
 	.ie7 & {
@@ -47,10 +67,15 @@ textarea {
 		outline: 0;
 	}
 
-	&.disabled {
-		border-color: #ccc;
-		background: #ccc;
-		color: #827a71;
+	&[disabled] {
+		//border-color: #eee;
+		background: #eee;
+		color: #ccc;
+		cursor: default;
+
+		&:hover {
+			border-color: #ccc;
+		}
 	}
 }
 
@@ -63,7 +88,19 @@ textarea {
 	resize: vertical;
 }
 
-/* buttons ------------------------------------------- //// */
+/*
+Button
+
+Markup:
+<p>
+	<button>Button</button>
+	<input type="submit" value="Submit" />
+	<input type="reset" value="Reset" />
+</p>
+
+Styleguide 8.1
+*/
+
 button,
 input[type="button"],
 input[type="reset"],
@@ -79,24 +116,78 @@ input[type="submit"] {
 	}
 }
 
-/* checkbox, radio ------------------------------------------- //// */
+/*
+Checkboxes
+
+Markup:
+<ol class="form-inline">
+	<li>
+		<input type="checkbox" id="checkbox-1">
+		<label for="checkbox-1">Lorem ipsum dolor sit amet</label>
+	</li>
+	<li>
+		<input type="checkbox" id="checkbox-2">
+		<label for="checkbox-2">Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua lorem ipsum dolor sit amet</label>
+	</li>
+	<li>
+		<input type="checkbox" id="checkbox-3">
+		<label for="checkbox-3">Ut enim ad minim veniam</label>
+	</li>
+	<li>
+		<input type="checkbox" id="checkbox-4" disabled="disabled">
+		<label for="checkbox-4">Example of a disabled checkbox</label>
+	</li>
+	<li>
+		<input type="checkbox" id="checkbox-5">
+		<label for="checkbox-5">Nisi ut aliquip</label>
+	</li>
+</ol>
+
+Styleguide 8.2
+*/
+
+/*
+Radio Buttons
+
+Markup:
+<ol class="form-inline">
+	<li>
+		<input type="radio" id="radio-1" name="radio">
+		<label for="radio-1">Lorem ipsum dolor sit amet</label>
+	</li>
+	<li>
+		<input type="radio" id="radio-2" name="radio">
+		<label for="radio-2">Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua lorem ipsum dolor sit amet</label>
+	</li>
+	<li>
+		<input type="radio" id="radio-3" name="radio">
+		<label for="radio-3">Ut enim ad minim veniam</label>
+	</li>
+	<li>
+		<input type="radio" id="radio-4" name="radio" disabled="disabled">
+		<label for="radio-4">Example of a disabled radio button</label>
+	</li>
+	<li>
+		<input type="radio" id="radio-5" name="radio">
+		<label for="radio-5">Nisi ut aliquip</label>
+	</li>
+</ol>
+
+Styleguide 8.3
+*/
+
 input[type="checkbox"],
 input[type="radio"] {
 	margin: 0 5px 0 0;
 }
 
-/* valid, invalid ------------------------------------------- //// */
-input:valid,
-textarea:valid {
-	/* TODO - CJ - ? */
-}
-
-input:invalid,
-textarea:invalid {
-	background-color: #f0dddd;
+input[disabled] + label {
+	color: #999;
+	cursor: default;
 }
 
 /* form list ------------------------------------------- //// */
+
 .form {
 	margin-left: 0;
 	list-style: none;
@@ -111,23 +202,10 @@ textarea:invalid {
 	textarea {
 		display: block;
 	}
-
-	.note {
-		color: lighten($fontColor, 70);
-	}
-
-	.error input,
-	.error select,
-	.error textarea {
-		border-color: #f00;
-	}
-
-	.error .error-message {
-		color: #f00;
-	}
 }
 
 /* inline form list item ------------------------------------------- */
+
 .form-inline {
 	margin: 0;
 
