@@ -1,13 +1,13 @@
 // fixed or fluid
-$fixedWidth: false !default;
+$fixed-width: false !default;
 
 // grid
-$maxWidth: 1176px;
+$max-width: 1176px;
 $gutter: 32px;
 
 // typography
-$fontColor: #000;
-$fontStack: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$fontStackMono: "Courier New", Courier, monospace;
-$fontSize: 1em; // 16px
-$lineHeight: 24/16;
+$font-color: #000;
+$font-stack: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-stack-mono: "Courier New", Courier, monospace;
+$font-size: 1em; // 16px
+$line-height: 24/16;

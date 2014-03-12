@@ -15,8 +15,8 @@ html {
 }
 
 body {
-	color: $fontColor;
-	font: #{$fontSize}/#{$lineHeight} $fontStack;
+	color: $font-color;
+	font: #{$font-size}/#{$line-height} $font-stack;
 
 	@include media($XL) {
 		min-width: 960px;

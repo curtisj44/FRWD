@@ -5,7 +5,7 @@
 .fields {
 	clear: both;
 	margin: 0 auto;
-	max-width: $maxWidth;
+	max-width: $max-width;
 
 	@include media($L) {
 		width: 97%;
