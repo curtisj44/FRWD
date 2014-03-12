@@ -19,30 +19,28 @@ module.exports = function (grunt) {
 
 		watch: {
 			options: {
-				nospawn: false
+				spawn: false
 			},
-			compass: {
+			css: {
 				files: [
-					'<%= yeoman.app %>/assets/css/{,*/}*.{scss,sass}'
+					'<%= yeoman.app %>/assets/css/{,*/}*.scss'
 				],
 				tasks: [
 					'copy:normalize',
 					'copy:mediaQueries',
-					'compass:server',
-					'kss:server',
+					'concurrent:server',
 					'autoprefixer',
-					'cmq'
-				]
+					'cmq',
+					'concat'
+				],
 			},
-			styles: {
+			kss: {
 				files: [
-					'<%= yeoman.app %>/assets/css/{,*/}*.css',
-					'<%= yeoman.app %>/styleguide-template/{,*/}*.{less,html,js,sass,scss}',
+					'<%= yeoman.app %>/styleguide-template/{,*/}*.*',
 				],
 				tasks: [
-					'copy:styles',
 					'kss:server'
-				]
+				],
 			},
 			livereload: {
 				options: {
@@ -128,34 +126,6 @@ module.exports = function (grunt) {
 			}
 		},
 
-		compass: {
-			options: {
-				sassDir: '<%= yeoman.app %>/assets/css',
-				cssDir: '.tmp/assets/css',
-				generatedImagesDir: '.tmp/assets/images/generated',
-				imagesDir: '<%= yeoman.app %>/assets/images',
-				javascriptsDir: '<%= yeoman.app %>/assets/js',
-				fontsDir: '<%= yeoman.app %>/assets/fonts',
-				importPath: '<%= yeoman.app %>/assets/bower_components',
-				httpImagesPath: '/assets/images',
-				httpGeneratedImagesPath: '/assets/images/generated',
-				httpFontsPath: '/assets/fonts',
-				relativeAssets: false,
-				assetCacheBuster: false
-			},
-			dist: {
-				options: {
-					generatedImagesDir: '<%= yeoman.dist %>/assets/images/generated'
-				}
-			},
-			server: {
-				options: {
-					debugInfo: true,
-					outputStyle: 'expanded'
-				}
-			}
-		},
-
 		autoprefixer: {
 			options: {
 				browsers: [
@@ -230,6 +200,36 @@ module.exports = function (grunt) {
 					src: '{,*/}*.{gif,jpeg,jpg,png}',
 					dest: '<%= yeoman.dist %>/assets/images'
 				}]
+			}
+		},
+
+		sass: {
+			server: {
+				options: {
+					debugInfo: true,
+					//lineNumbers: true,
+					precision: 6,
+					sourcemap: true,
+					style: 'expanded'//,
+					//banner: '<%= tag.banner %>',
+				},
+				files: [{
+					expand: true,
+					cwd: '<%= yeoman.app %>/assets/css',
+					src: '{,*/}*.scss',
+					dest: '.tmp/assets/css/',
+					ext: '.css'
+				}]
+			},
+
+			dist: {
+				options: {
+					precision: 6,
+					style: 'compressed'
+				},
+				files: {
+					'<%= project.assets %>/css/style.css': '<%= project.css %>'
+				}
 			}
 		},
 
@@ -352,7 +352,7 @@ module.exports = function (grunt) {
 
 		concurrent: {
 			server: [
-				'compass',
+				'sass:server',
 				'copy:styles',
 				'kss:server'
 			],
@@ -361,7 +361,7 @@ module.exports = function (grunt) {
 				'kss:server'
 			],
 			dist: [
-				'compass',
+				'sass:server',
 				'copy:styles',
 				'kss:dist',
 				'imagemin',
@@ -424,7 +424,6 @@ module.exports = function (grunt) {
 			'autoprefixer',
 			'cmq',
 			'concat',
-			'uglify',
 			'connect:livereload',
 			'watch'
 		]);
