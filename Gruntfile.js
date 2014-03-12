@@ -231,17 +231,6 @@ module.exports = function (grunt) {
 			}
 		},
 
-		svgmin: {
-			dist: {
-				files: [{
-					expand: true,
-					cwd: '<%= yeoman.app %>/assets/images',
-					src: '{,*/}*.svg',
-					dest: '<%= yeoman.dist %>/assets/images'
-				}]
-			}
-		},
-
 		cssmin: {
 			// This task is pre-configured if you do not wish to use Usemin
 			// blocks for your CSS. By default, the Usemin block from your
@@ -380,7 +369,6 @@ module.exports = function (grunt) {
 				'copy:styles',
 				'kss:dist',
 				'imagemin',
-				//'svgmin',
 				'htmlmin'
 			]
 		},
