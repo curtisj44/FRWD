@@ -32,13 +32,7 @@
 			<link rel="stylesheet" href="/assets/css/debug.css" />
 		<!--<![endif]-->
 
-		<!-- build:js assets/js/head.js -->
-		<script src="/assets/js/modernizr.custom.js"></script>
-		<script src="/assets/js/matchMedia.js"></script>
-		<script src="/assets/js/frwd.js"></script>
-		<script src="/assets/js/frwd.mediaQueries.js"></script>
-		<script src="/assets/js/picturefill.js"></script>
-		<!-- endbuild -->
+		<script src="/assets/js/head.js"></script>
 	</head>
 
 	<body>
@@ -74,7 +68,13 @@
 
 					{{#eachSection rootNumber}}
 						{{#whenDepth 1}}
-							<h1 class="kss-title">{{reference}}.0: {{header}}</h1>
+							<h1 class="kss-title">
+								{{reference}}.0: {{header}}
+
+								{{#if markup}}
+									<a class="kss-flag kss-markup-link" href="#section-{{reference}}-markup">Markup</a>
+								{{/if}}
+							</h1>
 						{{else}}
 							<section class="kss-depth-{{refDepth}}">
 								<div class="kss-bookmark" id="section-{{reference}}">{{reference}}</div>
@@ -87,9 +87,9 @@
 
 								{{reference}}: {{header}}
 
-								{{#ifAny markup modifiers}}
+								{{#if markup}}
 									<a class="kss-flag kss-markup-link" href="#section-{{reference}}-markup">Markup</a>
-								{{/ifAny}}
+								{{/if}}
 
 								{{#if deprecated}}
 									<div class="kss-flag kss-flag-deprecated">Deprecated</div>
@@ -111,13 +111,17 @@
 								<div class="kss-desc">{{html description}}</div>
 							{{/if}}
 
-							<div class="kss-markup" id="section-{{reference}}-markup" data-markup="section-{{reference}}-markup">
-								<pre class="prettyprint lang-html">{{markup}}</pre>
-							</div>
+							{{#if markup}}
+								<div class="kss-markup" id="section-{{reference}}-markup" data-markup="section-{{reference}}-markup">
+									<pre class="prettyprint lang-html">{{markup}}</pre>
+								</div>
+							{{/if}}
 
+							<!--
 							<div class="kss-modifier-details">
 								<p>Default</p>
 							</div>
+							-->
 
 							<div class="kss-element kss-element-default" data-element="{{header}}">
 								{{modifierMarkup}}
@@ -157,9 +161,7 @@
 			<script>window.jQuery || document.write('<script src="/assets/js/jquery-2.0.3.min.js"><\/script>');</script>
 		<!--<![endif]-->
 
-		<!-- build:js assets/js/frwd.debug.js -->
 		<script src="/assets/js/frwd.debug.js"></script>
-		<!-- endbuild -->
 
 		<script src="/styleguide/public/prettify.js"></script>
 
@@ -177,7 +179,6 @@
 			}
 
 			$(function () {
-				$('.kss-overview pre > code').addClass('prettyprint');
 				prettyPrint();
 				markupDisplay();
 			});

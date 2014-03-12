@@ -21,22 +21,13 @@ html {
 #kss-index {
 	padding: 0 10px;
 	min-height: 100%;
-	background: #222;
 	background: @kss-background;
 
 	h1 {
-		margin: 0 0 2.5em;
+		margin: 0 0 .5em;
 		padding: 1em 0 0;
 		color: #fff;
-		font: 14px~"/"1.2 @kssHelveticaNeueLight;
-		letter-spacing: .05em;
-		text-transform: uppercase;
-	}
-
-	img {
-		display: block;
-		margin: 0 0 8/14em;
-		max-width: 200px;
+		font: 500 36px~"/"1.2 @kss-helvetica-neue;
 	}
 
 	nav {
@@ -49,16 +40,14 @@ html {
 	}
 
 	a {
-		display: block;
-		position: relative;
-		padding: .2em 0;
 		color: #888;
 		font-weight: 300;
 		text-decoration: none;
 
 		&:hover,
 		&:focus {
-			color: #fff !important;
+			color: #fff;
+			text-decoration: underline;
 		}
 	}
 
@@ -78,7 +67,6 @@ html {
 		}
 
 		i {
-			font-size: 13px;
 			font-style: normal;
 		}
 	}
@@ -99,6 +87,7 @@ html {
 	&:hover,
 	&:focus {
 		color: #fff;
+		text-decoration: underline;
 	}
 }
 
@@ -116,6 +105,7 @@ html {
 	section & {
 		margin: 0 0 .75em;
 		padding: 0 @kss-outer-padding .5em;
+		border-bottom: 1px solid #eee;
 		font-size: 18px;
 	}
 
@@ -124,36 +114,6 @@ html {
 		background: none;
 		color: #999;
 		font-size: 16px;
-	}
-}
-
-.kss-overview {
-	padding: 0 @kssOuterPadding 3em;
-
-	h2 {
-		margin: 1.5em 0 .75em;
-		padding: 1.5em 0 0;
-		border-top: 1px solid #e6e6e6;
-		color: #999;
-		font: 300 28px~"/"1 @kssHelveticaNeueLight;
-	}
-
-	h3 {
-		margin: 2.5em 0 0;
-		font-weight: 600;
-		font-size: 16px;
-		line-height: 1;
-		text-transform: uppercase;
-	}
-
-	code,
-	pre {
-		background: #f1f1f1;
-	}
-
-	pre {
-		padding: 4em !important;
-		border-radius: 1em;
 	}
 }
 
@@ -170,8 +130,8 @@ html {
 
 .kss-modifier-details {
 	position: relative;
-	margin: 0 0 1em;
-	padding: 0 @kssOuterPadding .2em;
+	margin: 1em 0;
+	padding: 0 @kss-outer-padding .2em;
 	border-bottom: 1px solid #eee;
 	color: #bbb;
 	font: 14px @kss-helvetica-neue;
@@ -193,18 +153,14 @@ html {
 	position: relative;
 	overflow: hidden;
 	margin: 0 0 1.5em;
-	padding: 0 @kssOuterPadding;
 }
 
 .kss-flag {
 	float: right;
 	margin: 5px 0 0 10px;
-	padding: .3em;
-	border-radius: 2px;
-	background: #ccc;
-	color: #fff;
-	color: rgba(255, 255, 255, .9);
-	font: 400 10px~"/"1 @kssHelveticaNeue;
+	padding: .5em;
+	color: #ccc;
+	font: 400 10px~"/"1 @kss-helvetica-neue;
 	text-decoration: none;
 	text-transform: uppercase;
 
@@ -218,11 +174,9 @@ html {
 }
 
 a.kss-markup-link {
-	color: #fff !important;
-
 	&:hover,
 	&:focus {
-		text-decoration: underline;
+		background: #eee;
 	}
 }
 
@@ -243,7 +197,6 @@ a.kss-markup-link {
 	}
 }
 
-.kss-overview,
 .kss-markup {
 	pre {
 		margin: 0;

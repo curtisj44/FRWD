@@ -22,19 +22,26 @@ module.exports = function (grunt) {
 				nospawn: false
 			},
 			compass: {
-				files: ['<%= yeoman.app %>/assets/css/{,*/}*.{scss,sass}'],
+				files: [
+					'<%= yeoman.app %>/assets/css/{,*/}*.{scss,sass}'
+				],
 				tasks: [
 					'copy:normalize',
 					'copy:mediaQueries',
 					'compass:server',
+					'kss:server',
 					'autoprefixer',
 					'cmq'
 				]
 			},
 			styles: {
-				files: ['<%= yeoman.app %>/assets/css/{,*/}*.css'],
+				files: [
+					'<%= yeoman.app %>/assets/css/{,*/}*.css',
+					'<%= yeoman.app %>/styleguide-template/{,*/}*.{less,html,js,sass,scss}',
+				],
 				tasks: [
-					'copy:styles'
+					'copy:styles',
+					'kss:server'
 				]
 			},
 			livereload: {
@@ -43,9 +50,10 @@ module.exports = function (grunt) {
 				},
 				files: [
 					'<%= yeoman.app %>/*.html',
+					'<%= yeoman.app %>/assets/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}',
+					'<%= yeoman.app %>/styleguide/{,*/}*.{less,html,js,sass,scss}',
 					'.tmp/assets/css/{,*/}*.css',
-					'{.tmp,<%= yeoman.app %>}/assets/js/{,*/}*.js',
-					'<%= yeoman.app %>/assets/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}'
+					'{.tmp,<%= yeoman.app %>}/assets/js/{,*/}*.js'
 				]
 			}
 		},
@@ -375,14 +383,17 @@ module.exports = function (grunt) {
 		concurrent: {
 			server: [
 				'compass',
-				'copy:styles'
+				'copy:styles',
+				'kss:server'
 			],
 			test: [
-				'copy:styles'
+				'copy:styles',
+				'kss:server'
 			],
 			dist: [
 				'compass',
 				'copy:styles',
+				'kss:dist',
 				'imagemin',
 				//'svgmin',
 				'htmlmin'
@@ -418,9 +429,14 @@ module.exports = function (grunt) {
 				includeType: 'sass',
 				template: '<%= yeoman.app %>/styleguide-template'
 			},
-			dist: {
+			server: {
 				files: {
 					'<%= yeoman.app %>/styleguide': ['<%= yeoman.app %>/assets/css']
+				}
+			},
+			dist: {
+				files: {
+					'<%= yeoman.dist %>/styleguide': ['<%= yeoman.app %>/assets/css']
 				}
 			}
 		}
