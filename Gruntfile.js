@@ -101,6 +101,14 @@ module.exports = function (grunt) {
 					]
 				}]
 			},
+			distFinal: {
+				files: [{
+					src: [
+						'<%= yeoman.dist %>/styleguide/public/kss.less',
+						'<%= yeoman.dist %>/styleguide/public/style.css'
+					]
+				}],
+			},
 			server: '.tmp'
 		},
 
@@ -436,7 +444,8 @@ module.exports = function (grunt) {
 		'cssmin',
 		'uglify',
 		'copy:dist',
-		'htmlmin'
+		'htmlmin',
+		'clean:distFinal',
 	]);
 
 	grunt.registerTask('default', [
