@@ -21,17 +21,32 @@ module.exports = function (grunt) {
 			options: {
 				spawn: false
 			},
+			mediaQueries: {
+				files: [
+					'<%= yeoman.app %>/assets/css/_media-queries.scss'
+				],
+				tasks: [
+					'copy:mediaQueries'
+				],
+			},
 			css: {
 				files: [
 					'<%= yeoman.app %>/assets/css/{,*/}*.scss'
 				],
 				tasks: [
-					'copy:normalize',
-					'copy:mediaQueries',
 					'concurrent:server',
 					'autoprefixer',
 					'cmq',
 					'concat'
+				],
+			},
+			js: {
+				files: [
+					'<%= yeoman.app %>/assets/js/{,*/}*.js'
+				],
+				tasks: [
+					'concat',
+					'kss:server'
 				],
 			},
 			kss: {
@@ -120,7 +135,6 @@ module.exports = function (grunt) {
 			all: [
 				'Gruntfile.js',
 				'<%= yeoman.app %>/assets/js/{,*/}*.js',
-				'!<%= yeoman.app %>/assets/js/vendor/*',
 				'test/spec/{,*/}*.js'
 			]
 		},
@@ -131,26 +145,6 @@ module.exports = function (grunt) {
 					run: true,
 					urls: ['http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/index.html']
 				}
-			}
-		},
-
-		autoprefixer: {
-			options: {
-				browsers: [
-					'> 1%',
-					'last 2 versions',
-					'ff 17',
-					'ie 8',
-					'opera 12.1'
-				]
-			},
-			dist: {
-				files: [{
-					expand: true,
-					cwd: '.tmp/assets/css/',
-					src: '{,*/}*.css',
-					dest: '.tmp/assets/css/'
-				}]
 			}
 		},
 
@@ -201,19 +195,19 @@ module.exports = function (grunt) {
 		sass: {
 			server: {
 				options: {
-					debugInfo: true,
-					//lineNumbers: true,
 					precision: 6,
-					sourcemap: true,
 					style: 'expanded'//,
 					//banner: '<%= tag.banner %>',
 				},
 				files: [{
-					expand: true,
 					cwd: '<%= yeoman.app %>/assets/css',
-					src: '{,*/}*.scss',
 					dest: '.tmp/assets/css/',
-					ext: '.css'
+					dot: true,
+					expand: true,
+					rename: function (dest, src) {
+						return dest + src.replace('.scss', '.css');
+					},
+					src: ['{,*/}*.scss']
 				}]
 			},
 
@@ -222,9 +216,13 @@ module.exports = function (grunt) {
 					precision: 6,
 					style: 'compressed'
 				},
-				files: {
-					'<%= project.assets %>/css/style.css': '<%= project.css %>'
-				}
+				files: [{
+					expand: true,
+					cwd: '<%= yeoman.dist %>/assets/css',
+					src: '{,*/}*.scss',
+					dest: '.tmp/assets/css/',
+					ext: '.css'
+				}]
 			}
 		},
 
@@ -232,39 +230,39 @@ module.exports = function (grunt) {
 			dist: {
 				files: {
 					'<%= yeoman.dist %>/assets/css/debug.css': [
-						'.tmp/assets/css/debug.css',
-						'<%= yeoman.app %>/assets/css/debug.css'
+						'.tmp/assets/css/debug.css'//,
+						//'<%= yeoman.app %>/assets/css/debug.css'
 					],
 					'<%= yeoman.dist %>/assets/css/debug.fixed.css': [
-						'.tmp/assets/css/debug.fixed.css',
-						'<%= yeoman.app %>/assets/css/debug.fixed.css'
+						'.tmp/assets/css/debug.fixed.css'//,
+						//'<%= yeoman.app %>/assets/css/debug.fixed.css'
 					],
 
 					'<%= yeoman.dist %>/assets/css/demos.css': [
-						'.tmp/assets/css/demos.css',
-						'<%= yeoman.app %>/assets/css/demos.css'
+						'.tmp/assets/css/demos.css'//,
+						//'<%= yeoman.app %>/assets/css/demos.css'
 					],
 					'<%= yeoman.dist %>/assets/css/demos.fixed.css': [
-						'.tmp/assets/css/demos.fixed.css',
-						'<%= yeoman.app %>/assets/css/demos.fixed.css'
+						'.tmp/assets/css/demos.fixed.css'//,
+						//'<%= yeoman.app %>/assets/css/demos.fixed.css'
 					],
 
 					'<%= yeoman.dist %>/assets/css/global.css': [
-						'.tmp/assets/css/global.css',
-						'<%= yeoman.app %>/assets/css/global.css'
+						'.tmp/assets/css/global.css'//,
+						//'<%= yeoman.app %>/assets/css/global.css'
 					],
 					'<%= yeoman.dist %>/assets/css/global.fixed.css': [
-						'.tmp/assets/css/global.fixed.css',
-						'<%= yeoman.app %>/assets/css/global.fixed.css'
+						'.tmp/assets/css/global.fixed.css'//,
+						//'<%= yeoman.app %>/assets/css/global.fixed.css'
 					],
 
 					'<%= yeoman.dist %>/assets/css/slider.css': [
-						'.tmp/assets/css/slider.css',
-						'<%= yeoman.app %>/assets/css/slider.css'
+						'.tmp/assets/css/slider.css'//,
+						//'<%= yeoman.app %>/assets/css/slider.css'
 					],
 					'<%= yeoman.dist %>/assets/css/slider.fixed.css': [
-						'.tmp/assets/css/slider.fixed.css',
-						'<%= yeoman.app %>/assets/css/slider.fixed.css'
+						'.tmp/assets/css/slider.fixed.css'//,
+						//'<%= yeoman.app %>/assets/css/slider.fixed.css'
 					]
 				}
 			}
@@ -345,32 +343,33 @@ module.exports = function (grunt) {
 			}
 		},
 
-		concurrent: {
-			server: [
-				'sass:server',
-				'copy:styles',
-				'kss:server'
-			],
-			test: [
-				'copy:styles',
-				'kss:server'
-			],
-			dist: [
-				'sass:server',
-				'copy:styles',
-				'kss:dist',
-				'imagemin',
-				'htmlmin'
-			]
+		autoprefixer: {
+			options: {
+				browsers: [
+					'> 1%',
+					'last 2 versions',
+					'ff 17',
+					'ie 8',
+					'opera 12.1'
+				]
+			},
+			dist: {
+				files: [{
+					expand: true,
+					cwd: '.tmp/assets/css/',
+					src: '{,*/}*.css',
+					dest: '.tmp/assets/css/'
+				}]
+			}
 		},
 
 		cmq: {
-			options: {
-				log: false
-			},
+			// options: {
+			// 	log: true
+			// },
 			your_target: {
 				files: {
-					'.tmp/assets/css': ['.tmp/assets/css/*.css']
+					'.tmp/assets/css/': '.tmp/assets/css/{,*/}*.css'
 				}
 			}
 		},
@@ -403,6 +402,25 @@ module.exports = function (grunt) {
 					'<%= yeoman.dist %>/styleguide': ['<%= yeoman.app %>/assets/css']
 				}
 			}
+		},
+
+		concurrent: {
+			server: [
+				'sass:server',
+				'copy:styles',
+				'kss:server'
+			],
+			test: [
+				'copy:styles',
+				'kss:server'
+			],
+			dist: [
+				'sass:server',
+				'copy:styles',
+				'kss:dist',
+				'imagemin',
+				'htmlmin'
+			]
 		}
 	});
 
