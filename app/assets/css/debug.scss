@@ -52,7 +52,7 @@
 		@include background-color-rgba(#ffc, rgba(255, 255, 0, .2)); /* yellow */
 	}
 
-	@include media($High-DPI) {
+	@include media($min-dppx-1-5) {
 		@include background-color-rgba(#ffe0cc, rgba(255, 100, 0, .2)); /* orange */
 	}
 }
@@ -479,7 +479,7 @@
 	height: 4px;
 	background: url(../images/debug-ruler.png) repeat-x -1px -1px;
 
-	@include media($High-DPI) {
+	@include media($min-dppx-1-5) {
 		background-image: url(../images/debug-ruler-2x.png);
 		background-size: 10px 10px;
 	}

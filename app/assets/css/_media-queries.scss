@@ -4,4 +4,5 @@ $S: '(min-width:' + (440/16) + 'em)';
 $M: '(min-width:' + (600/16) + 'em)';
 $L: '(min-width:' + (750/16) + 'em)';
 $XL: '(min-width:' + (980/16) + 'em)';
-$High-DPI: '(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx)';
+
+$min-dppx-1-5: '(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx)';

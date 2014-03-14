@@ -1,5 +1,5 @@
 @mixin media($query, $apply: true) {
-	@if ($fixed-width and $query != $High-DPI) {
+	@if ($fixed-width and $query != $min-dppx-1-5) {
 		@if $apply {
 			@content;
 		}
