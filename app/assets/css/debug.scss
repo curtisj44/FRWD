@@ -477,10 +477,10 @@
 	padding: 0;
 	width: 100%;
 	height: 4px;
-	background: url(../images/debug-ruler.png) repeat-x -1px -1px;
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAQAAAAnOwc2AAAAHElEQVR4AWMAggYoRAINmCwmBqyggUhBmEU0BwA4zwUDwQdCZAAAAABJRU5ErkJggg==) repeat-x -1px -1px;
 
 	@include media($min-dppx-1-5) {
-		background-image: url(../images/debug-ruler-2x.png);
+		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAKUlEQVQ4y2NgQIAGAphkQDUDidVAtMGjBlIORqCBuBL24DNwFIyCgQIABS8YAbfNPewAAAAASUVORK5CYII=);
 		background-size: 10px 10px;
 	}
 
