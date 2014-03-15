@@ -155,7 +155,7 @@ module.exports = function (grunt) {
 
 			'.tmp/assets/js/head.js': [
 				'<%= yeoman.app %>/assets/js/modernizr.custom.js',
-				'<%= yeoman.app %>/assets/js/matchMedia.js',
+				'<%= yeoman.app %>/assets/bower_components/matchmedia/matchMedia.js',
 				'<%= yeoman.app %>/assets/js/frwd.js',
 				'<%= yeoman.app %>/assets/js/frwd.mediaQueries.js',
 				'<%= yeoman.app %>/assets/js/picturefill.js'
