@@ -148,50 +148,6 @@ module.exports = function (grunt) {
 			}
 		},
 
-		concat: {
-			'.tmp/assets/js/frwd.debug.js': [
-				'<%= yeoman.app %>/assets/js/frwd.debug.js'
-			],
-
-			'.tmp/assets/js/head.js': [
-				'<%= yeoman.app %>/assets/js/modernizr.custom.js',
-				'<%= yeoman.app %>/assets/bower_components/matchmedia/matchMedia.js',
-				'<%= yeoman.app %>/assets/js/frwd.js',
-				'<%= yeoman.app %>/assets/js/frwd.mediaQueries.js',
-				'<%= yeoman.app %>/assets/js/picturefill.js'
-			],
-
-			'.tmp/assets/js/slider.js': [
-				'<%= yeoman.app %>/assets/js/swipe2.js',
-				'<%= yeoman.app %>/assets/js/frwd.slider.js'
-			]
-		},
-
-		uglify: {
-			'<%= yeoman.dist %>/assets/js/frwd.debug.js': [
-				'.tmp/assets/js/frwd.debug.js'
-			],
-
-			'<%= yeoman.dist %>/assets/js/head.js': [
-				'.tmp/assets/js/head.js'
-			],
-
-			'<%= yeoman.dist %>/assets/js/slider.js': [
-				'.tmp/assets/js/slider.js'
-			]
-		},
-
-		imagemin: {
-			dist: {
-				files: [{
-					expand: true,
-					cwd: '<%= yeoman.app %>/assets/images',
-					src: '{,*/}*.{gif,jpeg,jpg,png}',
-					dest: '<%= yeoman.dist %>/assets/images'
-				}]
-			}
-		},
-
 		sass: {
 			server: {
 				options: {
@@ -225,45 +181,56 @@ module.exports = function (grunt) {
 			}
 		},
 
+		// combine JS
+		concat: {
+			'.tmp/assets/js/frwd.debug.js': [
+				'<%= yeoman.app %>/assets/js/frwd.debug.js'
+			],
+
+			'.tmp/assets/js/head.js': [
+				'<%= yeoman.app %>/assets/js/modernizr.custom.js',
+				'<%= yeoman.app %>/assets/bower_components/matchmedia/matchMedia.js',
+				'<%= yeoman.app %>/assets/js/frwd.js',
+				'<%= yeoman.app %>/assets/js/frwd.mediaQueries.js',
+				'<%= yeoman.app %>/assets/js/picturefill.js'
+			],
+
+			'.tmp/assets/js/slider.js': [
+				'<%= yeoman.app %>/assets/js/swipe2.js',
+				'<%= yeoman.app %>/assets/js/frwd.slider.js'
+			]
+		},
+
+		// minify JS
+		uglify: {
+			'<%= yeoman.dist %>/assets/js/frwd.debug.js': 		'.tmp/assets/js/frwd.debug.js',
+			'<%= yeoman.dist %>/assets/js/head.js': 			'.tmp/assets/js/head.js',
+			'<%= yeoman.dist %>/assets/js/slider.js': 			'.tmp/assets/js/slider.js'
+		},
+
+		// minify CSS
 		cssmin: {
+			'<%= yeoman.dist %>/assets/css/debug.css': 			'.tmp/assets/css/debug.css',
+			'<%= yeoman.dist %>/assets/css/debug.fixed.css': 	'.tmp/assets/css/debug.fixed.css',
+
+			'<%= yeoman.dist %>/assets/css/demos.css': 			'.tmp/assets/css/demos.css',
+			'<%= yeoman.dist %>/assets/css/demos.fixed.css': 	'.tmp/assets/css/demos.fixed.css',
+
+			'<%= yeoman.dist %>/assets/css/global.css': 		'.tmp/assets/css/global.css',
+			'<%= yeoman.dist %>/assets/css/global.fixed.css': 	'.tmp/assets/css/global.fixed.css',
+
+			'<%= yeoman.dist %>/assets/css/slider.css': 		'.tmp/assets/css/slider.css',
+			'<%= yeoman.dist %>/assets/css/slider.fixed.css': 	'.tmp/assets/css/slider.fixed.css'
+		},
+
+		imagemin: {
 			dist: {
-				files: {
-					'<%= yeoman.dist %>/assets/css/debug.css': [
-						'.tmp/assets/css/debug.css'//,
-						//'<%= yeoman.app %>/assets/css/debug.css'
-					],
-					'<%= yeoman.dist %>/assets/css/debug.fixed.css': [
-						'.tmp/assets/css/debug.fixed.css'//,
-						//'<%= yeoman.app %>/assets/css/debug.fixed.css'
-					],
-
-					'<%= yeoman.dist %>/assets/css/demos.css': [
-						'.tmp/assets/css/demos.css'//,
-						//'<%= yeoman.app %>/assets/css/demos.css'
-					],
-					'<%= yeoman.dist %>/assets/css/demos.fixed.css': [
-						'.tmp/assets/css/demos.fixed.css'//,
-						//'<%= yeoman.app %>/assets/css/demos.fixed.css'
-					],
-
-					'<%= yeoman.dist %>/assets/css/global.css': [
-						'.tmp/assets/css/global.css'//,
-						//'<%= yeoman.app %>/assets/css/global.css'
-					],
-					'<%= yeoman.dist %>/assets/css/global.fixed.css': [
-						'.tmp/assets/css/global.fixed.css'//,
-						//'<%= yeoman.app %>/assets/css/global.fixed.css'
-					],
-
-					'<%= yeoman.dist %>/assets/css/slider.css': [
-						'.tmp/assets/css/slider.css'//,
-						//'<%= yeoman.app %>/assets/css/slider.css'
-					],
-					'<%= yeoman.dist %>/assets/css/slider.fixed.css': [
-						'.tmp/assets/css/slider.fixed.css'//,
-						//'<%= yeoman.app %>/assets/css/slider.fixed.css'
-					]
-				}
+				files: [{
+					expand: true,
+					cwd: '<%= yeoman.app %>/assets/images',
+					src: '{,*/}*.{gif,jpeg,jpg,png}',
+					dest: '<%= yeoman.dist %>/assets/images'
+				}]
 			}
 		},
 
