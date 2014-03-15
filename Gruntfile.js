@@ -416,9 +416,9 @@ module.exports = function (grunt) {
 			dist: [
 				'sass:server',
 				'copy:styles',
-				'kss:dist',
 				'imagemin',
-				'htmlmin'
+				'htmlmin',
+				'kss:dist'
 			]
 		}
 	});
