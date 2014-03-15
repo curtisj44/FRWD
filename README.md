@@ -27,13 +27,13 @@ A responsive, proportional, nestable, customizable, and mobile-first approach fo
 
 4. Run ```bower install```
 
+5. Run ```grunt serve```
+
 
 
 ## Style Guide
 
 FRWD is set up to generate a style guide / pattern library using [kss-node](https://github.com/hughsk/kss-node).
-
-To build the style guide, run ```grunt kss```
 
 
 <!--
