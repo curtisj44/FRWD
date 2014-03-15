@@ -196,8 +196,7 @@ module.exports = function (grunt) {
 			server: {
 				options: {
 					precision: 6,
-					style: 'expanded'//,
-					//banner: '<%= tag.banner %>',
+					style: 'expanded'
 				},
 				files: [{
 					cwd: '<%= yeoman.app %>/assets/css',
