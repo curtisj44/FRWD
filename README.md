@@ -30,6 +30,12 @@ A responsive, proportional, nestable, customizable, and mobile-first approach fo
 5. Run ```grunt serve```
 
 
+## Tasks
+
+- ```grunt serve```: run the development site using the "app" folder
+- ```grunt serve:dist```: run the production-ready site using the "dist" folder
+- ```grunt build```: build the production-ready site into the "dist" folder
+
 
 ## Style Guide
 
