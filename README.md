@@ -32,9 +32,9 @@ A responsive, proportional, nestable, customizable, and mobile-first approach fo
 
 ## Tasks
 
-- ```grunt serve```: run the development site using the "app" folder
-- ```grunt serve:dist```: run the production-ready site using the "dist" folder
-- ```grunt build```: build the production-ready site into the "dist" folder
+- ```grunt serve``` runs the development site using the "app" folder
+- ```grunt serve:dist``` runs the production-ready site using the "dist" folder
+- ```grunt build``` builds the production-ready site into the "dist" folder
 
 
 ## Style Guide
