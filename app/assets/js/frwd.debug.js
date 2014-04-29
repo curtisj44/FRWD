@@ -3,10 +3,14 @@
 
 	debug.config = {
 		baselineAdjust: -8,
-		fontSize: parseInt($('html').css('font-size').replace('px', ''), 10),
+
+		fontSize: function (element) {
+			return parseInt($(element).css('font-size').replace('px', ''), 10)
+		},
+
 		lineHeight: function () {
 			var value = $('body').css('line-height');
-			return (value.indexOf('px') > -1) ? value.replace('px', '') : value * debug.config.fontSize;
+			return (value.indexOf('px') > -1) ? value.replace('px', '') : value * debug.config.fontSize('html');
 		}
 	};
 
@@ -120,7 +124,7 @@
 
 		on: function () {
 			var config = debug.config,
-				baselineHeight = (config.lineHeight() - 1) / config.fontSize,
+				baselineHeight = (config.lineHeight() - 1) / config.fontSize('body'),
 				baselineLength = $(document).height() / config.lineHeight(),
 				i,
 				output = [];
@@ -159,7 +163,7 @@
 			value = query.replace('(' + property + ':', '');
 
 			if (query.indexOf('em') > 0) {
-				value = Math.round(value.replace('em)', '') * debug.config.fontSize * 100000) / 100000;
+				value = Math.round(value.replace('em)', '') * debug.config.fontSize('html') * 100000) / 100000;
 			}
 
 			if (query.indexOf('px') > 0) {
