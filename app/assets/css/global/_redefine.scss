@@ -102,10 +102,6 @@ Styleguide 2.0
 
 img {
 	vertical-align: bottom;
-
-	.ie7 & {
-		-ms-interpolation-mode: bicubic;
-	}
 }
 
 .image-left,
