@@ -36,8 +36,7 @@ module.exports = function (grunt) {
 				tasks: [
 					'concurrent:server',
 					'autoprefixer',
-					'cmq',
-					'concat'
+					'cmq'
 				],
 			},
 			js: {
