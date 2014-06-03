@@ -1,11 +1,11 @@
 .DS_Store
 .sass-cache
+*.sublime-project
+*.sublime-workspace
 .tmp
 app/assets/bower_components
 app/assets/css/global/_normalize.scss
 app/assets/js/frwd.mediaQueries.js
 app/styleguide
 dist
-frwd.sublime-project
-frwd.sublime-workspace
 node_modules
