@@ -1,11 +1,11 @@
 // Variables
-@import 'variables';
-@import 'media-queries';
+@import '../variables';
+@import '../media-queries';
 
 // FRWD
-@import 'mixins/media';
-@import 'mixins/region';
+@import 'media';
+@import 'region';
 
 // Misc
-@import 'mixins/rem';
-@import 'mixins/rgba';
+@import 'rem';
+@import 'rgba';
