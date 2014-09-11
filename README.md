@@ -19,7 +19,7 @@ A responsive, proportional, nestable, customizable, and mobile-first approach fo
 
 ## Getting Started
 
-1. Have the following requirements installed: [node](http://nodejs.org/), [npm](https://www.npmjs.org/), and [bower](http://bower.io/)
+1. Have the following requirements installed: [Node](http://nodejs.org/), [NPM](https://www.npmjs.org/), [Bower](http://bower.io/), and the [Grunt CLI](http://gruntjs.com/getting-started#installing-the-cli)
 
 2. Clone the repo: ```git clone https://github.com/curtisj44/FRWD.git```
 
