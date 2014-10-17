@@ -162,20 +162,6 @@ module.exports = function (grunt) {
 					},
 					src: ['{,*/}*.scss']
 				}]
-			},
-
-			dist: {
-				options: {
-					precision: 6,
-					style: 'compressed'
-				},
-				files: [{
-					expand: true,
-					cwd: '<%= settings.dist %>/assets/css',
-					src: '{,*/}*.scss',
-					dest: '.tmp/assets/css/',
-					ext: '.css'
-				}]
 			}
 		},
 
