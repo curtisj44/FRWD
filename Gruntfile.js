@@ -11,9 +11,8 @@ module.exports = function (grunt) {
 	require('load-grunt-tasks')(grunt);
 
 	grunt.initConfig({
-		// configurable paths
-		yeoman: {
-			app: 'app',
+		settings: {
+			dev: 'app',
 			dist: 'dist'
 		},
 
@@ -23,7 +22,7 @@ module.exports = function (grunt) {
 			},
 			mediaQueries: {
 				files: [
-					'<%= yeoman.app %>/assets/css/_media-queries.scss'
+					'<%= settings.dev %>/assets/css/_media-queries.scss'
 				],
 				tasks: [
 					'copy:mediaQueries'
@@ -31,7 +30,7 @@ module.exports = function (grunt) {
 			},
 			css: {
 				files: [
-					'<%= yeoman.app %>/assets/css/{,*/}*.scss'
+					'<%= settings.dev %>/assets/css/{,*/}*.scss'
 				],
 				tasks: [
 					'concurrent:server',
@@ -41,7 +40,7 @@ module.exports = function (grunt) {
 			},
 			js: {
 				files: [
-					'<%= yeoman.app %>/assets/js/{,*/}*.js'
+					'<%= settings.dev %>/assets/js/{,*/}*.js'
 				],
 				tasks: [
 					'concat',
@@ -50,7 +49,7 @@ module.exports = function (grunt) {
 			},
 			kss: {
 				files: [
-					'<%= yeoman.app %>/styleguide-template/{,*/}*.*',
+					'<%= settings.dev %>/styleguide-template/{,*/}*.*',
 				],
 				tasks: [
 					'kss:server'
@@ -61,11 +60,11 @@ module.exports = function (grunt) {
 					livereload: '<%= connect.options.livereload %>'
 				},
 				files: [
-					'<%= yeoman.app %>/*.html',
-					'<%= yeoman.app %>/assets/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}',
-					'<%= yeoman.app %>/styleguide/{,*/}*.{less,html,js,sass,scss}',
+					'<%= settings.dev %>/*.html',
+					'<%= settings.dev %>/assets/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}',
+					'<%= settings.dev %>/styleguide/{,*/}*.{less,html,js,sass,scss}',
 					'.tmp/assets/css/{,*/}*.css',
-					'{.tmp,<%= yeoman.app %>}/assets/js/{,*/}*.js'
+					'{.tmp,<%= settings.dev %>}/assets/js/{,*/}*.js'
 				]
 			}
 		},
@@ -82,7 +81,7 @@ module.exports = function (grunt) {
 					open: true,
 					base: [
 						'.tmp',
-						'<%= yeoman.app %>'
+						'<%= settings.dev %>'
 					]
 				}
 			},
@@ -91,14 +90,14 @@ module.exports = function (grunt) {
 					base: [
 						'.tmp',
 						'test',
-						'<%= yeoman.app %>'
+						'<%= settings.dev %>'
 					]
 				}
 			},
 			dist: {
 				options: {
 					open: true,
-					base: '<%= yeoman.dist %>',
+					base: '<%= settings.dist %>',
 					livereload: false
 				}
 			}
@@ -110,16 +109,16 @@ module.exports = function (grunt) {
 					dot: true,
 					src: [
 						'.tmp',
-						'<%= yeoman.dist %>/*',
-						'!<%= yeoman.dist %>/.git*'
+						'<%= settings.dist %>/*',
+						'!<%= settings.dist %>/.git*'
 					]
 				}]
 			},
 			distFinal: {
 				files: [{
 					src: [
-						'<%= yeoman.dist %>/styleguide/public/kss.less',
-						'<%= yeoman.dist %>/styleguide/public/style.css'
+						'<%= settings.dist %>/styleguide/public/kss.less',
+						'<%= settings.dist %>/styleguide/public/style.css'
 					]
 				}],
 			},
@@ -133,7 +132,7 @@ module.exports = function (grunt) {
 			},
 			all: [
 				'Gruntfile.js',
-				'<%= yeoman.app %>/assets/js/{,*/}*.js',
+				'<%= settings.dev %>/assets/js/{,*/}*.js',
 				'test/spec/{,*/}*.js'
 			]
 		},
@@ -154,7 +153,7 @@ module.exports = function (grunt) {
 					style: 'expanded'
 				},
 				files: [{
-					cwd: '<%= yeoman.app %>/assets/css',
+					cwd: '<%= settings.dev %>/assets/css',
 					dest: '.tmp/assets/css/',
 					dot: true,
 					expand: true,
@@ -172,7 +171,7 @@ module.exports = function (grunt) {
 				},
 				files: [{
 					expand: true,
-					cwd: '<%= yeoman.dist %>/assets/css',
+					cwd: '<%= settings.dist %>/assets/css',
 					src: '{,*/}*.scss',
 					dest: '.tmp/assets/css/',
 					ext: '.css'
@@ -183,52 +182,52 @@ module.exports = function (grunt) {
 		// combine JS
 		concat: {
 			'.tmp/assets/js/frwd.debug.js': [
-				'<%= yeoman.app %>/assets/js/frwd.debug.js'
+				'<%= settings.dev %>/assets/js/frwd.debug.js'
 			],
 
 			'.tmp/assets/js/head.js': [
-				'<%= yeoman.app %>/assets/js/modernizr.custom.js',
-				'<%= yeoman.app %>/assets/bower_components/matchmedia/matchMedia.js',
-				'<%= yeoman.app %>/assets/js/frwd.js',
-				'<%= yeoman.app %>/assets/js/frwd.mediaQueries.js',
-				'<%= yeoman.app %>/assets/js/picturefill.js'
+				'<%= settings.dev %>/assets/js/modernizr.custom.js',
+				'<%= settings.dev %>/assets/bower_components/matchmedia/matchMedia.js',
+				'<%= settings.dev %>/assets/js/frwd.js',
+				'<%= settings.dev %>/assets/js/frwd.mediaQueries.js',
+				'<%= settings.dev %>/assets/js/picturefill.js'
 			],
 
 			'.tmp/assets/js/slider.js': [
-				'<%= yeoman.app %>/assets/js/swipe2.js',
-				'<%= yeoman.app %>/assets/js/frwd.slider.js'
+				'<%= settings.dev %>/assets/js/swipe2.js',
+				'<%= settings.dev %>/assets/js/frwd.slider.js'
 			]
 		},
 
 		// minify JS
 		uglify: {
-			'<%= yeoman.dist %>/assets/js/frwd.debug.js': 		'.tmp/assets/js/frwd.debug.js',
-			'<%= yeoman.dist %>/assets/js/head.js': 			'.tmp/assets/js/head.js',
-			'<%= yeoman.dist %>/assets/js/slider.js': 			'.tmp/assets/js/slider.js'
+			'<%= settings.dist %>/assets/js/frwd.debug.js': 		'.tmp/assets/js/frwd.debug.js',
+			'<%= settings.dist %>/assets/js/head.js': 				'.tmp/assets/js/head.js',
+			'<%= settings.dist %>/assets/js/slider.js': 			'.tmp/assets/js/slider.js'
 		},
 
 		// minify CSS
 		cssmin: {
-			'<%= yeoman.dist %>/assets/css/debug.css': 			'.tmp/assets/css/debug.css',
-			'<%= yeoman.dist %>/assets/css/debug.fixed.css': 	'.tmp/assets/css/debug.fixed.css',
+			'<%= settings.dist %>/assets/css/debug.css': 			'.tmp/assets/css/debug.css',
+			'<%= settings.dist %>/assets/css/debug.fixed.css': 		'.tmp/assets/css/debug.fixed.css',
 
-			'<%= yeoman.dist %>/assets/css/demos.css': 			'.tmp/assets/css/demos.css',
-			'<%= yeoman.dist %>/assets/css/demos.fixed.css': 	'.tmp/assets/css/demos.fixed.css',
+			'<%= settings.dist %>/assets/css/demos.css': 			'.tmp/assets/css/demos.css',
+			'<%= settings.dist %>/assets/css/demos.fixed.css': 		'.tmp/assets/css/demos.fixed.css',
 
-			'<%= yeoman.dist %>/assets/css/global.css': 		'.tmp/assets/css/global.css',
-			'<%= yeoman.dist %>/assets/css/global.fixed.css': 	'.tmp/assets/css/global.fixed.css',
+			'<%= settings.dist %>/assets/css/global.css': 			'.tmp/assets/css/global.css',
+			'<%= settings.dist %>/assets/css/global.fixed.css': 	'.tmp/assets/css/global.fixed.css',
 
-			'<%= yeoman.dist %>/assets/css/slider.css': 		'.tmp/assets/css/slider.css',
-			'<%= yeoman.dist %>/assets/css/slider.fixed.css': 	'.tmp/assets/css/slider.fixed.css'
+			'<%= settings.dist %>/assets/css/slider.css': 			'.tmp/assets/css/slider.css',
+			'<%= settings.dist %>/assets/css/slider.fixed.css': 	'.tmp/assets/css/slider.fixed.css'
 		},
 
 		imagemin: {
 			dist: {
 				files: [{
 					expand: true,
-					cwd: '<%= yeoman.app %>/assets/images',
+					cwd: '<%= settings.dev %>/assets/images',
 					src: '{,*/}*.{gif,jpeg,jpg,png}',
-					dest: '<%= yeoman.dist %>/assets/images'
+					dest: '<%= settings.dist %>/assets/images'
 				}]
 			}
 		},
@@ -250,9 +249,9 @@ module.exports = function (grunt) {
 				},
 				files: [{
 					expand: true,
-					cwd: '<%= yeoman.app %>',
+					cwd: '<%= settings.dev %>',
 					src: '*.html',
-					dest: '<%= yeoman.dist %>'
+					dest: '<%= settings.dist %>'
 				}]
 			}
 		},
@@ -263,8 +262,8 @@ module.exports = function (grunt) {
 				files: [{
 					expand: true,
 					dot: true,
-					cwd: '<%= yeoman.app %>',
-					dest: '<%= yeoman.dist %>',
+					cwd: '<%= settings.dev %>',
+					dest: '<%= settings.dist %>',
 					src: [
 						'*.{ico,png,txt}',
 						'.htaccess',
@@ -277,19 +276,19 @@ module.exports = function (grunt) {
 			styles: {
 				expand: true,
 				dot: true,
-				cwd: '<%= yeoman.app %>/assets/css',
+				cwd: '<%= settings.dev %>/assets/css',
 				dest: '.tmp/assets/css/',
 				src: '{,*/}*.css'
 			},
 
 			normalize: {
-				src: '<%= yeoman.app %>/assets/bower_components/normalize-css/normalize.css',
-				dest: '<%= yeoman.app %>/assets/css/global/_normalize.scss'
+				src: '<%= settings.dev %>/assets/bower_components/normalize-css/normalize.css',
+				dest: '<%= settings.dev %>/assets/css/global/_normalize.scss'
 			},
 
 			mediaQueries: {
-				src: '<%= yeoman.app %>/assets/css/_media-queries.scss',
-				dest: '<%= yeoman.app %>/assets/js/frwd.mediaQueries.js',
+				src: '<%= settings.dev %>/assets/css/_media-queries.scss',
+				dest: '<%= settings.dev %>/assets/js/frwd.mediaQueries.js',
 				options: {
 					process: function (content, srcpath) {
 						var data = content.replace(/\$/g, '\t\'')
@@ -355,16 +354,16 @@ module.exports = function (grunt) {
 		kss: {
 			options: {
 				includeType: 'sass',
-				template: '<%= yeoman.app %>/styleguide-template'
+				template: '<%= settings.dev %>/styleguide-template'
 			},
 			server: {
 				files: {
-					'<%= yeoman.app %>/styleguide': ['<%= yeoman.app %>/assets/css']
+					'<%= settings.dev %>/styleguide': ['<%= settings.dev %>/assets/css']
 				}
 			},
 			dist: {
 				files: {
-					'<%= yeoman.dist %>/styleguide': ['<%= yeoman.app %>/assets/css']
+					'<%= settings.dist %>/styleguide': ['<%= settings.dev %>/assets/css']
 				}
 			}
 		},
