@@ -232,6 +232,30 @@ module.exports = function (grunt) {
 			}
 		},
 
+		htmlmin: {
+			dist: {
+				options: {
+					/*
+					removeCommentsFromCDATA: true,
+					// https://github.com/yeoman/grunt-usemin/issues/44
+					//collapseWhitespace: true,
+					collapseBooleanAttributes: true,
+					removeAttributeQuotes: true,
+					removeRedundantAttributes: true,
+					useShortDoctype: true,
+					removeEmptyAttributes: true,
+					removeOptionalTags: true
+					*/
+				},
+				files: [{
+					expand: true,
+					cwd: '<%= settings.dev %>',
+					src: '*.html',
+					dest: '<%= settings.dist %>'
+				}]
+			}
+		},
+
 		// Put files not handled in other tasks here
 		copy: {
 			dist: {
@@ -358,6 +382,7 @@ module.exports = function (grunt) {
 				'sass:server',
 				'copy:styles',
 				'imagemin',
+				'htmlmin',
 				'kss:dist'
 			]
 		}
@@ -401,6 +426,7 @@ module.exports = function (grunt) {
 		'cssmin',
 		'uglify',
 		'copy:dist',
+		'htmlmin',
 		'clean:distFinal',
 	]);
 
