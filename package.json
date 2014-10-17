@@ -1,7 +1,7 @@
 {
   "name": "FRWD",
   "author": "Curtis Jurgensen",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "A responsive, proportional, nestable, customizable, and mobile-first approach.",
   "homepage": "https://frwd.curtisjurgensen.com",
   "repository": {
@@ -10,7 +10,6 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "css-parse": "~1.5.*",
     "grunt": "~0.4.*",
     "grunt-autoprefixer": "~0.6.5",
     "grunt-bump": "0.0.13",
