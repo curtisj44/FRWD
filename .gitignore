@@ -1,6 +1,5 @@
 .DS_Store
 .sass-cache
-*.sublime-project
 *.sublime-workspace
 .tmp
 app/assets/bower_components
