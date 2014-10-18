@@ -38,29 +38,6 @@
 	width: 100%;
 }
 
-/* keyline ----------------------------------------------- */
-.region-keyline-before {
-	padding-top: 1.5em; /* 24px */
-	border-top: 1px solid #000;
-
-	@include media($L) {
-		padding-top: 0;
-		border-top: 0;
-		border-left: 1px solid #000;
-	}
-}
-
-.region-keyline-after {
-	margin-bottom: 1.5em; /* 24px */
-	border-bottom: 1px solid #000;
-
-	@include media($L) {
-		margin-bottom: 0;
-		border-bottom: 0;
-		border-right: 1px solid #000;
-	}
-}
-
 /* media-full ----------------------------------------------- */
 .media-full {
 	margin-right: -($gutter / 2);
