@@ -55,20 +55,20 @@
 					debug[$option].off();
 					$input.removeClass('on');
 
-					if (Modernizr.localstorage) {
+					if (window.localStorage) {
 						localStorage.removeItem('debug-' + $option);
 					}
 				} else {
 					debug[$option].on();
 					$input.addClass('on');
 
-					if (Modernizr.localstorage) {
+					if (window.localStorage) {
 						localStorage.setItem('debug-' + $option, true);
 					}
 				}
 			});
 
-			if (Modernizr.localstorage) {
+			if (window.localStorage) {
 				$.each(optionsArray, function (index, value) {
 					if (localStorage.getItem('debug-' + value) === 'true') {
 						$optionButtons.filter('[data-option="' + value + '"]').trigger('click');
@@ -190,12 +190,6 @@
 			grid += '</div></div>';
 
 			$('body').append(grid);
-
-			if (!Modernizr.generatedcontent) {
-				$('#debug-grid .region').each(function () {
-					$(this).prepend('<div class="before"></div>');
-				});
-			}
 		}
 	};
 
@@ -279,7 +273,7 @@
 
 			// TODO - CJ - add unit tests
 			init: function () {
-				if (Modernizr.localstorage && localStorage.getItem('debug-minimized')) {
+				if (window.localStorage && localStorage.getItem('debug-minimized')) {
 					debug.viewportSummary.minimize[localStorage.getItem('debug-minimized')]();
 				}
 
@@ -291,7 +285,7 @@
 				// TODO - CJ - cache this selector
 				$('#debug-viewport-summary').removeClass('minimized');
 
-				if (Modernizr.localstorage) {
+				if (window.localStorage) {
 					localStorage.setItem('debug-minimized', 'off');
 				}
 			},
@@ -301,7 +295,7 @@
 				// TODO - CJ - cache this selector
 				$('#debug-viewport-summary').addClass('minimized');
 
-				if (Modernizr.localstorage) {
+				if (window.localStorage) {
 					localStorage.setItem('debug-minimized', 'on');
 				}
 			},
@@ -318,7 +312,7 @@
 
 					debug.viewportSummary.position.move(next);
 
-					if (Modernizr.localstorage) {
+					if (window.localStorage) {
 						localStorage.setItem('debug-position', next);
 					}
 				});
@@ -326,7 +320,7 @@
 
 			// TODO - CJ - add unit tests
 			init: function () {
-				if (Modernizr.localstorage && localStorage.getItem('debug-position')) {
+				if (window.localStorage && localStorage.getItem('debug-position')) {
 					debug.viewportSummary.position.move(localStorage.getItem('debug-position'));
 				}
 
