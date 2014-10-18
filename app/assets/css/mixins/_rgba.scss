@@ -1,9 +1,0 @@
-@mixin background-color-rgba($fallback, $rgba) {
-	background-color: $fallback;
-	background-color: $rgba;
-}
-
-@mixin color-rgba($fallback, $rgba) {
-	color: $fallback;
-	color: $rgba;
-}
