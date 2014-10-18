@@ -304,10 +304,6 @@
 	background-color: #ff904b;
 	background-color: rgba(255, 100, 0, .7);
 
-	.ie7 & {
-		zoom: 1;
-	}
-
 	.debug-number {
 		position: absolute;
 		top: 50%;
@@ -425,11 +421,6 @@
 
 		&.true {
 			display: table-row;
-
-			.ie7 & {
-				display: block;
-				color: #000 !important;
-			}
 		}
 	}
 
