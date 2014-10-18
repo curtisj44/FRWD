@@ -27,7 +27,6 @@
     "grunt-contrib-uglify": "~0.6.*",
     "grunt-contrib-watch": "~0.6.*",
     "grunt-kss": "~0.4.*",
-    "grunt-mocha": "~0.4.*",
     "jshint-stylish": "~1.0.*",
     "load-grunt-tasks": "~0.6.*",
     "time-grunt": "~1.0.*"

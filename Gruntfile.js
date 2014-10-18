@@ -137,15 +137,6 @@ module.exports = function (grunt) {
 			]
 		},
 
-		mocha: {
-			all: {
-				options: {
-					run: true,
-					urls: ['http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/index.html']
-				}
-			}
-		},
-
 		sass: {
 			server: {
 				options: {
@@ -397,8 +388,7 @@ module.exports = function (grunt) {
 		'copy:normalize',
 		'concurrent:test',
 		'autoprefixer',
-		'connect:test',
-		'mocha'
+		'connect:test'
 	]);
 
 	grunt.registerTask('build', [
