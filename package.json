@@ -1,7 +1,7 @@
 {
   "name": "FRWD",
   "author": "Curtis Jurgensen",
-  "version": "1.1.12",
+  "version": "1.2.0",
   "description": "A responsive, proportional, nestable, customizable, and mobile-first approach.",
   "homepage": "https://frwd.curtisjurgensen.com",
   "repository": {
@@ -22,12 +22,10 @@
     "grunt-contrib-cssmin": "~0.10.0",
     "grunt-contrib-htmlmin": "~0.3.0",
     "grunt-contrib-imagemin": "~0.8.*",
-    "grunt-contrib-jshint": "~0.10.0",
     "grunt-contrib-sass": "0.8.*",
     "grunt-contrib-uglify": "~0.6.*",
     "grunt-contrib-watch": "~0.6.*",
     "grunt-kss": "~0.4.*",
-    "jshint-stylish": "~1.0.*",
     "load-grunt-tasks": "~0.6.*",
     "time-grunt": "~1.0.*"
   },

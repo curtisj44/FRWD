@@ -116,18 +116,6 @@ module.exports = function (grunt) {
 			server: '.tmp'
 		},
 
-		jshint: {
-			options: {
-				jshintrc: '.jshintrc',
-				reporter: require('jshint-stylish')
-			},
-			all: [
-				'Gruntfile.js',
-				'<%= settings.dev %>/assets/js/{,*/}*.js',
-				'test/spec/{,*/}*.js'
-			]
-		},
-
 		sass: {
 			server: {
 				options: {
@@ -352,6 +340,25 @@ module.exports = function (grunt) {
 		}
 	});
 
+	grunt.registerTask('build', [
+		'clean:dist',
+		'copy:normalize',
+		'copy:mediaQueries',
+		'concurrent:dist',
+		'autoprefixer',
+		'cmq',
+		'concat',
+		'cssmin',
+		'uglify',
+		'copy:dist',
+		'htmlmin',
+		'clean:distFinal',
+	]);
+
+	grunt.registerTask('default', [
+		'serve'
+	]);
+
 	grunt.registerTask('serve', function (target) {
 		if (target === 'dist') {
 			return grunt.task.run(['build', 'connect:dist:keepalive']);
@@ -369,24 +376,4 @@ module.exports = function (grunt) {
 			'watch'
 		]);
 	});
-
-	grunt.registerTask('build', [
-		'clean:dist',
-		'copy:normalize',
-		'copy:mediaQueries',
-		'concurrent:dist',
-		'autoprefixer',
-		'cmq',
-		'concat',
-		'cssmin',
-		'uglify',
-		'copy:dist',
-		'htmlmin',
-		'clean:distFinal',
-	]);
-
-	grunt.registerTask('default', [
-		'jshint',
-		'build'
-	]);
 };
