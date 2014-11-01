@@ -5,12 +5,12 @@
 	@include media($L) {
 		.image {
 			@include region-size(1/2);
-			@include region-order(1/2, push);
+			@include region-order(push, 1/2);
 		}
 
 		.intro {
 			@include region-size(1/2);
-			@include region-order(1/2, pull);
+			@include region-order(pull, 1/2);
 		}
 	}
 

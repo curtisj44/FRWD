@@ -19,8 +19,13 @@
 	}
 }
 
-// $offset = prefix or suffix
-@mixin region-offset($fraction, $offset) {
+// $offset = none, prefix or suffix
+@mixin region-offset($offset, $fraction) {
+	@if ($offset == none) {
+		margin-right: 0;
+		margin-left: 0;
+	}
+
 	@if ($offset == prefix) {
 		margin-left: percentage($fraction);
 	}
@@ -30,9 +35,14 @@
 	}
 }
 
-// $order = push or pull
-@mixin region-order($fraction, $order) {
-	position: relative;
+// $order = none, push or pull
+@mixin region-order($order, $fraction) {
+	@if ($order == none) {
+		position: static;
+		left: auto;
+	} @else {
+		position: relative;
+	}
 
 	@if ($order == push) {
 		left: percentage($fraction);
