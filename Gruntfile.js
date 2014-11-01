@@ -85,15 +85,6 @@ module.exports = function (grunt) {
 					]
 				}
 			},
-			test: {
-				options: {
-					base: [
-						'.tmp',
-						'test',
-						'<%= settings.dev %>'
-					]
-				}
-			},
 			dist: {
 				options: {
 					open: true,
@@ -351,10 +342,6 @@ module.exports = function (grunt) {
 				'copy:styles',
 				'kss:server'
 			],
-			test: [
-				'copy:styles',
-				'kss:server'
-			],
 			dist: [
 				'sass:server',
 				'copy:styles',
@@ -383,14 +370,6 @@ module.exports = function (grunt) {
 		]);
 	});
 
-	grunt.registerTask('test', [
-		'clean:server',
-		'copy:normalize',
-		'concurrent:test',
-		'autoprefixer',
-		'connect:test'
-	]);
-
 	grunt.registerTask('build', [
 		'clean:dist',
 		'copy:normalize',
@@ -408,7 +387,6 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('default', [
 		'jshint',
-		'test',
 		'build'
 	]);
 };
