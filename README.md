@@ -16,7 +16,6 @@ A responsive, proportional, nestable, customizable, and mobile-first approach fo
 5. __Mobile-first__ - The small screen experience is the baseline, with additional styles added using media queries.
 
 
-
 ## Getting Started
 
 1. Have the following requirements installed: [Node](http://nodejs.org/), [NPM](https://www.npmjs.org/), [Bower](http://bower.io/), and the [Grunt CLI](http://gruntjs.com/getting-started#installing-the-cli)
@@ -32,7 +31,7 @@ A responsive, proportional, nestable, customizable, and mobile-first approach fo
 
 ## Tasks
 
-- ```grunt serve``` runs the development site using the "app" folder
+- ```grunt``` or ```grunt serve``` runs the development site using the "app" folder
 - ```grunt serve:dist``` runs the production-ready site using the "dist" folder
 - ```grunt build``` builds the production-ready site into the "dist" folder
 
@@ -43,10 +42,6 @@ FRWD is set up to generate a style guide / pattern library using [kss-node](http
 
 
 <!--
-
-basic setup
-	- Yeoman
-	- Sass
 
 Media Query maintenance
 	CSS
