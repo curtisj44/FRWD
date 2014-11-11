@@ -22,7 +22,7 @@ module.exports = function (grunt) {
 			},
 			mediaQueries: {
 				files: [
-					'<%= settings.dev %>/assets/css/_media-queries.scss'
+					'<%= settings.dev %>/assets/css/variables/_media-queries.scss'
 				],
 				tasks: [
 					'copy:mediaQueries'
@@ -243,7 +243,7 @@ module.exports = function (grunt) {
 			},
 
 			mediaQueries: {
-				src: '<%= settings.dev %>/assets/css/_media-queries.scss',
+				src: '<%= settings.dev %>/assets/css/variables/_media-queries.scss',
 				dest: '<%= settings.dev %>/assets/js/frwd.mediaQueries.js',
 				options: {
 					process: function (content, srcpath) {
