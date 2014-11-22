@@ -1,3 +1,4 @@
+// width
 $XXS: '(min-width:' + (240/16) + 'em)';
 $XS: '(min-width:' + (300/16) + 'em)';
 $S: '(min-width:' + (440/16) + 'em)';
@@ -5,4 +6,9 @@ $M: '(min-width:' + (600/16) + 'em)';
 $L: '(min-width:' + (750/16) + 'em)';
 $XL: '(min-width:' + (980/16) + 'em)';
 
+// height
+$short: '(min-height:' + (320/16) + 'em)';
+$tall: '(min-height:' + (600/16) + 'em)';
+
+// dppx
 $min-dppx-1-5: '(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx)';
