@@ -108,10 +108,20 @@
 		// image source: gemicon.net
 		background: no-repeat 50% 50% url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAABi0lEQVR42s2WQWcDQRTHlzIMSwihXyL0Gpa99jOUUko+TAjL0lMJOYVccypLCSWnUpZSehpy6imnnKb/w6vlmXmZSTORx4/wJv+fNbtvJjuiSrABltiA0lqbxXBMbYFlbM8hti5OIb4GLxQ4BzpWjBqAFfUWIBfFJG1ZaENyBe58Yupp0AfvrLfmcl6NK5SCfoCVoDXfnt5MEu+BTcSXJF4kFE8ksQZNAukcXDGxU956AvagBiVQRAlqYZvWnVQW98DOEWDADV/8F0Q9w/9HWb0Q8djzpEPAi4cNPU8+ZmI2e/3UwFmOwFrMotnezV6ZIkJcBOTBiR8BqAixCslMIc5DxSZg0ShCPArIMyC7DdjnKkJcHd5fOB31cK7PiZf2nETGIWfS/w2QPvgURmYFyqyrAlTCyGyBPiQesEP8VDRczmsFbCKeLvIisBSOtl3I1Uc4UqeSOAdvrkMc9MGjIL0HmnhlvSVQTOyUz8AHmJA09nqrwTO9qFOgLvhCL5dvtpv0YprtfPbGin8BAVrK2AjN8+8AAAAASUVORK5CYII=);
 		text-indent: -9999px;
+		opacity: .2;
+
+		&:hover,
+		&:focus {
+			opacity: 1;
+		}
 
 		&:active {
 			transform: translateY(1px);
 		}
+	}
+
+	&.open button.debug-cog {
+		opacity: 1;
 	}
 
 	/* panel options ----------------------------------------------- */
