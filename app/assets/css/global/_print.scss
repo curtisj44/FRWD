@@ -1,53 +1,46 @@
-/* Print
----------------------------------------------------------------------------------------- //// */
 @media print {
-	* {
+	*,
+	*:before,
+	*:after {
 		background: transparent !important;
 		color: #000 !important;
+		box-shadow: none !important;
 		text-shadow: none !important;
-		filter:     none !important;
-		-ms-filter: none !important;
 	}
 
 	a,
 	a:visited {
-		color: #444 !important;
 		text-decoration: underline;
 	}
 
 	a[href]:after {
-		content: ' (' attr(href) ')';
+		content: " (" attr(href) ")";
 	}
 
 	abbr[title]:after {
-		content: ' (' attr(title) ')';
+		content: " (" attr(title) ")";
 	}
 
-	.ir a:after,
-	a[href^='#']:after {
-		content: '';
+	/*
+	 * Don't show links that are fragment identifiers,
+	 * or use the `javascript:` pseudo protocol
+	 */
+
+	a[href^="#"]:after,
+	a[href^="javascript:"]:after {
+		content: "";
 	}
 
 	pre,
 	blockquote {
-		padding: 1.5em;
-		border: 1px solid #ccc;
-		border-radius: 0;
+		border: 1px solid #999;
 		page-break-inside: avoid;
 	}
 
-	pre {
-		overflow: visible;
-		font-size: .75em; /* 12px */
-		white-space:     -pre-wrap;
-		white-space: -moz-pre-wrap;
-		white-space:   -o-pre-wrap;
-		white-space:      pre-wrap;
-	}
-
-	blockquote {
-		padding-bottom: 0;
-	}
+	/*
+	 * Printing Tables:
+	 * http://css-discuss.incutio.com/wiki/Printing_Tables
+	 */
 
 	thead {
 		display: table-header-group;
@@ -58,8 +51,8 @@
 		page-break-inside: avoid;
 	}
 
-	@page {
-		margin: .5cm;
+	img {
+		max-width: 100% !important;
 	}
 
 	p,
