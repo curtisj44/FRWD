@@ -147,19 +147,13 @@ module.exports = function (grunt) {
 				'<%= settings.dev %>/assets/js/frwd.js',
 				'<%= settings.dev %>/assets/js/frwd.mediaQueries.js',
 				'<%= settings.dev %>/assets/js/picturefill.js'
-			],
-
-			'.tmp/assets/js/slider.js': [
-				'<%= settings.dev %>/assets/js/swipe2.js',
-				'<%= settings.dev %>/assets/js/frwd.slider.js'
 			]
 		},
 
 		// minify JS
 		uglify: {
 			'<%= settings.dist %>/assets/js/frwd.debug.js': 		'.tmp/assets/js/frwd.debug.js',
-			'<%= settings.dist %>/assets/js/head.js': 				'.tmp/assets/js/head.js',
-			'<%= settings.dist %>/assets/js/slider.js': 			'.tmp/assets/js/slider.js'
+			'<%= settings.dist %>/assets/js/head.js': 				'.tmp/assets/js/head.js'
 		},
 
 		// minify CSS
@@ -171,10 +165,7 @@ module.exports = function (grunt) {
 			'<%= settings.dist %>/assets/css/demos.fixed.css': 		'.tmp/assets/css/demos.fixed.css',
 
 			'<%= settings.dist %>/assets/css/global.css': 			'.tmp/assets/css/global.css',
-			'<%= settings.dist %>/assets/css/global.fixed.css': 	'.tmp/assets/css/global.fixed.css',
-
-			'<%= settings.dist %>/assets/css/slider.css': 			'.tmp/assets/css/slider.css',
-			'<%= settings.dist %>/assets/css/slider.fixed.css': 	'.tmp/assets/css/slider.fixed.css'
+			'<%= settings.dist %>/assets/css/global.fixed.css': 	'.tmp/assets/css/global.fixed.css'
 		},
 
 		imagemin: {
