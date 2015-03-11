@@ -8,6 +8,9 @@
             ],
             "folder_exclude_patterns": [
                 ".git",
+                ".sass-cache",
+                ".tmp",
+                "dist",
                 "node_modules"
             ],
             "settings":
