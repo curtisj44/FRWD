@@ -5,7 +5,7 @@
 		baselineAdjust: -8,
 
 		fontSize: function (element) {
-			return parseInt($(element).css('font-size').replace('px', ''), 10)
+			return parseInt($(element).css('font-size').replace('px', ''), 10);
 		},
 
 		lineHeight: function () {
