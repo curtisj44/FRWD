@@ -1,7 +1,3 @@
-@mixin region-size($fraction) {
-	width: percentage($fraction);
-}
-
 // $reset = [blank], none, none-left, none-right
 @mixin region-padding($value) {
 	@if ($value == none) {

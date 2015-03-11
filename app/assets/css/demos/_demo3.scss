@@ -4,12 +4,12 @@
 .demo3 {
 	@include media($L) {
 		.main {
-			@include region-size(2/3);
+			width: percentage(2/3);
 			@include region-order(push, 1/3);
 		}
 
 		.aside {
-			@include region-size(1/3);
+			width: percentage(1/3);
 			@include region-order(pull, 2/3);
 		}
 	}

@@ -277,18 +277,16 @@
 	}
 
 	.region {
-		@include region-size(1/1);
-
 		@include media($XXS) {
-			@include region-size(1/2);
+			width: percentage(1/2);
 		}
 
 		@include media($M) {
-			@include region-size(1/4);
+			width: percentage(1/4);
 		}
 
 		@include media($L) {
-			@include region-size(1/6);
+			width: percentage(1/6);
 		}
 	}
 

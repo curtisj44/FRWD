@@ -4,11 +4,11 @@
 .demo2 {
 	.main {
 		@include media($L) {
-			@include region-size(1/2);
+			width: percentage(1/2);
 		}
 
 		@include media($XL) {
-			@include region-size(2/3);
+			width: percentage(2/3);
 		}
 	}
 
@@ -20,7 +20,7 @@
 		@include region-padding(none);
 
 		@include media($XL) {
-			@include region-size(1/3);
+			width: percentage(1/3);
 			@include region-padding(none-left);
 		}
 	}
@@ -29,18 +29,18 @@
 		@include region-padding(none);
 
 		@include media($XL) {
-			@include region-size(2/3);
+			width: percentage(2/3);
 			@include region-padding(none-right);
 		}
 	}
 
 	.aside {
 		@include media($L) {
-			@include region-size(1/2);
+			width: percentage(1/2);
 		}
 
 		@include media($XL) {
-			@include region-size(1/3);
+			width: percentage(1/3);
 		}
 
 		.blocks {

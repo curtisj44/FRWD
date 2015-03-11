@@ -4,29 +4,29 @@
 .demo5 {
 	@include media($L) {
 		.image {
-			@include region-size(1/2);
+			width: percentage(1/2);
 			@include region-order(push, 1/2);
 		}
 
 		.intro {
-			@include region-size(1/2);
+			width: percentage(1/2);
 			@include region-order(pull, 1/2);
 		}
 	}
 
 	.item {
 		@include media($M) {
-			@include region-size(1/3);
+			width: percentage(1/3);
 		}
 	}
 
 	@include media($XL) {
 		.products {
-			@include region-size(2/3);
+			width: percentage(2/3);
 		}
 
 		.sidebar {
-			@include region-size(1/3);
+			width: percentage(1/3);
 		}
 	}
 }

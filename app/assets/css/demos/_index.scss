@@ -4,10 +4,6 @@
 .index {
 	text-align: center;
 
-	.overview {
-		@include region-size(1);
-	}
-
 	h1 {
 		margin-bottom: .25em;
 		padding-right: 0;
