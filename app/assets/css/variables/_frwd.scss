@@ -3,4 +3,4 @@ $fixed-width: false !default;
 
 // grid
 $grid-gutter: 32px;
-$grid-width-max: 1176px;
+$grid-width-max: 1144px + $grid-gutter;
