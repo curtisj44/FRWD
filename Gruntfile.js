@@ -118,21 +118,34 @@ module.exports = function (grunt) {
 		},
 
 		sass: {
-			server: {
-				options: {
-					precision: 6,
-					style: 'expanded'
+			files: [{
+				cwd: '<%= settings.dev %>/assets/css',
+				dest: '.tmp/assets/css/',
+				dot: true,
+				expand: true,
+				rename: function (dest, src) {
+					return dest + src.replace('.scss', '.css');
 				},
-				files: [{
-					cwd: '<%= settings.dev %>/assets/css',
-					dest: '.tmp/assets/css/',
-					dot: true,
-					expand: true,
-					rename: function (dest, src) {
-						return dest + src.replace('.scss', '.css');
-					},
-					src: ['{,*/}*.scss']
-				}]
+				src: '{,*/}*.scss'
+			}],
+
+			options: {
+				precision: 6,
+				sourceMap: true
+			},
+
+			server: {
+				files: '<%= sass.files %>',
+				options: {
+					outputStyle: 'nested'
+				}
+			},
+
+			prod: {
+				files: '<%= sass.files %>',
+				options: {
+					outputStyle: 'compressed'
+				}
 			}
 		},
 
