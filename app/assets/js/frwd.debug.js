@@ -18,7 +18,6 @@
 		$('<div id="debug-panel">' +
 			'<button class="debug-cog">Debug</button>' +
 			'<ul>' +
-			'<li><button data-option="background">Highlight background</button></li>' +
 			'<li><button data-option="boxes">Highlight regions</button></li>' +
 			'<li><button data-option="baseline">Show baseline</button></li>' +
 			'<li><button data-option="grid">Show grid</button></li>' +
@@ -104,16 +103,6 @@
 
 				return false;
 			});
-		}
-	};
-
-	debug.background = {
-		off: function () {
-			$('html').removeClass('debug');
-		},
-
-		on: function () {
-			$('html').addClass('debug');
 		}
 	};
 

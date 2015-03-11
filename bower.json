@@ -1,7 +1,7 @@
 {
   "name": "FRWD",
   "author": "Curtis Jurgensen",
-  "version": "1.6.4",
+  "version": "1.7.0",
   "dependencies": {
     "matchmedia": "*",
     "normalize-css": "~3.0.2"
