@@ -111,12 +111,12 @@ img {
 
 .image-left {
 	float: left;
-	margin-right: $gutter;
+	margin-right: $grid-gutter;
 }
 
 .image-right {
 	float: right;
-	margin-left: $gutter;
+	margin-left: $grid-gutter;
 }
 
 .image-rwd span {

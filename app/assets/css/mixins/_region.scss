@@ -7,7 +7,7 @@
 	@if ($value == none) {
 		padding: 0;
 	} @else {
-		padding: 0 $gutter/2;
+		padding: 0 $grid-gutter/2;
 	}
 
 	@if ($value == none-left) {

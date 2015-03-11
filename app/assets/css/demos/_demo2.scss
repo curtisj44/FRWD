@@ -56,7 +56,7 @@
 
 		img {
 			float: left;
-			margin: 0 $gutter/2 0 0;
+			margin: 0 $grid-gutter/2 0 0;
 			width: 80px;
 
 			@include media($S) {
