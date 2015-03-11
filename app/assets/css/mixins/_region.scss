@@ -1,18 +1,6 @@
-// $reset = [blank], none, none-left, none-right
-@mixin region-padding($value) {
-	@if ($value == none) {
-		padding: 0;
-	} @else {
-		padding: 0 $grid-gutter/2;
-	}
 
-	@if ($value == none-left) {
-		padding-left: 0;
-	}
-
-	@if ($value == none-right) {
-		padding-right: 0;
-	}
+@mixin region-padding {
+	padding: 0 $grid-gutter/2;
 }
 
 // $offset = none, prefix or suffix
