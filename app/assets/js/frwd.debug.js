@@ -128,6 +128,8 @@
 
 	debug.boxes = {
 		off: function () {
+			$('html').removeClass('debug');
+
 			$('.debug-number').remove();
 
 			$.each($('.debug-box'), function (index, value) {
@@ -138,9 +140,12 @@
 		},
 
 		on: function () {
+			$('html').addClass('debug');
+
 			$.each($('.region').not('#debug-grid .region, .region .region'), function (index, value) {
-				$(value).wrapInner('<div class="debug-box"></div>');
-				$(value).find('.debug-box').append('<div class="debug-number">' + (index + 1) + '</div>');
+				$(value)
+					.wrapInner('<div class="debug-box"></div>')
+					.find('.debug-box').append('<div class="debug-number">' + (index + 1) + '</div>');
 			});
 		}
 	};
