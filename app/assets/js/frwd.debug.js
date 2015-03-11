@@ -190,8 +190,7 @@
 		on: function () {
 			$('body').append('<div id="debug-viewport-size"></div>');
 
-			var content = '',
-				$debugViewportSize = $('#debug-viewport-size'),
+			var $debugViewportSize = $('#debug-viewport-size'),
 
 				updateSize = function () {
 					$debugViewportSize.html(
