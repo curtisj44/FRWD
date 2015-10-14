@@ -7,26 +7,26 @@ A responsive, proportional, nestable, customizable, and mobile-first approach fo
  - _Flexible media_ that proportionally scale down when needed
  - _Media queries_ defined in ems
 
-2. __Proportional__: create layouts using proportions (1/2, 2/3, 1/4, etc.), not predefined non-semantic classes or a rigid column grid.
+1. __Proportional__: create layouts using proportions (1/2, 2/3, 1/4, etc.), not predefined non-semantic classes or a rigid column grid.
 
-3. __Nestable__ -  Easily create complex layouts.
+1. __Nestable__ -  Easily create complex layouts.
 
-4. __Customizable__ - Don't like something? Change it. Define your own proportions, breakpoints, and everything else.
+1. __Customizable__ - Don't like something? Change it. Define your own proportions, breakpoints, and everything else.
 
-5. __Mobile-first__ - The small screen experience is the baseline, with additional styles added using media queries.
+1. __Mobile-first__ - The small screen experience is the baseline, with additional styles added using media queries.
 
 
 ## Getting Started
 
 1. Have the following requirements installed: [Node](http://nodejs.org/), [NPM](https://www.npmjs.org/), [Bower](http://bower.io/), and the [Grunt CLI](http://gruntjs.com/getting-started#installing-the-cli)
 
-2. Clone the repo: ```git clone https://github.com/curtisj44/FRWD.git```
+1. Clone the repo: ```git clone https://github.com/curtisj44/FRWD.git```
 
-3. Run ```npm install```
+1. Run ```npm install```
 
-4. Run ```bower install```
+1. Run ```bower install```
 
-5. Run ```grunt serve```
+1. Run ```grunt serve```
 
 
 ## Tasks
