@@ -3,9 +3,9 @@
 A responsive, proportional, nestable, customizable, and mobile-first approach for responsive web design.
 
 1. __Responsive__:
- - _Flexible grid_ defined in percentages
- - _Flexible media_ that proportionally scale down when needed
- - _Media queries_ defined in ems
+   - _Flexible grid_ defined in percentages
+   - _Flexible media_ that proportionally scale down when needed
+   - _Media queries_ defined in ems
 
 1. __Proportional__: create layouts using proportions (1/2, 2/3, 1/4, etc.), not predefined non-semantic classes or a rigid column grid.
 
