@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="ie6" lang="en"><![endif]-->
+<!--[if IE 7]><html class="ie7" lang="en"><![endif]-->
+<!--[if IE 8]><html class="ie8" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en" class=""><!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<title>
+			
+				
+					
+						Forms |
+					
+				
+					
+				
+					
+				
+					
+				
+			
+
+			Style Guide
+		</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content="kss-node" />
+		<link rel="stylesheet" href="/styleguide/public/kss.css" />
+
+		<!--[if (lt IE 9) & (!IEMobile)]>
+			<link rel="stylesheet" href="/assets/css/global.fixed.css" />
+			<link rel="stylesheet" href="/assets/css/debug.fixed.css" />
+		<![endif]-->
+
+		<!--[if (gt IE 8) | (IEMobile)]><!-->
+			<link rel="stylesheet" href="/assets/css/global.css" />
+			<link rel="stylesheet" href="/assets/css/debug.css" />
+		<!--<![endif]-->
+
+		<script src="/assets/js/head.js"></script>
+	</head>
+
+	<body>
+		
+			<a id="kss-back" href="/styleguide/">Back to Index</a>
+
+			<div role="main" id="kss-main">
+				<article id="kss-content">
+					
+
+					
+						
+							<h1 class="kss-title">
+								8.0: Forms
+
+								
+									<a class="kss-flag kss-markup-link" href="#section-8-markup">Markup</a>
+								
+							</h1>
+						
+
+						
+							
+
+							
+								<div class="kss-markup" id="section-8-markup" data-markup="section-8-markup">
+									<pre class="prettyprint lang-html">&lt;ol class=&quot;form&quot;&gt;
+	&lt;li&gt;
+		&lt;label for=&quot;input&quot;&gt;Input&lt;/label&gt;
+		&lt;input name=&quot;input&quot; id=&quot;input&quot; {$modifiers} /&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;label for=&quot;selectbox&quot;&gt;Selectbox&lt;/label&gt;
+		&lt;select id=&quot;selectbox&quot; {$modifiers}&gt;
+			&lt;option value=&quot;&quot;&gt;Lorem ipsum&lt;/option&gt;
+			&lt;option value=&quot;1&quot;&gt;Dolor sit amet&lt;/option&gt;
+			&lt;option value=&quot;2&quot;&gt;Lorem ipsum&lt;/option&gt;
+		&lt;/select&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;label for=&quot;textarea&quot;&gt;Textarea&lt;/label&gt;
+		&lt;textarea id=&quot;textarea&quot; rows=&quot;5&quot; cols=&quot;35&quot; {$modifiers}&gt;&lt;/textarea&gt;
+	&lt;/li&gt;
+&lt;/ol&gt;</pre>
+								</div>
+							
+
+							<!--
+							<div class="kss-modifier-details">
+								<p>Default</p>
+							</div>
+							-->
+
+							<div class="kss-element kss-element-default" data-element="Forms">
+								<ol class="form">
+	<li>
+		<label for="input">Input</label>
+		<input name="input" id="input" {$modifiers} />
+	</li>
+	<li>
+		<label for="selectbox">Selectbox</label>
+		<select id="selectbox" {$modifiers}>
+			<option value="">Lorem ipsum</option>
+			<option value="1">Dolor sit amet</option>
+			<option value="2">Lorem ipsum</option>
+		</select>
+	</li>
+	<li>
+		<label for="textarea">Textarea</label>
+		<textarea id="textarea" rows="5" cols="35" {$modifiers}></textarea>
+	</li>
+</ol>
+							</div>
+
+							
+								<div class="kss-modifier-details">
+									<p>Disabled</p>
+
+									<code class="kss-modifier-name">disabled</code>
+								</div>
+
+								<div class="kss-element kss-modifier" data-element="Forms">
+									<ol class="form">
+	<li>
+		<label for="input">Input</label>
+		<input name="input" id="input" disabled />
+	</li>
+	<li>
+		<label for="selectbox">Selectbox</label>
+		<select id="selectbox" disabled>
+			<option value="">Lorem ipsum</option>
+			<option value="1">Dolor sit amet</option>
+			<option value="2">Lorem ipsum</option>
+		</select>
+	</li>
+	<li>
+		<label for="textarea">Textarea</label>
+		<textarea id="textarea" rows="5" cols="35" disabled></textarea>
+	</li>
+</ol>
+								</div>
+							
+						
+
+						 
+					
+						
+							<section class="kss-depth-2">
+								<div class="kss-bookmark" id="section-8.1">8.1</div>
+
+								
+									<h1 class="kss-title">
+								
+
+								8.1: Button
+
+								
+									<a class="kss-flag kss-markup-link" href="#section-8.1-markup">Markup</a>
+								
+
+								
+
+								
+
+								
+									</h1>
+								
+						
+
+						
+							
+
+							
+								<div class="kss-markup" id="section-8.1-markup" data-markup="section-8.1-markup">
+									<pre class="prettyprint lang-html">&lt;p&gt;
+	&lt;button&gt;Button&lt;/button&gt;
+	&lt;input type=&quot;submit&quot; value=&quot;Submit&quot; /&gt;
+	&lt;input type=&quot;reset&quot; value=&quot;Reset&quot; /&gt;
+&lt;/p&gt;</pre>
+								</div>
+							
+
+							<!--
+							<div class="kss-modifier-details">
+								<p>Default</p>
+							</div>
+							-->
+
+							<div class="kss-element kss-element-default" data-element="Button">
+								<p>
+	<button>Button</button>
+	<input type="submit" value="Submit" />
+	<input type="reset" value="Reset" />
+</p>
+							</div>
+
+							
+						
+
+						
+							</section>
+						
+					
+						
+							<section class="kss-depth-2">
+								<div class="kss-bookmark" id="section-8.2">8.2</div>
+
+								
+									<h1 class="kss-title">
+								
+
+								8.2: Checkboxes
+
+								
+									<a class="kss-flag kss-markup-link" href="#section-8.2-markup">Markup</a>
+								
+
+								
+
+								
+
+								
+									</h1>
+								
+						
+
+						
+							
+
+							
+								<div class="kss-markup" id="section-8.2-markup" data-markup="section-8.2-markup">
+									<pre class="prettyprint lang-html">&lt;ol class=&quot;form-inline&quot;&gt;
+	&lt;li&gt;
+		&lt;input type=&quot;checkbox&quot; id=&quot;checkbox-1&quot;&gt;
+		&lt;label for=&quot;checkbox-1&quot;&gt;Lorem ipsum dolor sit amet&lt;/label&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;input type=&quot;checkbox&quot; id=&quot;checkbox-2&quot;&gt;
+		&lt;label for=&quot;checkbox-2&quot;&gt;Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua lorem ipsum dolor sit amet&lt;/label&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;input type=&quot;checkbox&quot; id=&quot;checkbox-3&quot;&gt;
+		&lt;label for=&quot;checkbox-3&quot;&gt;Ut enim ad minim veniam&lt;/label&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;input type=&quot;checkbox&quot; id=&quot;checkbox-4&quot; disabled=&quot;disabled&quot;&gt;
+		&lt;label for=&quot;checkbox-4&quot;&gt;Example of a disabled checkbox&lt;/label&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;input type=&quot;checkbox&quot; id=&quot;checkbox-5&quot;&gt;
+		&lt;label for=&quot;checkbox-5&quot;&gt;Nisi ut aliquip&lt;/label&gt;
+	&lt;/li&gt;
+&lt;/ol&gt;</pre>
+								</div>
+							
+
+							<!--
+							<div class="kss-modifier-details">
+								<p>Default</p>
+							</div>
+							-->
+
+							<div class="kss-element kss-element-default" data-element="Checkboxes">
+								<ol class="form-inline">
+	<li>
+		<input type="checkbox" id="checkbox-1">
+		<label for="checkbox-1">Lorem ipsum dolor sit amet</label>
+	</li>
+	<li>
+		<input type="checkbox" id="checkbox-2">
+		<label for="checkbox-2">Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua lorem ipsum dolor sit amet</label>
+	</li>
+	<li>
+		<input type="checkbox" id="checkbox-3">
+		<label for="checkbox-3">Ut enim ad minim veniam</label>
+	</li>
+	<li>
+		<input type="checkbox" id="checkbox-4" disabled="disabled">
+		<label for="checkbox-4">Example of a disabled checkbox</label>
+	</li>
+	<li>
+		<input type="checkbox" id="checkbox-5">
+		<label for="checkbox-5">Nisi ut aliquip</label>
+	</li>
+</ol>
+							</div>
+
+							
+						
+
+						
+							</section>
+						
+					
+						
+							<section class="kss-depth-2">
+								<div class="kss-bookmark" id="section-8.3">8.3</div>
+
+								
+									<h1 class="kss-title">
+								
+
+								8.3: Radio Buttons
+
+								
+									<a class="kss-flag kss-markup-link" href="#section-8.3-markup">Markup</a>
+								
+
+								
+
+								
+
+								
+									</h1>
+								
+						
+
+						
+							
+
+							
+								<div class="kss-markup" id="section-8.3-markup" data-markup="section-8.3-markup">
+									<pre class="prettyprint lang-html">&lt;ol class=&quot;form-inline&quot;&gt;
+	&lt;li&gt;
+		&lt;input type=&quot;radio&quot; id=&quot;radio-1&quot; name=&quot;radio&quot;&gt;
+		&lt;label for=&quot;radio-1&quot;&gt;Lorem ipsum dolor sit amet&lt;/label&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;input type=&quot;radio&quot; id=&quot;radio-2&quot; name=&quot;radio&quot;&gt;
+		&lt;label for=&quot;radio-2&quot;&gt;Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua lorem ipsum dolor sit amet&lt;/label&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;input type=&quot;radio&quot; id=&quot;radio-3&quot; name=&quot;radio&quot;&gt;
+		&lt;label for=&quot;radio-3&quot;&gt;Ut enim ad minim veniam&lt;/label&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;input type=&quot;radio&quot; id=&quot;radio-4&quot; name=&quot;radio&quot; disabled=&quot;disabled&quot;&gt;
+		&lt;label for=&quot;radio-4&quot;&gt;Example of a disabled radio button&lt;/label&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;input type=&quot;radio&quot; id=&quot;radio-5&quot; name=&quot;radio&quot;&gt;
+		&lt;label for=&quot;radio-5&quot;&gt;Nisi ut aliquip&lt;/label&gt;
+	&lt;/li&gt;
+&lt;/ol&gt;</pre>
+								</div>
+							
+
+							<!--
+							<div class="kss-modifier-details">
+								<p>Default</p>
+							</div>
+							-->
+
+							<div class="kss-element kss-element-default" data-element="Radio Buttons">
+								<ol class="form-inline">
+	<li>
+		<input type="radio" id="radio-1" name="radio">
+		<label for="radio-1">Lorem ipsum dolor sit amet</label>
+	</li>
+	<li>
+		<input type="radio" id="radio-2" name="radio">
+		<label for="radio-2">Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua lorem ipsum dolor sit amet</label>
+	</li>
+	<li>
+		<input type="radio" id="radio-3" name="radio">
+		<label for="radio-3">Ut enim ad minim veniam</label>
+	</li>
+	<li>
+		<input type="radio" id="radio-4" name="radio" disabled="disabled">
+		<label for="radio-4">Example of a disabled radio button</label>
+	</li>
+	<li>
+		<input type="radio" id="radio-5" name="radio">
+		<label for="radio-5">Nisi ut aliquip</label>
+	</li>
+</ol>
+							</div>
+
+							
+						
+
+						
+							</section>
+						
+					
+				</article>
+			</div>
+		
+
+		<!--[if lt IE 9]>
+			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+			<script>window.jQuery || document.write('<script src="/assets/js/jquery-1.10.2.min.js"><\/script>');</script>
+		<![endif]-->
+
+		<!--[if gt IE 8]><!-->
+			<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+			<script>window.jQuery || document.write('<script src="/assets/js/jquery-2.0.3.min.js"><\/script>');</script>
+		<!--<![endif]-->
+
+		<script src="/assets/js/frwd.debug.js"></script>
+
+		<script src="/styleguide/public/prettify.js"></script>
+
+		<script>
+			function markupDisplay() {
+				$('.kss-markup-link').on('click', function () {
+					var show = 'kss-show',
+						reference = ($(this).attr('href')).replace('#', ''),
+						$markup = $('[data-markup="' + reference + '"]');
+
+					$markup[$markup.hasClass(show) ? 'removeClass' : 'addClass'](show);
+
+					return false;
+				});
+			}
+
+			$(function () {
+				prettyPrint();
+				markupDisplay();
+			});
+		</script>
+	</body>
+</html>

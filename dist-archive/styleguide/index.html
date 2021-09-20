@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="ie6" lang="en"><![endif]-->
+<!--[if IE 7]><html class="ie7" lang="en"><![endif]-->
+<!--[if IE 8]><html class="ie8" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en" class=" index"><!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<title>
+			
+
+			
+
+			Style Guide
+		</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content="kss-node" />
+		<link rel="stylesheet" href="/styleguide/public/kss.css" />
+
+		<!--[if (lt IE 9) & (!IEMobile)]>
+			<link rel="stylesheet" href="/assets/css/global.fixed.css" />
+			<link rel="stylesheet" href="/assets/css/debug.fixed.css" />
+		<![endif]-->
+
+		<!--[if (gt IE 8) | (IEMobile)]><!-->
+			<link rel="stylesheet" href="/assets/css/global.css" />
+			<link rel="stylesheet" href="/assets/css/debug.css" />
+		<!--<![endif]-->
+
+		<script src="/assets/js/head.js"></script>
+	</head>
+
+	<body>
+		
+			<div id="kss-index">
+				<h1>Style Guide</h1>
+
+				<nav>
+					<ol>
+						
+							<li>
+								<a href="/styleguide/section-1.html">
+									<i>1.0:</i>
+									Links
+								</a>
+							</li>
+						
+							<li>
+								<a href="/styleguide/section-2.html">
+									<i>2.0:</i>
+									Images
+								</a>
+							</li>
+						
+							<li>
+								<a href="/styleguide/section-3.html">
+									<i>3.0:</i>
+									Lists
+								</a>
+							</li>
+						
+							<li>
+								<a href="/styleguide/section-4.html">
+									<i>4.0:</i>
+									Text Level Semantics
+								</a>
+							</li>
+						
+							<li>
+								<a href="/styleguide/section-5.html">
+									<i>5.0:</i>
+									Text Alignment
+								</a>
+							</li>
+						
+							<li>
+								<a href="/styleguide/section-6.html">
+									<i>6.0:</i>
+									Headings
+								</a>
+							</li>
+						
+							<li>
+								<a href="/styleguide/section-7.html">
+									<i>7.0:</i>
+									Tables
+								</a>
+							</li>
+						
+							<li>
+								<a href="/styleguide/section-8.html">
+									<i>8.0:</i>
+									Forms
+								</a>
+							</li>
+						
+					</ol>
+				</nav>
+			</div>
+		
+
+		<!--[if lt IE 9]>
+			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+			<script>window.jQuery || document.write('<script src="/assets/js/jquery-1.10.2.min.js"><\/script>');</script>
+		<![endif]-->
+
+		<!--[if gt IE 8]><!-->
+			<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+			<script>window.jQuery || document.write('<script src="/assets/js/jquery-2.0.3.min.js"><\/script>');</script>
+		<!--<![endif]-->
+
+		<script src="/assets/js/frwd.debug.js"></script>
+
+		<script src="/styleguide/public/prettify.js"></script>
+
+		<script>
+			function markupDisplay() {
+				$('.kss-markup-link').on('click', function () {
+					var show = 'kss-show',
+						reference = ($(this).attr('href')).replace('#', ''),
+						$markup = $('[data-markup="' + reference + '"]');
+
+					$markup[$markup.hasClass(show) ? 'removeClass' : 'addClass'](show);
+
+					return false;
+				});
+			}
+
+			$(function () {
+				prettyPrint();
+				markupDisplay();
+			});
+		</script>
+	</body>
+</html>
